@@ -1,0 +1,1010 @@
+{
+  "assistant": [
+    "",
+    ""
+  ],
+  "layouts": [],
+  "modules": [
+    {
+      "settings": {"Обход перемещения предметов": "Ускоренный"},
+      "bind": -1,
+      "name": "Screen Walk",
+      "activated": true
+    },
+    {
+      "settings": {"Режим поиска территории": "Поиск сверху"},
+      "bind": -1,
+      "name": "Ancient Farmer",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Apple Farmer",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Прыгать в легит": true,
+        "Режим анти-отбрасывания": "Легитный",
+        "Легитный": true
+      },
+      "bind": -1,
+      "name": "Velocity",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Продавать при сумме от (кк)": 10,
+        "Триггер цены обработки товара": 1
+      },
+      "bind": -1,
+      "name": "Fun Deliver",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Размер стрелки": 7,
+        "Отступ от центра": 50,
+        "Визуальные настройки": {
+          "Навигационная стрелка": false,
+          "Трассировка до игрока": true,
+          "Фильтр по друзьям": true
+        }
+      },
+      "bind": -1,
+      "name": "Pointers",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Авто-закрытие сундука": true,
+        "Игнорировать сущностей": true
+      },
+      "bind": -1,
+      "name": "Chest Stealer",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Anti Bot",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Death Coords",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Золотое яблоко": -1,
+        "Плод хоруса": -1,
+        "Арбалет": -1,
+        "Зачарованное яблоко": -1
+      },
+      "bind": -1,
+      "name": "Item Helper",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Источник цвета": "Клиентский",
+        "Тип визуализации": "Квадрат",
+        "Бар здоровья": "Отключен",
+        "Цвет визуализации": -1
+      },
+      "bind": -1,
+      "name": "Entity Box",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Auc Reissue",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Открыть редактор": false,
+        "Запустить работу": false
+      },
+      "bind": -1,
+      "name": "Collector",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Auto Tool",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Captcha Solver",
+      "activated": false
+    },
+    {
+      "settings": {"Непрозрачность": 1},
+      "bind": -1,
+      "name": "Hands Shader",
+      "activated": false
+    },
+    {
+      "settings": {"Учитывать включённую Aura": true},
+      "bind": -1,
+      "name": "No Interact",
+      "activated": false
+    },
+    {
+      "settings": {"Режим зависания": "Удаляющий игрока"},
+      "bind": 72,
+      "name": "Air Stuck",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Warden ESP",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Скрывать имена друзей": true,
+        "Скрывать номер анархии": true,
+        "Скрывать скины игроков": true
+      },
+      "bind": -1,
+      "name": "Streamer Mode",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Основная рука X": 0.4,
+        "Основная рука Z": -0.3,
+        "Вторая рука X": 0,
+        "Сбросить позиции": false,
+        "Основная рука Y": 0.1,
+        "Вторая рука Y": 0,
+        "Вторая рука Z": 0
+      },
+      "bind": -1,
+      "name": "View Model",
+      "activated": true
+    },
+    {
+      "settings": {"Отслеживать звуки": {
+        "Трезубец": true,
+        "Взрывы": true,
+        "Фейерверк": true
+      }},
+      "bind": -1,
+      "name": "Sound ESP",
+      "activated": true
+    },
+    {
+      "settings": {"Выберите что анимировать": {
+        "Поднятие хотбара": true,
+        "Открытие инвентаря": true,
+        "TAB": true,
+        "Слот хотбара": true,
+        "Появление сообщений": true,
+        "Предметы": true,
+        "Смена перспективы": true
+      }},
+      "bind": -1,
+      "name": "Animations",
+      "activated": true
+    },
+    {
+      "settings": {"Уменьшить размер предметов": true},
+      "bind": -1,
+      "name": "Item Physic",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Отслеживаемые предметы": {
+          "Стрелы": true,
+          "Трезубцы": true,
+          "Зелья": true,
+          "Эндер жемчуг": true
+        },
+        "Радужный цвет": false
+      },
+      "bind": -1,
+      "name": "Predictions",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "No Crouch",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "No Commands",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Режим использования": "Обычный",
+        "Выполнять действия": {
+          "Движение": true,
+          "Прыжок": true,
+          "Взмах": true
+        },
+        "Реагировать на недоступность": false
+      },
+      "bind": -1,
+      "name": "Anti AFK",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Замораживать пакеты в полете": true,
+        "Скорость движения XZ": 1,
+        "Скорость движения Y": 1
+      },
+      "bind": 78,
+      "name": "Free Camera",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Скорость Y": 1,
+        "Скорость X и Z": 1
+      },
+      "bind": -1,
+      "name": "Fly",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Скорость режима": 20,
+        "Выберите тип обхода": "Матрикс"
+      },
+      "bind": -1,
+      "name": "Wall Climb",
+      "activated": false
+    },
+    {
+      "settings": {"Избегать падения": false},
+      "bind": -1,
+      "name": "Scaffold",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Fast EXP",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Auto Fish",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Water Jump",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Выберите привилегию": "Герцог",
+        "Число токенов": "4000",
+        "Число монет": "53525932",
+        "Элементы настройки": {
+          "Ранг": true,
+          "Монеты": true,
+          "Токены": true
+        }
+      },
+      "bind": -1,
+      "name": "Board Spoofer",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Clan Upgrader",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Задержка симуляции": 20,
+        "Отображать серв-позицию": false
+      },
+      "bind": -1,
+      "name": "Fake Lags",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Не копать под себя": true,
+        "Режим копания территории": "Шахта ФанТайм",
+        "Скорость копания": 1,
+        "Дистанция копания": 4
+      },
+      "bind": -1,
+      "name": "Nuker",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Portal Bypass",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Пользовательский туман": false,
+        "Плотность тумана": 100,
+        "Время в мире": "Полночь",
+        "Цвет тумана": -1,
+        "Дальность тумана": -8,
+        "Погода в мире": "Без изменений"
+      },
+      "bind": -1,
+      "name": "Ambience",
+      "activated": true
+    },
+    {
+      "settings": {"Отслеживать использования": {
+        "Предмета": true,
+        "Зелья": true,
+        "Тотема": true
+      }},
+      "bind": -1,
+      "name": "Use Tracker",
+      "activated": true
+    },
+    {
+      "settings": {"Отключить задержку на": {
+        "Прыжки": true,
+        "Поставку блоков": true
+      }},
+      "bind": -1,
+      "name": "No Delay",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Shulker Preview",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Способ обработки звуков": "Приглушение",
+        "Выберите звуки": {
+          "Крик Гаста": false,
+          "Наковальни": true,
+          "Бросание зелей/опыта": true,
+          "Тотема": false,
+          "Фантомы": true,
+          "Иссушения": true,
+          "Взрыв Крипера": false,
+          "Вардена": false,
+          "Взрыв TNT": false,
+          "Звук портала в ад": false,
+          "Шаги скелета": false,
+          "Трезубца": true,
+          "Выстрел лука": false,
+          "Скалк Сенсор": false,
+          "Ивента": true
+        },
+        "Громкость производящего звука": 0.5
+      },
+      "bind": -1,
+      "name": "Sound Reducer",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Кнопка мыши": "Правая",
+        "Не кликать во время еды": true,
+        "Задержка между кликами": 1000
+      },
+      "bind": -1,
+      "name": "Tape Mouse",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Клиентский чат": false,
+        "Отправление метки друзьям": -1
+      },
+      "bind": -1,
+      "name": "Communication",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Выберите сервер": "SpookyTime",
+        "Укажите номер грифа (1-54)": 1
+      },
+      "bind": -1,
+      "name": "Server Joiner",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Трапка": 326,
+        "Целевой сервер помощи": "SpookyTime",
+        "Дезориентация": 88,
+        "Явная пыль": 86,
+        "Фильтр меча по": {
+          "Вампиризму": true,
+          "Окислению": true,
+          "Остроте": false,
+          "Детекции": true,
+          "Яду": true
+        },
+        "Фильтр брони по": {
+          "Подводной ходьбе": true,
+          "Починке": true,
+          "Защите": false,
+          "Аншип": true
+        },
+        "Взрывная трапка": -1,
+        "Авто-божья аура": false,
+        "Фильтр кирки по": {
+          "Эффективности": false,
+          "Починке": true,
+          "Удаче": true,
+          "Магнит": true
+        },
+        "Огненный заряд": -1,
+        "Божья аура": -1,
+        "Взрывная палочка": -1,
+        "Снежок заморозка": 329,
+        "Заряд ветра": 67,
+        "Ком снега": -1,
+        "Взрывная штучка": -1,
+        "Пласт": 71,
+        "Элементы помощи": {
+          "Сортировать по цене": true,
+          "Аукционный ассистент": true
+        },
+        "Стан": -1
+      },
+      "bind": -1,
+      "name": "Server Assistant",
+      "activated": true
+    },
+    {
+      "settings": {"Выберите подсвечиваемые руды": {
+        "Алмазная": true,
+        "Золотая": true,
+        "Древние": true,
+        "Редстоуновая": false,
+        "Угольная": false,
+        "Железная": false,
+        "Лазуритовая": false
+      }},
+      "bind": -1,
+      "name": "Mine Assistant",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Shift TAP",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Расширение Y": 0,
+        "Расширение X и Z": 0
+      },
+      "bind": -1,
+      "name": "Hit Boxes",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Safe Walk",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Умное перемещение": true,
+        "Порог здоровья": 9.5,
+        "Дополнительные опции": {
+          "Сначала обычные тотемы": true,
+          "Возвращать предмет": true,
+          "Не во время еды": false
+        }
+      },
+      "bind": -1,
+      "name": "Auto Totem",
+      "activated": true
+    },
+    {
+      "settings": {"Не в движении": true},
+      "bind": -1,
+      "name": "Auto Armor",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Ширина под сообщение": true,
+        "Автоматическое /event delay": true
+      },
+      "bind": -1,
+      "name": "Chat Helper",
+      "activated": true
+    },
+    {
+      "settings": {"Режим использования": "Vanilla"},
+      "bind": -1,
+      "name": "No Slow Down",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Auto Respawn",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Добавление друга": -1,
+        "Эндер-жемчуг": 334
+      },
+      "bind": -1,
+      "name": "Click Action",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Auto Auth",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Auto Dodge",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Кнопка переключения": 346,
+        "Автостарт после свапа": false,
+        "Кнопка фейерверка": 293,
+        "Автофейерверк": false,
+        "Использовать /fly при свапе": false
+      },
+      "bind": -1,
+      "name": "Elytra Helper",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Elytra Target",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Авто-переключение булавы": true,
+        "Усиление урона": true
+      },
+      "bind": -1,
+      "name": "Mace Helper",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Дистанция атаки": 3,
+        "Дополнительная дистанция": 0.5,
+        "Только критические удары": true,
+        "Пробитие щита": false,
+        "Цели для атаки": {
+          "Животные": false,
+          "Враждебные мобы": false,
+          "Друзья": false,
+          "Игроки": true,
+          "Без брони": true
+        },
+        "Коррекция движения": "Свободно",
+        "Не бить когда": {
+          "Открыт контейнер": true,
+          "Враг за стеной": true,
+          "Используется предмет": true
+        },
+        "Умный спринт": true,
+        "Выберите тип наведения": "Легит",
+        "Визуализация цели": "Круг",
+        "Приоритет цели": "Прицел",
+        "Адаптивные удары": false
+      },
+      "bind": 82,
+      "name": "Aura",
+      "activated": false
+    },
+    {
+      "settings": {"Установить двойной кристалл": false},
+      "bind": -1,
+      "name": "Auto Explosion",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Наклон кончика": -20,
+        "Учитывать включённую Aura": true,
+        "Угол поворота": 75,
+        "Режим анимации": "Мод 5",
+        "Интенсивность взмаха": 3
+      },
+      "bind": -1,
+      "name": "Swing Animation",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Projectile Helper",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Выбор таргета": "Фиксирующий",
+        "Дополнительно": {
+          "Только критические удары": true,
+          "Случайные промахи": false,
+          "Адаптивные удары": true
+        },
+        "Цели для атаки": {
+          "Животные": false,
+          "Мобы": false,
+          "Друзья": false,
+          "Игроки": true
+        },
+        "Не бить когда": {
+          "Открыт контейнер": true,
+          "Враг за стеной": true,
+          "Используется предмет": true
+        },
+        "Сброс спринта": "Легитный",
+        "Преследование цели": false
+      },
+      "bind": 85,
+      "name": "Trigger Bot",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Structures",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Режим активации осмотра": "По нажатию",
+        "Кнопка осмотра": 342
+      },
+      "bind": -1,
+      "name": "Third Person",
+      "activated": true
+    },
+    {
+      "settings": {"Цвет визуализации шляпы": -8020737},
+      "bind": -1,
+      "name": "China Hat",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Кнопка перемещения": 89,
+        "Второй предмет": "Тотем",
+        "Первый предмет": "Сфера",
+        "Режим перемещения": "Тройной"
+      },
+      "bind": -1,
+      "name": "Auto Swap",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Принимать только друзей": true,
+        "Принимать запросы": {
+          "Телепортации": true,
+          "В клановую команду": true
+        }
+      },
+      "bind": -1,
+      "name": "Auto Accept",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Sprint",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "X Ray",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "No Server Desync",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "No Server Pack",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "No Friend Damage",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "No Slot Change",
+      "activated": false
+    },
+    {
+      "settings": {"Прозрачность": 0.5},
+      "bind": -1,
+      "name": "See Invisibles",
+      "activated": true
+    },
+    {
+      "settings": {"Отключённые элементы": {
+        "Скорбоард": false,
+        "Частицы погоды": true,
+        "Боссбар": false,
+        "Погружение воды/лавы": true,
+        "Огонь": true,
+        "Чёрные сердца": true,
+        "Тыква": true,
+        "Частицы разрушения": true,
+        "Тьма": true,
+        "Тряска при уроне": true,
+        "Обрезка камеры": true,
+        "Тошнота": true,
+        "Слепота": true,
+        "Свечение": true,
+        "Эффект портала": true
+      }},
+      "bind": -1,
+      "name": "Removals",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Block ESP",
+      "activated": false
+    },
+    {
+      "settings": {"Отслеживаемые сущности": {
+        "Животные": false,
+        "Мобы": false,
+        "Игроки": true,
+        "Предметы": true
+      }},
+      "bind": -1,
+      "name": "Entity ESP",
+      "activated": true
+    },
+    {
+      "settings": {"Отключить коллизию для": {
+        "Граница": false,
+        "Воды и лавы": false,
+        "Блоков": true,
+        "Энтити": false,
+        "Удочки": false
+      }},
+      "bind": -1,
+      "name": "No Push",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Блокировать только в PVP": false,
+        "Заблокированные слоты": {
+          "1": true,
+          "2": false,
+          "3": false,
+          "4": false,
+          "5": false,
+          "6": false,
+          "7": false,
+          "8": false,
+          "9": false
+        }
+      },
+      "bind": -1,
+      "name": "Lock Slot",
+      "activated": true
+    },
+    {
+      "settings": {"Задержка между слотами": 50},
+      "bind": -1,
+      "name": "Item Scroller",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Элементы интерфейса": {
+          "Окружение": false,
+          "Уведомления": true,
+          "Стафф": true,
+          "Задержки": true,
+          "Инфо-панель": true,
+          "Зелья": true,
+          "Предметы": true,
+          "Броня": true,
+          "Клавиши": true,
+          "Таргет-худ": true
+        },
+        "Глобальный цвет интерфейса": 1267047679
+      },
+      "bind": -1,
+      "name": "Interface",
+      "activated": true
+    },
+    {
+      "settings": {
+        "Громкость воспроизведения": 0.25,
+        "Звук для воспроизведения": "Тип 1"
+      },
+      "bind": -1,
+      "name": "Sounds",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Параметры прицела": {
+          "Адаптивность": true,
+          "Контур": true,
+          "Центральная метка": true
+        },
+        "Длина сегментов": 3.5,
+        "Расстояние от центра": 3
+      },
+      "bind": -1,
+      "name": "Crosshair",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Соотношение": 1.9,
+        "Соотношение сторон": "4:3"
+      },
+      "bind": -1,
+      "name": "Aspect Ratio",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Уровень гаммы": 8,
+        "Режим видения": "Гамма"
+      },
+      "bind": -1,
+      "name": "Full Bright",
+      "activated": true
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Open Walls",
+      "activated": false
+    },
+    {
+      "settings": {},
+      "bind": -1,
+      "name": "Fast Load",
+      "activated": true
+    },
+    {
+      "settings": {"Кнопка активации": -1},
+      "bind": -1,
+      "name": "Auto EXP",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Приоритеты лута": "Средний",
+        "Репортить обидчиков": false,
+        "Использовать скорость": false
+      },
+      "bind": -1,
+      "name": "Auto Warden",
+      "activated": false
+    },
+    {
+      "settings": {"Есть при голоде": 16},
+      "bind": -1,
+      "name": "Auto Eat",
+      "activated": false
+    },
+    {
+      "settings": {"Поворачивать голову вниз": true},
+      "bind": -1,
+      "name": "Wind Hop",
+      "activated": true
+    },
+    {
+      "settings": {"Интенсивность копания": 2},
+      "bind": -1,
+      "name": "Fast Break",
+      "activated": false
+    },
+    {
+      "settings": {
+        "[★] Зелье Радиации": -1,
+        "Способ использования зелий": "Колесо выбора",
+        "[★] Зелье Гнева": -1,
+        "[★] Зелье Палладина": -1,
+        "[★] Святая вода": -1,
+        "Открыть меню зелий": 86,
+        "[★] Хлопушка": -1,
+        "[★] Снотворное": -1,
+        "[★] Зелье Ассасина": -1
+      },
+      "bind": -1,
+      "name": "Potion Thrower",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Открыть редактор": false,
+        "Авто-перевыставление вещей": false
+      },
+      "bind": -1,
+      "name": "Auto Buy",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Дистанция игроков": 8,
+        "Условия срабатывания": {
+          "Малое ХП": true,
+          "Игроки рядом": true
+        },
+        "Минимум ХП": 8
+      },
+      "bind": -1,
+      "name": "Auto Leave",
+      "activated": false
+    },
+    {
+      "settings": {
+        "Цели для наведения": {
+          "Животные": false,
+          "Мобы": false,
+          "Друзья": true,
+          "Игроки": true
+        },
+        "Порог": 5,
+        "Только с оружием": true,
+        "Наводить за стеной": false
+      },
+      "bind": 85,
+      "name": "Aim Assistant",
+      "activated": false
+    }
+  ]
+}

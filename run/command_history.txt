@@ -1,0 +1,43 @@
+/reg regreg
+/an203
+/reg regreg
+/an203
+/warp pvp
+/a
+/an101
+/warp pvp
+/duel 4lena14letki
+/warp pvp
+/kit start
+/reg regreg
+/an203
+/an202
+/duel SASAB0T
+/ah search Зелье Силы
+/ah search Зелье Скорости
+/ah search Зачарованное золотое яблоко
+/duel SASAB0T
+/pay SASAB0T 5454926
+/ah search меч
+/kit
+/duel SASAB0T
+/ah search Зелье Ассасина
+/reg regreg
+/warp pvp
+/duel royalprism96
+/reg regreg
+/duel royalprism96
+/reg regreg
+/reg regreg regreg
+/duel royalprism96
+/hub
+/duel royalprism96
+/reg regreg
+/l regreg
+/login regreg
+/an202
+/l regreg
+/цфкз змз
+/warp pvp
+/kit pvp
+/l regreg
