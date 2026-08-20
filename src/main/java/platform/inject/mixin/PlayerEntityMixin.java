@@ -1,12 +1,12 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.event.PushEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.event.PushEvent;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

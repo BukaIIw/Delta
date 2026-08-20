@@ -1,6 +1,6 @@
 package baritone.api;
 
-import aethereal.setting.Setting;
+import hydrogen.setting.Setting;
 
 import java.util.ArrayList;
 import java.util.List;

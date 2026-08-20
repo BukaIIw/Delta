@@ -1,12 +1,12 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.Delta;
-import aethereal.core.EventManager;
-import aethereal.event.HandAnimationEvent;
-import aethereal.event.HandViewEvent;
-import aethereal.core.IEvent;
-import aethereal.util.Look;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.event.HandAnimationEvent;
+import hydrogen.event.HandViewEvent;
+import hydrogen.core.IEvent;
+import hydrogen.util.Look;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -63,7 +63,7 @@ public class HeldItemRendererMixin {
 
     @ModifyExpressionValue(method = {"renderFirstPersonItem"}, at = {@At(value = "INVOKE", target = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;isInvisible()Z")})
     private boolean renderFirstPersonItem(boolean original) {
-        if (Delta.h().d().t().T().m()) {
+        if (HydrogenClient.h().d().t().T().m()) {
             return false;
         }
         return original;

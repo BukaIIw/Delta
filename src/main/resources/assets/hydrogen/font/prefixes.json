@@ -1,0 +1,103 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/admin.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE100"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/staff.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE101"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/youtuber.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE102"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/shade.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE103"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/dangerous.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE104"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/devstvenik.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE105"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/drun.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE106"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/qcold.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE107"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/win.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE108"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/burmalda.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE109"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "hydrogen:prefixes/vozduxan.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": [
+        "\uE110"
+      ]
+    }
+  ]
+}

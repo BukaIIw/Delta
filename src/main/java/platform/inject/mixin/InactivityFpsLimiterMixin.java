@@ -1,12 +1,12 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.ui.screen.AltScreen;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.ui.screen.MainScreen;
+import hydrogen.ui.screen.AltScreen;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.ui.screen.MainScreen;
 import net.minecraft.client.option.InactivityFpsLimiter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

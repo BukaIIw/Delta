@@ -1,10 +1,10 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.Delta;
-import aethereal.core.Interface;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import java.util.List;
 import java.util.Locale;
@@ -34,7 +34,7 @@ public class DebugHudMixin implements Interface {
 
     @Unique
     private List<String> replaceText(List<String> lines, boolean hasXyz) {
-        if (Delta.h().d().t().h().m()) {
+        if (HydrogenClient.h().d().t().h().m()) {
             Vec3d rayEnd = aM_.getEntityRenderDispatcher().camera.getPos().add(Vec3d.fromPolar(aM_.getEntityRenderDispatcher().camera.getPitch(), aM_.getEntityRenderDispatcher().camera.getYaw()).multiply(20.0d));
             BlockHitResult class_3965VarMethod_17742 = ((ClientWorld) Objects.requireNonNull(aM_.world)).raycast(new RaycastContext(aM_.getEntityRenderDispatcher().camera.getPos(), rayEnd, RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, aM_.player));
             String cameraXYZ = String.format(Locale.ROOT, "%.3f / %.5f / %.3f", Double.valueOf(aM_.getEntityRenderDispatcher().camera.getPos().x), Double.valueOf(aM_.getEntityRenderDispatcher().camera.getPos().y), Double.valueOf(aM_.getEntityRenderDispatcher().camera.getPos().z));

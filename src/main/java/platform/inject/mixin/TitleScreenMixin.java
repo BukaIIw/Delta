@@ -1,10 +1,10 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.Interface;
-import aethereal.ui.screen.MainScreen;
+import hydrogen.core.Interface;
+import hydrogen.ui.screen.MainScreen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

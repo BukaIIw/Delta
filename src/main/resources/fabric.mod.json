@@ -1,20 +1,15 @@
 {
-  "accessWidener": "delta.accesswidener",
+  "accessWidener": "hydrogen.accesswidener",
   "schemaVersion": 1,
-  "id": "delta",
-  "version": "3.0.14",
-  "name": "Delta",
-  "description": "https://deltaclient.xyz/",
+  "id": "hydrogendlc",
+  "version": "${version}",
+  "name": "HydrogenDLC",
+  "description": "A premium modular Minecraft client powered by a standalone batched OpenGL interface.",
   "authors": [
-    "dezzDev",
-    "fruz"
+    "HydrogenDLC Team"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
   "license": "Minecraft EULA",
-  "icon": "assets/delta/icon.png",
+  "icon": "assets/hydrogen/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
@@ -22,15 +17,12 @@
     ]
   },
   "mixins": [
-    "delta.mixins.json"
+    "hydrogen.mixins.json"
   ],
   "depends": {
-    "fabricloader": "\u003e\u003d0.16.5",
+    "fabricloader": ">=0.16.5",
     "minecraft": "~1.21.4",
-    "java": "\u003e\u003d21",
+    "java": ">=21",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

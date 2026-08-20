@@ -1,8 +1,8 @@
 package platform.inject.mixin;
 
 
-import aethereal.render.AnimationUtil;
-import aethereal.mixin.ISlot;
+import hydrogen.render.AnimationUtil;
+import hydrogen.mixin.ISlot;
 import lombok.Generated;
 import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Mixin;

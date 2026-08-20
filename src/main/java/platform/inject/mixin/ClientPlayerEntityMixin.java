@@ -1,19 +1,19 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.event.DropItemEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.InputEvent;
-import aethereal.core.Interface;
-import aethereal.util.Look;
-import aethereal.event.MotionEvent;
-import aethereal.util.MoveUtil;
-import aethereal.event.PushEvent;
-import aethereal.event.SlowEvent;
-import aethereal.event.TickEvent;
+import hydrogen.event.DropItemEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.InputEvent;
+import hydrogen.core.Interface;
+import hydrogen.util.Look;
+import hydrogen.event.MotionEvent;
+import hydrogen.util.MoveUtil;
+import hydrogen.event.PushEvent;
+import hydrogen.event.SlowEvent;
+import hydrogen.event.TickEvent;
 import net.minecraft.util.PlayerInput;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.network.ClientPlayerEntity;

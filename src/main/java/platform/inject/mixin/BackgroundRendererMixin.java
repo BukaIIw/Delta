@@ -1,10 +1,10 @@
 package platform.inject.mixin;
 
 
-import aethereal.event.AmbienceEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.RemovalsEvent;
+import hydrogen.event.AmbienceEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.RemovalsEvent;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.entity.effect.StatusEffects;

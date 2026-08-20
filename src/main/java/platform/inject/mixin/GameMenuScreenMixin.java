@@ -1,11 +1,11 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.util.ServerUtil;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.util.ServerUtil;
 import net.minecraft.util.Formatting;
 import net.minecraft.text.Text;
 import net.minecraft.text.Style;

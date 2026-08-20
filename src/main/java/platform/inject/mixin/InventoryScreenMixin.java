@@ -1,11 +1,11 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.core.Delta;
-import aethereal.core.Interface;
+import hydrogen.render.Animations;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.screen.PlayerScreenHandler;
@@ -46,7 +46,7 @@ public abstract class InventoryScreenMixin extends HandledScreen<PlayerScreenHan
 
     @Inject(method = {"render"}, at = {@At("HEAD")})
     private void headRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Открытие инвентаря").c().booleanValue()) {
             float value = animations.t().c();
             context.getMatrices().push();
@@ -61,7 +61,7 @@ public abstract class InventoryScreenMixin extends HandledScreen<PlayerScreenHan
 
     @Inject(method = {"render"}, at = {@At("RETURN")})
     private void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Открытие инвентаря").c().booleanValue()) {
             context.getMatrices().pop();
         }

@@ -1,15 +1,15 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.ui.screen.AssistantScreen;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.event.KeyEvent;
-import aethereal.ui.screen.StationScreen;
-import aethereal.ui.screen.SwapScreen;
+import hydrogen.ui.screen.AssistantScreen;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.event.KeyEvent;
+import hydrogen.ui.screen.StationScreen;
+import hydrogen.ui.screen.SwapScreen;
 import net.minecraft.client.Keyboard;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,15 +1,22 @@
 package platform;
 
-
-import aethereal.core.Delta;
-import aethereal.core.NativeMethodLookup;
-import aethereal.api.Compile;
+import hydrogen.api.Compile;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.NativeMethodLookup;
+import hydrogen.Hydrogen;
+import hydrogen.integration.ClientModuleRepository;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 
+/** Composition root: the gameplay module core is adapted into the Hydrogen application. */
 public class Initializer implements ClientModInitializer {
+    @Override
     @Compile
     public void onInitializeClient() {
-        new Delta();
+        HydrogenClient clientCore = new HydrogenClient();
+        Hydrogen hydrogen = Hydrogen.get();
+        hydrogen.init(new ClientModuleRepository(clientCore));
+        ClientLifecycleEvents.CLIENT_STOPPING.register(client -> hydrogen.close());
     }
 
     static {

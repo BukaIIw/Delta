@@ -1,0 +1,104 @@
+package hydrogen.ui.element;
+
+import hydrogen.core.NativeMethodLookup;
+import hydrogen.core.HydrogenClient;
+import hydrogen.render.EasingList;
+import hydrogen.render.Fonts;
+import hydrogen.render.ColorUtil;
+import hydrogen.util.MathUtil;
+
+import hydrogen.config.ThemeInfo;
+import hydrogen.config.ThemeProcessor;
+import hydrogen.render.Draw2DProcessor;
+import hydrogen.setting.ModeSetting;
+import hydrogen.ui.element.Element_2;
+
+import hydrogen.render.AnimationUtil;
+import hydrogen.api.Compile;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.util.math.MatrixStack;
+import org.joml.Vector4f;
+
+public class ModeElement extends Element_2<ModeSetting> {
+    private final AnimationUtil[] d;
+
+    @Override
+    @Compile
+    public boolean a(double mouseX, double mouseY, int button) {
+        Vector4f vector4f = this.a;
+        var setting = this.b;
+        if (button != 0) {
+            if (button != 2 || !MathUtil.a(mouseX, mouseY, vector4f.x, vector4f.y, vector4f.z, vector4f.w)) {
+                return false;
+            }
+            if (!(setting instanceof ModeSetting)) {
+                throw new ClassCastException();
+            }
+            ((ModeSetting) setting).b();
+            return true;
+        }
+        float f = vector4f.x;
+        float fA = vector4f.y + Fonts.c.a(6.5f) + 5.0f;
+        if (!(setting instanceof ModeSetting)) {
+            throw new ClassCastException();
+        }
+        ModeSetting modeSetting = (ModeSetting) setting;
+        for (String str : modeSetting.k()) {
+            if (!(str instanceof String)) {
+                throw new ClassCastException();
+            }
+            String str2 = str;
+            float fA2 = Fonts.c.a(str2, 6.25f) + 6.0f;
+            if (f + fA2 > vector4f.x + vector4f.z) {
+                f = vector4f.x;
+                fA += 12.0f;
+            }
+            if (MathUtil.a(mouseX, mouseY, f, fA, fA2, 9.0f)) {
+                modeSetting.a(str2);
+                return true;
+            }
+            f += fA2 + 3.0f;
+        }
+        return false;
+    }
+
+    static {
+        NativeMethodLookup.lookup(ModeElement.class, 11);
+    }
+
+    public ModeElement(ModeSetting setting) {
+        super(setting);
+        this.d = new AnimationUtil[setting.k().size()];
+        for (int i = 0; i < this.d.length; i++) {
+            this.d[i] = new AnimationUtil();
+        }
+    }
+
+    @Override
+    public void a(DrawContext context, double mouseX, double mouseY, float delta, float extend) {
+        MatrixStack matrices = context.getMatrices();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
+        Fonts.c.a(matrices, ((ModeSetting) this.b).i(), this.a.x, this.a.y, 6.5f, ColorUtil.a(theme.a(ThemeInfo.TEXT).a(), extend));
+        float x = this.a.x;
+        float y = this.a.y + Fonts.c.a(6.5f) + 5.0f;
+        int i = 0;
+        for (String mode : ((ModeSetting) this.b).k()) {
+            float width = Fonts.c.a(mode, 6.25f) + 6.0f;
+            if (x + width > this.a.x + this.a.z) {
+                x = this.a.x;
+                y += 12.0f;
+            }
+            this.d[i].a(((ModeSetting) this.b).l(mode));
+            this.d[i].a(0.0f, 1.0f, 0.3f, EasingList.i, delta);
+            float value = this.d[i].c();
+            draw.a(matrices, x, y, width, 9.0f, 2.0f, ColorUtil.a(theme.a(ThemeInfo.PRIMARY).a(), ((5.0f + (65.0f * value)) / 255.0f) * extend));
+            draw.a(matrices, x, y, width, 9.0f, 2.0f, 0.5f, ColorUtil.a(theme.a(ThemeInfo.OUTLINE_SMALL).a(), theme.a(ThemeInfo.OUTLINE_SMALL).b() * extend));
+            int color = ColorUtil.a(theme.a(ThemeInfo.TEXT_DISABLED).a(), theme.a(ThemeInfo.TEXT).a(), value);
+            Fonts.c.b(matrices, mode, x + (width / 2.0f), (y + ((9.0f - Fonts.c.a(6.25f)) / 2.0f)) - 0.75f, 6.25f, ColorUtil.a(color, extend));
+            x += width + 3.0f;
+            i++;
+        }
+        this.a.w = (y + 9.0f) - this.a.y;
+    }
+}

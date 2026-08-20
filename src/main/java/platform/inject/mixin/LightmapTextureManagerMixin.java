@@ -1,10 +1,10 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.event.GammaEvent;
-import aethereal.core.IEvent;
-import aethereal.event.RemovalsEvent;
+import hydrogen.core.EventManager;
+import hydrogen.event.GammaEvent;
+import hydrogen.core.IEvent;
+import hydrogen.event.RemovalsEvent;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

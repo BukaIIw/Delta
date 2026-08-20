@@ -1,11 +1,11 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.Delta;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
 import net.minecraft.text.Text;
 import net.minecraft.client.gui.screen.multiplayer.ConnectScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -33,7 +33,7 @@ public abstract class DisconnectedScreenMixin extends Screen {
 
     @Inject(method = {"init"}, at = {@At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/DisconnectedScreen;refreshWidgetPositions()V", shift = At.Shift.BEFORE)})
     private void init(CallbackInfo ci) {
-        ServerInfo server = Delta.h().d().v().h().a();
+        ServerInfo server = HydrogenClient.h().d().v().h().a();
         if (server != null) {
             this.buttonWidget = addDrawableChild(ButtonWidget.builder(Text.literal("Переподключиться"), btn -> {
                 ConnectScreen.connect(new MultiplayerScreen((Screen) null), Interface.aM_, ServerAddress.parse(server.address), server, false, (CookieStorage) null);

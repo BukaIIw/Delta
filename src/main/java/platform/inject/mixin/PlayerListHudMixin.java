@@ -1,13 +1,13 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.render.ColorUtil;
-import aethereal.core.Delta;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
+import hydrogen.render.Animations;
+import hydrogen.render.ColorUtil;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
 import com.llamalad7.mixinextras.sugar.Local;
 import java.util.List;
 import net.minecraft.scoreboard.ScoreboardObjective;
@@ -34,7 +34,7 @@ public abstract class PlayerListHudMixin {
 
     @Inject(method = {"setVisible"}, at = {@At("HEAD")})
     private void setVisible(boolean visible, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("TAB").c().booleanValue()) {
             animations.r().a(visible);
         }
@@ -42,7 +42,7 @@ public abstract class PlayerListHudMixin {
 
     @Inject(method = {"render"}, at = {@At("HEAD")})
     private void headRender(DrawContext context, int scaledWindowWidth, Scoreboard scoreboard, @Nullable ScoreboardObjective objective, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("TAB").c().booleanValue()) {
             context.getMatrices().push();
             context.getMatrices().translate(0.0f, (-200.0f) * (1.0f - animations.r().c()), 0.0f);
@@ -51,7 +51,7 @@ public abstract class PlayerListHudMixin {
 
     @Inject(method = {"render"}, at = {@At("RETURN")})
     private void render(DrawContext context, int scaledWindowWidth, Scoreboard scoreboard, @Nullable ScoreboardObjective objective, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("TAB").c().booleanValue()) {
             context.getMatrices().pop();
         }

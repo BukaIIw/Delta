@@ -1,17 +1,17 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.Delta;
-import aethereal.core.EventManager;
-import aethereal.ui.screen.GUIScreen;
-import aethereal.core.GlobalEvent;
-import aethereal.event.HotbarEvent;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.module.player.OpenWalls;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.ui.screen.GUIScreen;
+import hydrogen.core.GlobalEvent;
+import hydrogen.event.HotbarEvent;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.module.player.OpenWalls;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -44,14 +44,14 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 public abstract class MinecraftClientMixin implements Interface {
 
     @Unique
-    private static final String DELTA_WINDOW_TITLE = "Delta Client - Leaked by @LuxeClients & @soezproject";
+    private static final String HYDROGEN_WINDOW_TITLE = "HydrogenDLC 4.0";
 
     @Unique
     private Set<String> resourcePacks;
 
     @Inject(method = {"getWindowTitle"}, at = {@At("HEAD")}, cancellable = true)
     private void getWindowTitle(CallbackInfoReturnable<String> cir) {
-        cir.setReturnValue(DELTA_WINDOW_TITLE);
+        cir.setReturnValue(HYDROGEN_WINDOW_TITLE);
     }
 
     @Inject(method = {"setScreen"}, at = {@At("HEAD")})
@@ -99,7 +99,7 @@ public abstract class MinecraftClientMixin implements Interface {
 
     @Redirect(method = {"handleInputEvents"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerInteractionManager;stopUsingItem(Lnet/minecraft/entity/player/PlayerEntity;)V"))
     private void handleInputEvents(ClientPlayerInteractionManager manager, PlayerEntity player) {
-        if (Delta.h().d().v().k().a()) {
+        if (HydrogenClient.h().d().v().k().a()) {
             return;
         }
         if (player.isUsingItem()) {
@@ -133,7 +133,7 @@ public abstract class MinecraftClientMixin implements Interface {
 
     @Redirect(method = {"doItemUse"}, at = @At(value = "FIELD", target = "Lnet/minecraft/client/MinecraftClient;crosshairTarget:Lnet/minecraft/util/hit/HitResult;", opcode = InterfaceC0020Opcode.aK))
     private HitResult doItemUse(MinecraftClient instance) {
-        OpenWalls openWalls = Delta.h().d().t().a();
+        OpenWalls openWalls = HydrogenClient.h().d().t().a();
         if (!openWalls.m()) {
             return instance.crosshairTarget;
         }

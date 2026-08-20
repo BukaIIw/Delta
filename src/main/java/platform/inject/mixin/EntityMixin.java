@@ -1,14 +1,14 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.event.BoundingBoxEvent;
-import aethereal.core.Delta;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.event.RemovalsEvent;
+import hydrogen.event.BoundingBoxEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.event.RemovalsEvent;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Box;
@@ -47,7 +47,7 @@ public abstract class EntityMixin {
     @Inject(method = {"onBubbleColumnSurfaceCollision"}, at = {@At("HEAD")}, cancellable = true)
     private void onBubbleColumnSurfaceCollision(boolean drag, CallbackInfo ci) {
         Entity self = (Entity)(Object) this;
-        if ((self instanceof ClientPlayerEntity) && Delta.h().d().t().aq().m()) {
+        if ((self instanceof ClientPlayerEntity) && HydrogenClient.h().d().t().aq().m()) {
             self.setVelocity(self.getVelocity().x, Math.min(1.8d, self.getVelocity().y + 9.99999999E8d), self.getVelocity().z);
             ci.cancel();
         }

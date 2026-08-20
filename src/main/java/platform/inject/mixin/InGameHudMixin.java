@@ -1,19 +1,19 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.render.ColorUtil;
-import aethereal.event.CrosshairEvent;
-import aethereal.core.Delta;
-import aethereal.event.DrawEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.event.RemovalsEvent;
-import aethereal.event.ScoreboardEvent;
+import hydrogen.render.Animations;
+import hydrogen.render.ColorUtil;
+import hydrogen.event.CrosshairEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.event.DrawEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.event.RemovalsEvent;
+import hydrogen.event.ScoreboardEvent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.item.ItemStack;
@@ -94,13 +94,13 @@ public class InGameHudMixin {
 
     @Inject(method = {"render"}, at = {@At("HEAD")})
     public void headRender(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        Delta.h().d().i().e().a(context.getMatrices());
+        HydrogenClient.h().d().i().e().a(context.getMatrices());
         EventManager.a((IEvent) new DrawEvent(context, tickCounter.getTickDelta(false), DrawEvent.a.D2D));
     }
 
     @Inject(method = {"render"}, at = {@At("TAIL")})
     private void render(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("TAB").c().booleanValue() && animations.r().c() > 0.0f && !Interface.aM_.options.playerListKey.isPressed()) {
             this.playerListHud.render(context, Interface.aM_.getWindow().getScaledWidth(), Interface.aM_.world.getScoreboard(), Interface.aM_.world.getScoreboard().getObjectiveForSlot(ScoreboardDisplaySlot.LIST));
         }
@@ -108,7 +108,7 @@ public class InGameHudMixin {
 
     @Inject(method = {"renderMainHud"}, at = {@At("HEAD")})
     private void headRenderMainHud(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Поднятие хотбара").c().booleanValue()) {
             context.getMatrices().push();
             context.getMatrices().translate(0.0f, (-16.0f) * animations.s().c(), 0.0f);
@@ -117,7 +117,7 @@ public class InGameHudMixin {
 
     @Inject(method = {"renderMainHud"}, at = {@At("RETURN")})
     private void renderMainHud(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Поднятие хотбара").c().booleanValue()) {
             context.getMatrices().pop();
         }
@@ -125,7 +125,7 @@ public class InGameHudMixin {
 
     @ModifyArg(method = {"renderHotbar"}, index = 2, at = @At(value = "INVOKE", ordinal = 1, target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Ljava/util/function/Function;Lnet/minecraft/util/Identifier;IIII)V"))
     private int hotbarSelectionSlot(int x) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Слот хотбара").c().booleanValue() && Interface.aM_.player != null) {
             return Math.round((x - (Interface.aM_.player.getInventory().selectedSlot * 20)) + (animations.v() * 20.0f));
         }
@@ -134,7 +134,7 @@ public class InGameHudMixin {
 
     @Inject(method = {"renderExperienceLevel"}, at = {@At("HEAD")})
     private void headRenderExperienceLevel(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Поднятие хотбара").c().booleanValue()) {
             context.getMatrices().push();
             context.getMatrices().translate(0.0f, (-16.0f) * animations.s().c(), 0.0f);
@@ -143,7 +143,7 @@ public class InGameHudMixin {
 
     @Inject(method = {"renderExperienceLevel"}, at = {@At("RETURN")})
     private void renderExperienceLevel(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Поднятие хотбара").c().booleanValue()) {
             context.getMatrices().pop();
         }

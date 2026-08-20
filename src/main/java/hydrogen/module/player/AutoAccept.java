@@ -1,0 +1,66 @@
+package hydrogen.module.player;
+
+import hydrogen.util.StringUtils;
+import hydrogen.core.Interface;
+
+import static hydrogen.core.Interface.aM_;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Module;
+
+import hydrogen.core.Category;
+import hydrogen.core.EventTarget;
+import hydrogen.core.ModuleRegister;
+import hydrogen.event.PacketEvent;
+
+import hydrogen.setting.BooleanSetting;
+import hydrogen.setting.MultiModeSetting;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
+import net.minecraft.network.packet.s2c.play.GameMessageS2CPacket;
+
+@ModuleRegister(a = "Auto Accept", b = "Автоматически принимает выбранные запросы", c = Category.Player)
+public class AutoAccept extends Module {
+    public final MultiModeSetting b = new MultiModeSetting("Принимать запросы", new BooleanSetting("В клановую команду", true), new BooleanSetting("Телепортации", true));
+    private final BooleanSetting c = new BooleanSetting("Принимать только друзей", true);
+    private final List<String> d = List.of("просит телепортироваться", "хочет телепортироваться", "Заявка буудет автоматически отменена через", "просит телепортироваться к Вам.", "120 секунд", "has requested to teleport", "teleport to you", "This request will timeout after", "120 seconds");
+    private final List<String> e = List.of("приглашает вас в клан", "invites you to the clan");
+
+    public AutoAccept() {
+        a(this.b, this.c);
+    }
+
+    @EventTarget
+    public void a(PacketEvent event) {
+        if (event.c()) {
+            GameMessageS2CPacket class_7439VarD = (GameMessageS2CPacket) event.d();
+            if (class_7439VarD instanceof GameMessageS2CPacket) {
+                GameMessageS2CPacket s2CPacket = class_7439VarD;
+                String chat = s2CPacket.content().getString().toLowerCase();
+                if (this.c.c().booleanValue() && HydrogenClient.h().d().e().a().stream().noneMatch(friend -> {
+                    return chat.contains(friend.a().toLowerCase());
+                })) {
+                    return;
+                }
+                if (this.b.a("Телепортации").c().booleanValue()) {
+                    Stream<String> stream = this.d.stream();
+                    Objects.requireNonNull(chat);
+                    if (stream.anyMatch((v1) -> {
+                        return chat.contains(v1);
+                    })) {
+                        aM_.player.networkHandler.sendChatCommand("tpaccept");
+                    }
+                }
+                if (this.b.a("В клановую команду").c().booleanValue()) {
+                    Stream<String> stream2 = this.e.stream();
+                    Objects.requireNonNull(chat);
+                    if (stream2.anyMatch((v1) -> {
+                        return chat.contains(v1);
+                    })) {
+                        aM_.player.networkHandler.sendChatCommand("clan accept " + chat.split(StringUtils.a)[1]);
+                    }
+                }
+            }
+        }
+    }
+}

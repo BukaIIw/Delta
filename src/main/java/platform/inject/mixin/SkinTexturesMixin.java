@@ -1,8 +1,8 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.Delta;
-import aethereal.module.misc.StreamerMode;
+import hydrogen.core.HydrogenClient;
+import hydrogen.module.misc.StreamerMode;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.util.SkinTextures;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,9 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class SkinTexturesMixin {
     @Inject(method = {"texture"}, at = {@At("HEAD")}, cancellable = true)
     public void texture(CallbackInfoReturnable<Identifier> cir) {
-        StreamerMode streamerMode = Delta.h().d().t().aE();
+        StreamerMode streamerMode = HydrogenClient.h().d().t().aE();
         if (streamerMode.m() && streamerMode.q().c().booleanValue()) {
-            cir.setReturnValue(Identifier.of("delta", "pictures/skin.png"));
+            cir.setReturnValue(Identifier.of("hydrogen", "pictures/skin.png"));
         }
     }
 }

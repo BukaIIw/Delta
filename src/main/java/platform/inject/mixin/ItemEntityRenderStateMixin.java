@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.mixin.IItemEntityRenderState;
+import hydrogen.mixin.IItemEntityRenderState;
 import lombok.Generated;
 import net.minecraft.client.render.entity.state.ItemEntityRenderState;
 import org.spongepowered.asm.mixin.Mixin;
