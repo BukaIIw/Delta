@@ -29,7 +29,6 @@ import hydrogen.lib.log4j.Logger_2;
 import hydrogen.setting.ModeSetting;
 import hydrogen.setting.MultiModeSetting;
 import hydrogen.setting.SliderSetting;
-import hydrogen.setting.StringSetting;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
@@ -67,8 +66,8 @@ public class Aura extends Module {
     private LivingEntity t;
     boolean d;
     private final ModeSetting h = new ModeSetting("Выберите тип наведения", "ФанТайм", "ФанТайм", "ФанТайм ФОВ", "Легит", "SpookyTime", "AI");
-    private final StringSetting aiDataset = new StringSetting("Имя AI датасета", "auto");
-    private final BooleanSetting aiRecord = (BooleanSetting) new BooleanSetting("Запись AI датасета", false).a(() -> this.h.l("AI"));
+    private String aiDataset = "auto";
+    private boolean aiRecord;
     private final MultiModeSetting i = new MultiModeSetting("Цели для атаки", new BooleanSetting("Без брони", true), new BooleanSetting("Враждебные мобы", false), new BooleanSetting("Животные", false), new BooleanSetting("Друзья", false), new BooleanSetting("Игроки", true));
     private final SliderSetting j = new SliderSetting("Дистанция атаки", 3.0f, 0.1f, 6.0f, 0.1f);
     private final SliderSetting k = new SliderSetting("Дополнительная дистанция", 0.5f, 0.1f, 3.0f, 0.1f);
@@ -126,7 +125,7 @@ public class Aura extends Module {
     }
 
     public Aura() {
-        a(this.j, this.k, this.h, this.aiDataset, this.aiRecord, this.r, this.s, this.q, this.i, this.n, this.l, this.m, this.o, this.p);
+        a(this.j, this.k, this.h, this.r, this.s, this.q, this.i, this.n, this.l, this.m, this.o, this.p);
     }
 
     @Override
