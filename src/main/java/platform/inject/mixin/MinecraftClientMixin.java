@@ -115,17 +115,6 @@ public abstract class MinecraftClientMixin implements Interface {
         return false;
     }
 
-    @Unique
-    private boolean fromPackOrLanguageStack() {
-        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
-            String name = element.getClassName();
-            if (name.contains("PackScreen") || name.contains("ResourcePack") || name.contains("Language")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     @Inject(method = {"tick"}, at = {@At("HEAD")})
     private void onGlobalTick(CallbackInfo ci) {
         EventManager.a((IEvent) new GlobalEvent());

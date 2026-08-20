@@ -75,6 +75,7 @@ public final class AiNamedRecorder {
             ensure(mc, key);
             writer.write(AiFeatures.row(features, labelYaw, labelPitch));
             writer.newLine();
+            remember(features, labelYaw, labelPitch);
             rows++;
             if (rows % 32 == 0) {
                 writer.flush();

@@ -810,14 +810,21 @@ public class Aura extends Module {
     }
 
     private void aiAim(float yawToTarget, float pitchToTarget) {
+        if (this.t == null) {
+            return;
+        }
         float[] features = AiFeatures.capture(aM_, this.t);
         AiAimModel.ensureLoaded(aM_, AiRecordService.get().name());
         float[] pred = AiAimModel.predict(features);
-        float blend = AiAimModel.sampleCount() > 16 ? 0.65f : 0.25f;
-        float wantYaw = yawToTarget + pred[0];
-        float wantPitch = pitchToTarget + pred[1];
-        float finalYaw = AuraUtil.a(aM_.player.getYaw(), wantYaw, MathHelper.lerp(blend, 0.18f, 0.42f));
-        float finalPitch = AuraUtil.a(aM_.player.getPitch(), wantPitch, MathHelper.lerp(blend, 0.14f, 0.32f));
-        HydrogenClient.h().d().k().a(new Rotation(finalYaw, finalPitch), 180.0f, 1, 1);
+        int samples = AiAimModel.sampleCount();
+        float yawOff = samples > 8 ? MathHelper.clamp(pred[0], -18.0f, 18.0f) : 0.0f;
+        float pitchOff = samples > 8 ? MathHelper.clamp(pred[1], -12.0f, 12.0f) : 0.0f;
+        float wantYaw = yawToTarget + yawOff;
+        float wantPitch = MathHelper.clamp(pitchToTarget + pitchOff, -90.0f, 90.0f);
+        float err = Math.abs(MathHelper.wrapDegrees(wantYaw - aM_.player.getYaw())) + Math.abs(wantPitch - aM_.player.getPitch());
+        float speed = MathHelper.clamp(0.16f + err * 0.012f, 0.16f, samples > 16 ? 0.38f : 0.28f);
+        float finalYaw = AuraUtil.a(aM_.player.getYaw(), wantYaw, speed);
+        float finalPitch = AuraUtil.a(aM_.player.getPitch(), wantPitch, speed * 0.85f);
+        HydrogenClient.h().d().k().a(new Rotation(finalYaw, MathHelper.clamp(finalPitch, -90.0f, 90.0f)), 180.0f, 1, 1);
     }
 }
