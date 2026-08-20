@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ClientCommonNetworkHandlerMixin {
     @Inject(method = {"onResourcePackSend"}, at = {@At("HEAD")}, cancellable = true)
     private void onResourcePackSend(ResourcePackSendS2CPacket packet, CallbackInfo ci) {
-        if (HydrogenClient.h().d().t().v().m()) {
+        if (HydrogenClient.h().d().t().v().m() || hydrogen.module.player.FastLoad.shouldSkipResourceReload()) {
             ClientCommonNetworkHandler self = (ClientCommonNetworkHandler)(Object) this;
             self.sendPacket(new ResourcePackStatusC2SPacket(packet.id(), ResourcePackStatusC2SPacket.Status.DECLINED));
             ci.cancel();

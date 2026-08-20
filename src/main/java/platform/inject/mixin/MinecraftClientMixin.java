@@ -11,6 +11,7 @@ import hydrogen.event.HotbarEvent;
 import hydrogen.core.IEvent;
 import hydrogen.core.Interface;
 import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.module.player.FastLoad;
 import hydrogen.module.player.OpenWalls;
 import java.util.HashSet;
 import java.util.Objects;
@@ -27,6 +28,7 @@ import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.client.gui.screen.DownloadingTerrainScreen;
+import net.minecraft.client.gui.screen.ReconfiguringScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.pack.PackScreen;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
@@ -49,39 +51,66 @@ public abstract class MinecraftClientMixin implements Interface {
     @Unique
     private Set<String> resourcePacks;
 
+    @Unique
+    private boolean skipNextResourceReload;
+
     @Inject(method = {"getWindowTitle"}, at = {@At("HEAD")}, cancellable = true)
     private void getWindowTitle(CallbackInfoReturnable<String> cir) {
         cir.setReturnValue(HYDROGEN_WINDOW_TITLE);
     }
 
-    @Inject(method = {"setScreen"}, at = {@At("HEAD")})
+    @Inject(method = {"setScreen"}, at = {@At("HEAD")}, cancellable = true)
     private void onSetScreen(Screen screen, CallbackInfo ci) {
+        if (aM_.currentScreen instanceof PackScreen && !(screen instanceof PackScreen) && FastLoad.shouldSkipResourceReload()) {
+            this.skipNextResourceReload = true;
+        }
         if (screen instanceof PackScreen) {
-            this.resourcePacks = (Set) aM_.getResourcePackManager().getEnabledProfiles().stream().map((v0) -> {
-                return v0.getId();
-            }).collect(Collectors.toCollection(HashSet::new));
-        } else if (this.resourcePacks != null && !(aM_.currentScreen instanceof PackScreen)) {
-            this.resourcePacks = null;
+            this.resourcePacks = aM_.getResourcePackManager().getEnabledProfiles().stream()
+                    .map(profile -> profile.getId())
+                    .collect(Collectors.toCollection(HashSet::new));
+        }
+        if (FastLoad.shouldSkipTerrain() && (screen instanceof DownloadingTerrainScreen || screen instanceof ReconfiguringScreen)) {
+            ci.cancel();
+            return;
+        }
+        if (aM_.currentScreen instanceof GUIScreen) {
+            if (screen == null || screen instanceof DownloadingTerrainScreen) {
+                for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+                    if (element.getClassName().equals(Screen.class.getName()) || element.getClassName().equals(Keyboard.class.getName())) {
+                        return;
+                    }
+                }
+                ci.cancel();
+            }
+        }
+    }
+
+    @Inject(method = {"tick"}, at = {@At("TAIL")})
+    private void closeLoadScreens(CallbackInfo ci) {
+        if (!FastLoad.shouldSkipTerrain() || aM_.currentScreen == null) {
+            return;
+        }
+        if (aM_.currentScreen instanceof DownloadingTerrainScreen || aM_.currentScreen instanceof ReconfiguringScreen) {
+            aM_.setScreen(null);
         }
     }
 
     @Inject(method = {"reloadResources()Ljava/util/concurrent/CompletableFuture;"}, at = {@At("HEAD")}, cancellable = true)
     private void reloadResources(CallbackInfoReturnable<CompletableFuture<Void>> cir) {
-        if (HydrogenClient.h() != null && HydrogenClient.h().d() != null && HydrogenClient.h().d().t() != null) {
-            if (HydrogenClient.h().d().t().aN().skipLanguageReload() && fromLanguageChange()) {
-                cir.setReturnValue(CompletableFuture.completedFuture(null));
-                return;
-            }
-            if (HydrogenClient.h().d().t().aN().skipResourceReload() && this.resourcePacks != null) {
-                cir.setReturnValue(CompletableFuture.completedFuture(null));
-                this.resourcePacks = null;
-                return;
-            }
+        if (FastLoad.shouldSkipLanguageReload() && fromLanguageChange()) {
+            cir.setReturnValue(CompletableFuture.completedFuture(null));
+            return;
+        }
+        if (this.skipNextResourceReload || (FastLoad.shouldSkipResourceReload() && fromPackOrLanguageStack())) {
+            this.skipNextResourceReload = false;
+            this.resourcePacks = null;
+            cir.setReturnValue(CompletableFuture.completedFuture(null));
+            return;
         }
         if (this.resourcePacks != null) {
-            Set<String> current = (Set) aM_.getResourcePackManager().getEnabledProfiles().stream().map((v0) -> {
-                return v0.getId();
-            }).collect(Collectors.toSet());
+            Set<String> current = aM_.getResourcePackManager().getEnabledProfiles().stream()
+                    .map(profile -> profile.getId())
+                    .collect(Collectors.toSet());
             if (this.resourcePacks.equals(current)) {
                 cir.setReturnValue(CompletableFuture.completedFuture(null));
             }
@@ -93,25 +122,23 @@ public abstract class MinecraftClientMixin implements Interface {
     private boolean fromLanguageChange() {
         for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
             String name = element.getClassName();
-            if (name.contains("LanguageManager") || name.contains("LanguageOptions") || name.contains("GameOptions")) {
+            if (name.contains("LanguageManager") || name.contains("LanguageOptions")
+                    || name.contains("LanguageSelection") || name.contains("I18n")) {
                 return true;
             }
         }
         return false;
     }
 
-    @Inject(method = {"setScreen"}, at = {@At("HEAD")}, cancellable = true)
-    private void setScreen(Screen screen, CallbackInfo ci) {
-        if (aM_.currentScreen instanceof GUIScreen) {
-            if (screen == null || (screen instanceof DownloadingTerrainScreen)) {
-                for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
-                    if (element.getClassName().equals(Screen.class.getName()) || element.getClassName().equals(Keyboard.class.getName())) {
-                        return;
-                    }
-                }
-                ci.cancel();
+    @Unique
+    private boolean fromPackOrLanguageStack() {
+        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+            String name = element.getClassName();
+            if (name.contains("PackScreen") || name.contains("ResourcePack") || name.contains("Language")) {
+                return true;
             }
         }
+        return false;
     }
 
     @Inject(method = {"tick"}, at = {@At("HEAD")})

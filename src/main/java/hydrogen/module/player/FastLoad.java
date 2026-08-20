@@ -1,6 +1,7 @@
 package hydrogen.module.player;
 
 import hydrogen.core.Category;
+import hydrogen.core.HydrogenClient;
 import hydrogen.core.Module;
 import hydrogen.core.ModuleRegister;
 import hydrogen.setting.BooleanSetting;
@@ -41,5 +42,31 @@ public class FastLoad extends Module {
 
     public boolean skipLanguageReload() {
         return m() && this.language.c().booleanValue();
+    }
+
+    public static FastLoad current() {
+        try {
+            if (HydrogenClient.h() == null || HydrogenClient.h().d() == null || HydrogenClient.h().d().t() == null) {
+                return null;
+            }
+            return HydrogenClient.h().d().t().aN();
+        } catch (Exception ignored) {
+            return null;
+        }
+    }
+
+    public static boolean shouldSkipTerrain() {
+        FastLoad load = current();
+        return load != null && load.skipTerrain();
+    }
+
+    public static boolean shouldSkipResourceReload() {
+        FastLoad load = current();
+        return load != null && load.skipResourceReload();
+    }
+
+    public static boolean shouldSkipLanguageReload() {
+        FastLoad load = current();
+        return load != null && load.skipLanguageReload();
     }
 }
