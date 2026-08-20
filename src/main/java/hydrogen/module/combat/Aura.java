@@ -774,46 +774,46 @@ public class Aura extends Module {
     }
 
     public boolean aiRecording() {
-        return this.aiRecord.c().booleanValue();
+        return this.aiRecord;
     }
 
     public String aiDatasetName() {
-        return this.aiDataset.c();
+        return this.aiDataset;
     }
 
     public String startAiRecord(String requested) {
         this.h.a("AI");
         String name = requested;
-        if (AiNamedRecorder.isAuto(name) || AiNamedRecorder.isAuto(this.aiDataset.c())) {
+        if (AiNamedRecorder.isAuto(name) || AiNamedRecorder.isAuto(this.aiDataset)) {
             name = AiNamedRecorder.nextAutoName(aM_);
         } else if (name == null || name.isBlank()) {
-            name = this.aiDataset.c();
+            name = this.aiDataset;
         }
-        this.aiDataset.a(AiNamedRecorder.sanitize(name));
-        this.aiRecord.a(true);
+        this.aiDataset = AiNamedRecorder.sanitize(name);
+        this.aiRecord = true;
         if (!m()) {
             a(true);
         }
-        return this.aiDataset.c();
+        return this.aiDataset;
     }
 
     public String stopAiRecord() {
-        this.aiRecord.a(false);
+        this.aiRecord = false;
         AiNamedRecorder.flush();
-        return this.aiDataset.c();
+        return this.aiDataset;
     }
 
     private void aiAim(float yawToTarget, float pitchToTarget) {
-        if (this.aiRecord.c().booleanValue() && AiNamedRecorder.isAuto(this.aiDataset.c())) {
-            this.aiDataset.a(AiNamedRecorder.nextAutoName(aM_));
+        if (this.aiRecord && AiNamedRecorder.isAuto(this.aiDataset)) {
+            this.aiDataset = AiNamedRecorder.nextAutoName(aM_);
         }
         float[] features = AiFeatures.capture(aM_, this.t);
         float labelYaw = MathHelper.wrapDegrees(aM_.player.getYaw() - yawToTarget);
         float labelPitch = aM_.player.getPitch() - pitchToTarget;
-        if (this.aiRecord.c().booleanValue()) {
-            AiNamedRecorder.record(aM_, this.aiDataset.c(), features, labelYaw, labelPitch);
+        if (this.aiRecord) {
+            AiNamedRecorder.record(aM_, this.aiDataset, features, labelYaw, labelPitch);
         }
-        AiAimModel.ensureLoaded(aM_, this.aiDataset.c());
+        AiAimModel.ensureLoaded(aM_, this.aiDataset);
         float[] pred = AiAimModel.predict(features);
         float blend = AiAimModel.sampleCount() > 16 ? 0.65f : 0.25f;
         float wantYaw = yawToTarget + pred[0];
