@@ -56,7 +56,8 @@ public class CommandProcessor extends BaseProcessor {
     @Override
     @Compile
     public void setup() {
-        a(this.e, this.f, this.g, this.h, this.i, new AHCommand(), new MacrosCommand(), new FriendCommand(), new StaffCommand(), new WardenCommand(), new ConfigCommand(), new BindCommand(), new VClipCommand(), new HClipCommand(), new CCCommand(), new AiCommand(), new AiTrainCommand(), new AiSelectCommand());
+        hydrogen.ai.AiRecordService.bind();
+        a(this.e, this.f, this.g, this.h, this.i, new AHCommand(), new MacrosCommand(), new FriendCommand(), new StaffCommand(), new WardenCommand(), new ConfigCommand(), new BindCommand(), new VClipCommand(), new HClipCommand(), new CCCommand(), new AiCommand(), new AiTrainCommand(), new AiSelectCommand(), new AiRecordCommand());
     }
 
     static {

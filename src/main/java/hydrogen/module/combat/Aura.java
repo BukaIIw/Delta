@@ -3,6 +3,7 @@ package hydrogen.module.combat;
 import hydrogen.ai.AiAimModel;
 import hydrogen.ai.AiFeatures;
 import hydrogen.ai.AiNamedRecorder;
+import hydrogen.ai.AiRecordService;
 import hydrogen.ui.screen.AssistantScreen;
 import hydrogen.ui.screen.GUIScreen;
 
@@ -66,8 +67,7 @@ public class Aura extends Module {
     private LivingEntity t;
     boolean d;
     private final ModeSetting h = new ModeSetting("Выберите тип наведения", "ФанТайм", "ФанТайм", "ФанТайм ФОВ", "Легит", "SpookyTime", "AI");
-    private String aiDataset = "auto";
-    private boolean aiRecord;
+
     private final MultiModeSetting i = new MultiModeSetting("Цели для атаки", new BooleanSetting("Без брони", true), new BooleanSetting("Враждебные мобы", false), new BooleanSetting("Животные", false), new BooleanSetting("Друзья", false), new BooleanSetting("Игроки", true));
     private final SliderSetting j = new SliderSetting("Дистанция атаки", 3.0f, 0.1f, 6.0f, 0.1f);
     private final SliderSetting k = new SliderSetting("Дополнительная дистанция", 0.5f, 0.1f, 3.0f, 0.1f);
@@ -774,58 +774,43 @@ public class Aura extends Module {
     }
 
     public boolean aiRecording() {
-        return this.aiRecord;
+        return AiRecordService.get().recording();
     }
 
     public String aiDatasetName() {
-        return this.aiDataset;
+        return AiRecordService.get().name();
     }
 
     public String startAiRecord(String requested) {
-        this.h.a("AI");
-        String name = requested;
-        if (AiNamedRecorder.isAuto(name) || AiNamedRecorder.isAuto(this.aiDataset)) {
-            name = AiNamedRecorder.nextAutoName(aM_);
-        } else if (name == null || name.isBlank()) {
-            name = this.aiDataset;
-        }
-        this.aiDataset = AiNamedRecorder.sanitize(name);
-        this.aiRecord = true;
-        if (!m()) {
-            a(true);
-        }
-        return this.aiDataset;
+        return AiRecordService.get().start(requested);
     }
 
     public String stopAiRecord() {
-        this.aiRecord = false;
-        AiNamedRecorder.flush();
-        return this.aiDataset;
+        return AiRecordService.get().stop();
     }
 
     public String selectAiDataset(String requested) {
-        if (requested == null || requested.isBlank()) {
-            return this.aiDataset;
-        }
-        this.aiDataset = AiNamedRecorder.sanitize(requested);
+        AiRecordService.get().select(requested);
         this.h.a("AI");
-        return this.aiDataset;
+        return AiRecordService.get().name();
     }
 
     public int trainAi(String requested) {
         AiNamedRecorder.flush();
         if (requested != null && !requested.isBlank()) {
-            this.aiDataset = AiNamedRecorder.sanitize(requested);
+            AiRecordService.get().select(requested);
         }
-        if (AiNamedRecorder.isAuto(this.aiDataset)) {
+        String name = AiRecordService.get().name();
+        if (AiNamedRecorder.isAuto(name)) {
             return 0;
         }
         this.h.a("AI");
-        AiAimModel.reload(aM_, this.aiDataset);
+        AiAimModel.reload(aM_, name);
         return AiAimModel.sampleCount();
     }
 
     private void aiAim(float yawToTarget, float pitchToTarget) {
+<<<<<<< HEAD
         if (this.aiRecord && AiNamedRecorder.isAuto(this.aiDataset)) {
             this.aiDataset = AiNamedRecorder.nextAutoName(aM_);
         }
@@ -836,6 +821,10 @@ public class Aura extends Module {
             AiNamedRecorder.record(aM_, this.aiDataset, features, labelYaw, labelPitch);
         }
         AiAimModel.ensureLoaded(aM_, this.aiDataset);
+=======
+        float[] features = AiFeatures.capture(aM_, this.t);
+        AiAimModel.ensureLoaded(aM_, AiRecordService.get().name());
+>>>>>>> 789d479 (Record AI datasets every tick with start/stop.)
         float[] pred = AiAimModel.predict(features);
         float blend = AiAimModel.sampleCount() > 16 ? 0.65f : 0.25f;
         float wantYaw = yawToTarget + pred[0];

@@ -45,7 +45,7 @@ public class AiCommand extends BaseCommand {
             return 1;
         }
         String used = aura.startAiRecord(name);
-        ChatUtil.a((Object) ("Запись AI датасета &aвключена&7: &f" + used + ".csv"));
+        ChatUtil.a((Object) ("Запись &astart&7 (тики, ручками / Aura): &f" + used + ".csv"));
         return 1;
     }
 
