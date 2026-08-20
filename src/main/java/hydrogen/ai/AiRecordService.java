@@ -2,9 +2,9 @@ package hydrogen.ai;
 
 import hydrogen.core.EventManager;
 import hydrogen.core.EventTarget;
+import hydrogen.core.GlobalEvent;
 import hydrogen.core.HydrogenClient;
 import hydrogen.core.Interface;
-import hydrogen.event.TickEvent;
 import hydrogen.module.combat.Aura;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 /**
- * Manual + per-tick recorder. Works with or without Aura.
+ * Tick-only recorder (GlobalEvent / client tick). Never render.
  */
 public final class AiRecordService implements Interface {
     private static final AiRecordService INSTANCE = new AiRecordService();
@@ -66,7 +66,7 @@ public final class AiRecordService implements Interface {
     }
 
     @EventTarget
-    public void onTick(TickEvent event) {
+    public void onClientTick(GlobalEvent event) {
         if (!this.recording || aM_ == null || aM_.player == null || aM_.world == null) {
             return;
         }

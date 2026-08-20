@@ -1,11 +1,15 @@
 package hydrogen.module.player;
 
 import hydrogen.core.Category;
+import hydrogen.core.EventTarget;
 import hydrogen.core.HydrogenClient;
 import hydrogen.core.Module;
 import hydrogen.core.ModuleRegister;
+import hydrogen.event.TickEvent;
 import hydrogen.setting.BooleanSetting;
 import lombok.Generated;
+import net.minecraft.client.gui.screen.DownloadingTerrainScreen;
+import net.minecraft.client.gui.screen.ReconfiguringScreen;
 
 @ModuleRegister(a = "Fast Load", b = "Ускоряет загрузку мира", c = Category.Player)
 public class FastLoad extends Module {
@@ -42,6 +46,16 @@ public class FastLoad extends Module {
 
     public boolean skipLanguageReload() {
         return m() && this.language.c().booleanValue();
+    }
+
+    @EventTarget
+    public void onTick(TickEvent event) {
+        if (!skipTerrain() || aM_ == null || aM_.player == null || aM_.world == null || aM_.currentScreen == null) {
+            return;
+        }
+        if (aM_.currentScreen instanceof DownloadingTerrainScreen || aM_.currentScreen instanceof ReconfiguringScreen) {
+            aM_.setScreen(null);
+        }
     }
 
     public static FastLoad current() {

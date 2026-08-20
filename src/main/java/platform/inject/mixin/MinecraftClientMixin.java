@@ -28,7 +28,6 @@ import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.client.gui.screen.DownloadingTerrainScreen;
-import net.minecraft.client.gui.screen.ReconfiguringScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.pack.PackScreen;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
@@ -78,19 +77,6 @@ public abstract class MinecraftClientMixin implements Interface {
                 }
                 ci.cancel();
             }
-        }
-    }
-
-    @Inject(method = {"tick"}, at = {@At("TAIL")})
-    private void closeLoadScreens(CallbackInfo ci) {
-        if (!FastLoad.shouldSkipTerrain() || aM_.currentScreen == null) {
-            return;
-        }
-        if (aM_.player == null || aM_.world == null) {
-            return;
-        }
-        if (aM_.currentScreen instanceof DownloadingTerrainScreen || aM_.currentScreen instanceof ReconfiguringScreen) {
-            aM_.setScreen(null);
         }
     }
 
