@@ -67,7 +67,7 @@ public class Aura extends Module {
     private LivingEntity t;
     boolean d;
     private final ModeSetting h = new ModeSetting("Выберите тип наведения", "ФанТайм", "ФанТайм", "ФанТайм ФОВ", "Легит", "SpookyTime", "AI");
-    private final StringSetting aiDataset = new StringSetting("Имя AI датасета", "combat");
+    private final StringSetting aiDataset = new StringSetting("Имя AI датасета", "auto");
     private final BooleanSetting aiRecord = (BooleanSetting) new BooleanSetting("Запись AI датасета", false).a(() -> this.h.l("AI"));
     private final MultiModeSetting i = new MultiModeSetting("Цели для атаки", new BooleanSetting("Без брони", true), new BooleanSetting("Враждебные мобы", false), new BooleanSetting("Животные", false), new BooleanSetting("Друзья", false), new BooleanSetting("Игроки", true));
     private final SliderSetting j = new SliderSetting("Дистанция атаки", 3.0f, 0.1f, 6.0f, 0.1f);
@@ -772,5 +772,55 @@ public class Aura extends Module {
 
     private void stTickNoise(boolean onBox, boolean swingReady) {
 
+    }
+
+    public boolean aiRecording() {
+        return this.aiRecord.c().booleanValue();
+    }
+
+    public String aiDatasetName() {
+        return this.aiDataset.c();
+    }
+
+    public String startAiRecord(String requested) {
+        this.h.a("AI");
+        String name = requested;
+        if (AiNamedRecorder.isAuto(name) || AiNamedRecorder.isAuto(this.aiDataset.c())) {
+            name = AiNamedRecorder.nextAutoName(aM_);
+        } else if (name == null || name.isBlank()) {
+            name = this.aiDataset.c();
+        }
+        this.aiDataset.a(AiNamedRecorder.sanitize(name));
+        this.aiRecord.a(true);
+        if (!m()) {
+            a(true);
+        }
+        return this.aiDataset.c();
+    }
+
+    public String stopAiRecord() {
+        this.aiRecord.a(false);
+        AiNamedRecorder.flush();
+        return this.aiDataset.c();
+    }
+
+    private void aiAim(float yawToTarget, float pitchToTarget) {
+        if (this.aiRecord.c().booleanValue() && AiNamedRecorder.isAuto(this.aiDataset.c())) {
+            this.aiDataset.a(AiNamedRecorder.nextAutoName(aM_));
+        }
+        float[] features = AiFeatures.capture(aM_, this.t);
+        float labelYaw = MathHelper.wrapDegrees(aM_.player.getYaw() - yawToTarget);
+        float labelPitch = aM_.player.getPitch() - pitchToTarget;
+        if (this.aiRecord.c().booleanValue()) {
+            AiNamedRecorder.record(aM_, this.aiDataset.c(), features, labelYaw, labelPitch);
+        }
+        AiAimModel.ensureLoaded(aM_, this.aiDataset.c());
+        float[] pred = AiAimModel.predict(features);
+        float blend = AiAimModel.sampleCount() > 16 ? 0.65f : 0.25f;
+        float wantYaw = yawToTarget + pred[0];
+        float wantPitch = pitchToTarget + pred[1];
+        float finalYaw = AuraUtil.a(aM_.player.getYaw(), wantYaw, MathHelper.lerp(blend, 0.18f, 0.42f));
+        float finalPitch = AuraUtil.a(aM_.player.getPitch(), wantPitch, MathHelper.lerp(blend, 0.14f, 0.32f));
+        HydrogenClient.h().d().k().a(new Rotation(finalYaw, finalPitch), 180.0f, 1, 1);
     }
 }

@@ -8,6 +8,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -33,11 +35,27 @@ public final class AiNamedRecorder {
     }
 
     public static String sanitize(String name) {
-        if (name == null || name.isBlank()) {
-            return "combat";
+        if (name == null || name.isBlank() || "auto".equalsIgnoreCase(name.trim())) {
+            return "auto";
         }
         String cleaned = name.trim().toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9._-]", "_");
-        return cleaned.isEmpty() ? "combat" : cleaned;
+        return cleaned.isEmpty() ? "auto" : cleaned;
+    }
+
+    public static String nextAutoName(MinecraftClient mc) {
+        String player = "player";
+        if (mc != null && mc.getSession() != null && mc.getSession().getUsername() != null) {
+            player = sanitize(mc.getSession().getUsername());
+            if ("auto".equals(player)) {
+                player = "player";
+            }
+        }
+        String stamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+        return player + "_" + stamp;
+    }
+
+    public static boolean isAuto(String name) {
+        return name == null || name.isBlank() || "auto".equalsIgnoreCase(name.trim()) || "combat".equalsIgnoreCase(name.trim());
     }
 
     public static void record(MinecraftClient mc, String name, float[] features, float labelYaw, float labelPitch) {
