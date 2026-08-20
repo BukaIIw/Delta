@@ -94,6 +94,25 @@ public final class AiNamedRecorder {
         return rows;
     }
 
+    public static java.util.List<String> listNames(MinecraftClient mc) {
+        java.util.List<String> names = new java.util.ArrayList<>();
+        if (mc == null) {
+            return names;
+        }
+        Path dir = directory(mc);
+        try (java.nio.file.DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.csv")) {
+            for (Path path : stream) {
+                String file = path.getFileName().toString();
+                if (file.endsWith(".csv")) {
+                    names.add(file.substring(0, file.length() - 4));
+                }
+            }
+        } catch (IOException ignored) {
+        }
+        names.sort(String::compareTo);
+        return names;
+    }
+
     private static void ensure(MinecraftClient mc, String name) throws IOException {
         if (writer != null && name.equals(openName)) {
             return;

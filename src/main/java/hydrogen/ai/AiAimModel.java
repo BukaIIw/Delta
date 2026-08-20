@@ -22,6 +22,16 @@ public final class AiAimModel {
     private AiAimModel() {
     }
 
+    public static String loadedName() {
+        return loadedName == null ? "" : loadedName;
+    }
+
+    public static void reload(MinecraftClient mc, String name) {
+        loadedName = null;
+        samples.clear();
+        ensureLoaded(mc, name);
+    }
+
     public static void ensureLoaded(MinecraftClient mc, String name) {
         String key = AiNamedRecorder.sanitize(name);
         if (key.equals(loadedName) && !samples.isEmpty()) {

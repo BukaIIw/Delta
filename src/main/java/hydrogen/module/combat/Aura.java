@@ -803,6 +803,28 @@ public class Aura extends Module {
         return this.aiDataset;
     }
 
+    public String selectAiDataset(String requested) {
+        if (requested == null || requested.isBlank()) {
+            return this.aiDataset;
+        }
+        this.aiDataset = AiNamedRecorder.sanitize(requested);
+        this.h.a("AI");
+        return this.aiDataset;
+    }
+
+    public int trainAi(String requested) {
+        AiNamedRecorder.flush();
+        if (requested != null && !requested.isBlank()) {
+            this.aiDataset = AiNamedRecorder.sanitize(requested);
+        }
+        if (AiNamedRecorder.isAuto(this.aiDataset)) {
+            return 0;
+        }
+        this.h.a("AI");
+        AiAimModel.reload(aM_, this.aiDataset);
+        return AiAimModel.sampleCount();
+    }
+
     private void aiAim(float yawToTarget, float pitchToTarget) {
         if (this.aiRecord && AiNamedRecorder.isAuto(this.aiDataset)) {
             this.aiDataset = AiNamedRecorder.nextAutoName(aM_);
