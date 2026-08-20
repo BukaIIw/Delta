@@ -76,7 +76,6 @@ import hydrogen.module.player.ItemScroller;
 import hydrogen.lib.json.JSONArray;
 import hydrogen.lib.json.JSONObject;
 import hydrogen.module.player.LockSlot;
-import hydrogen.module.combat.MaceExploit;
 import hydrogen.module.combat.MaceHelper;
 import hydrogen.module.misc.MineAssistant;
 import hydrogen.module.misc.NoCommands;
@@ -179,7 +178,6 @@ public class ModuleProcessor extends ConfigProcessor<Module> {
     private final ElytraHelper F = new ElytraHelper();
     private final ElytraTarget G = new ElytraTarget();
     private final MaceHelper H = new MaceHelper();
-    private final MaceExploit be = new MaceExploit();
     private final AntiAFK I = new AntiAFK();
     private final DeathCoords J = new DeathCoords();
     private final AutoAccept K = new AutoAccept();
@@ -259,7 +257,7 @@ public class ModuleProcessor extends ConfigProcessor<Module> {
     @Compile
     public void setup() {
         this.bd = new Interface_2();
-        a(this.f, this.aA, this.az, this.bc, this.aY, this.aL, this.aD, this.Z, this.J, this.aK, this.U, this.S, this.aJ, this.N, this.aH, this.aT, this.s, this.av, this.i, this.aE, this.ao, this.m, this.Q, this.ag, this.aC, this.n, this.am, this.I, this.h, this.aQ, this.aR, this.aS, this.aI, this.al, this.aq, this.x, this.ar, this.g, this.aM, this.aG, this.aF, this.z, this.ax, this.aw, this.r, this.u, this.y, this.an, this.aj, this.ak, this.A, this.t, this.ah, this.V, this.W, this.as, this.q, this.P, this.ap, this.k, this.l, this.F, this.G, this.H, this.be, this.B, this.C, this.R, this.D, this.X, this.j, this.M, this.ay, this.L, this.K, this.o, this.E, this.ae, this.v, this.ac, this.af, this.T, this.ai, this.ab, this.aa, this.O, this.p, this.w, this.bd, this.at, this.au, this.aB, this.aO, this.e, this.aN, this.aP, this.aU, this.aV, this.aW, this.aX, this.aZ, this.ba, this.bb, this.Y);
+        a(this.f, this.aA, this.az, this.bc, this.aY, this.aL, this.aD, this.Z, this.J, this.aK, this.U, this.S, this.aJ, this.N, this.aH, this.aT, this.s, this.av, this.i, this.aE, this.ao, this.m, this.Q, this.ag, this.aC, this.n, this.am, this.I, this.h, this.aQ, this.aR, this.aS, this.aI, this.al, this.aq, this.x, this.ar, this.g, this.aM, this.aG, this.aF, this.z, this.ax, this.aw, this.r, this.u, this.y, this.an, this.aj, this.ak, this.A, this.t, this.ah, this.V, this.W, this.as, this.q, this.P, this.ap, this.k, this.l, this.F, this.G, this.H, this.B, this.C, this.R, this.D, this.X, this.j, this.M, this.ay, this.L, this.K, this.o, this.E, this.ae, this.v, this.ac, this.af, this.T, this.ai, this.ab, this.aa, this.O, this.p, this.w, this.bd, this.at, this.au, this.aB, this.aO, this.e, this.aN, this.aP, this.aU, this.aV, this.aW, this.aX, this.aZ, this.ba, this.bb, this.Y);
         super.setup();
     }
 

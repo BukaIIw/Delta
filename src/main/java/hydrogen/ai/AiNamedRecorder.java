@@ -18,9 +18,13 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public final class AiNamedRecorder {
     private static final ReentrantLock LOCK = new ReentrantLock();
+    private static final float DUP_EPS = 0.035f;
     private static String openName;
     private static BufferedWriter writer;
     private static long rows;
+    private static float[] lastFeatures;
+    private static float lastYaw = Float.NaN;
+    private static float lastPitch = Float.NaN;
 
     private AiNamedRecorder() {
     }
@@ -65,6 +69,9 @@ public final class AiNamedRecorder {
         String key = sanitize(name);
         LOCK.lock();
         try {
+            if (duplicate(features, labelYaw, labelPitch)) {
+                return;
+            }
             ensure(mc, key);
             writer.write(AiFeatures.row(features, labelYaw, labelPitch));
             writer.newLine();
@@ -130,5 +137,32 @@ public final class AiNamedRecorder {
             writer.newLine();
         }
         openName = name;
+        lastFeatures = null;
+        lastYaw = Float.NaN;
+        lastPitch = Float.NaN;
+    }
+
+    private static boolean duplicate(float[] features, float labelYaw, float labelPitch) {
+        if (lastFeatures == null || lastFeatures.length != features.length) {
+            return false;
+        }
+        if (Math.abs(labelYaw - lastYaw) > 0.12f || Math.abs(labelPitch - lastPitch) > 0.12f) {
+            return false;
+        }
+        for (int i = 0; i < features.length; i++) {
+            float a = features[i];
+            float b = lastFeatures[i];
+            float scale = (i == 10 || i == 11 || i == 18 || i == 19) ? 0.12f : DUP_EPS;
+            if (Math.abs(a - b) > scale) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static void remember(float[] features, float labelYaw, float labelPitch) {
+        lastFeatures = features.clone();
+        lastYaw = labelYaw;
+        lastPitch = labelPitch;
     }
 }

@@ -74,6 +74,9 @@ public final class AiRecordService implements Interface {
             this.name = AiNamedRecorder.nextAutoName(aM_);
         }
         LivingEntity target = target();
+        if (target == null && aM_.player.getVelocity().lengthSquared() < 1.0E-4d) {
+            return;
+        }
         float[] features = AiFeatures.capture(aM_, target);
         float labelYaw = 0.0f;
         float labelPitch = 0.0f;
