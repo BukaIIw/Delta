@@ -3,7 +3,7 @@ package aethereal.module.misc;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 import aethereal.util.MathUtil;
@@ -66,7 +66,7 @@ public class Collector_2 extends Module {
     private final ButtonSetting c = new ButtonSetting("Открыть редактор", () -> {
         aM_.setScreen(new StationScreen(Text.literal(""), 0));
     });
-    private final List<b> d = Delta.h().d().p().e();
+    private final List<b> d = HydrogenClient.h().d().p().e();
     private final List<a> e = new ArrayList();
     private final CounterUtil f = new CounterUtil();
     private final CounterUtil g = new CounterUtil();
@@ -269,7 +269,7 @@ public class Collector_2 extends Module {
                     a();
                     return;
                 } else if (message.contains("Данная команда недоступна в режиме AFK")) {
-                    Delta.h().d().v().g().a(10);
+                    HydrogenClient.h().d().v().g().a(10);
                 }
             }
             if ((event.d() instanceof OpenScreenS2CPacket) && !(aM_.currentScreen instanceof GenericContainerScreen)) {

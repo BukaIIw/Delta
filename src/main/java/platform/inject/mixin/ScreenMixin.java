@@ -3,7 +3,7 @@ package platform.inject.mixin;
 
 import static aethereal.core.Interface.aM_;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventManager;
 import aethereal.core.IEvent;
 import aethereal.core.Interface;
@@ -27,7 +27,7 @@ public class ScreenMixin {
     @Inject(method = {"render"}, at = {@At("HEAD")}, cancellable = true)
     private void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         Screen self = (Screen)(Object) this;
-        if (((self instanceof ReconfiguringScreen) || (self instanceof DownloadingTerrainScreen)) && Delta.h().d().t().aN().m()) {
+        if (((self instanceof ReconfiguringScreen) || (self instanceof DownloadingTerrainScreen)) && HydrogenClient.h().d().t().aN().m()) {
             if (self instanceof DownloadingTerrainScreen) {
                 Interface.aM_.setScreen((Screen) null);
             }

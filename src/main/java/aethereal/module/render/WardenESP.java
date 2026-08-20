@@ -87,7 +87,7 @@ public class WardenESP extends Module {
                     float x = screen.x() - (width / 2.0f);
                     float y = screen.y() - 6.0f;
                     event.d().a(event.h(), x, y, width - 0.5f, 12.0f, 3.5f, background, 1.0f, background, 6.0f);
-                    event.d().a(event.h(), Identifier.of("delta", "pictures/minecraft/chest.png"), x + 3.0f, y + 0.5f + 2.0f, 7.0f, 7.0f, 0.0f, -1);
+                    event.d().a(event.h(), Identifier.of("hydrogen", "pictures/minecraft/chest.png"), x + 3.0f, y + 0.5f + 2.0f, 7.0f, 7.0f, 0.0f, -1);
                     Fonts.e.a(event.h(), text, x + 3.0f + 8.0f + 2.0f, (y + ((12.0f - Fonts.e.a(6.5f)) / 2.0f)) - 0.5f, 6.5f);
                 }
             }

@@ -4,7 +4,7 @@ import aethereal.render.ScissorUtil;
 import aethereal.util.StringUtils;
 import aethereal.autobuy.AutoBuyProcessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -70,14 +70,14 @@ public class AutoBuySection extends Section implements Interface {
 
     private void a(DrawContext context, Vector4f frame, float slot, float gap, int columns, float top, float scroll, int mouseX, int mouseY, float delta) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        Draw3DProcessor draw3d = Delta.h().d().j();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        Draw3DProcessor draw3d = HydrogenClient.h().d().j();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float startX = frame.x + 8.0f;
         float bottom = frame.y + frame.w;
         float scale = (slot / 16.0f) * 0.75f;
         float offset = (slot - (16.0f * scale)) / 2.0f;
-        List<AutoBuyEntry> items = Delta.h().d().q().e();
+        List<AutoBuyEntry> items = HydrogenClient.h().d().q().e();
         this.j = 0.0f;
         this.i = null;
         if (this.h == null && !items.isEmpty()) {
@@ -107,9 +107,9 @@ public class AutoBuySection extends Section implements Interface {
     private void a(DrawContext context, Vector4f frame, float settingsX, float y, int mouseX, int mouseY, float delta) {
         String str;
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        Draw3DProcessor draw3d = Delta.h().d().j();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        Draw3DProcessor draw3d = HydrogenClient.h().d().j();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float width = ((frame.x + frame.z) - 8.0f) - settingsX;
         if (this.h == null) {
             return;
@@ -167,12 +167,12 @@ public class AutoBuySection extends Section implements Interface {
     @Override
     public boolean a(double mouseX, double mouseY, int button) {
         if (button == 0 && MathUtil.a(mouseX, mouseY, this.e.x, this.e.y, this.e.z, this.e.w)) {
-            Delta.h().d().q().unSetup();
+            HydrogenClient.h().d().q().unSetup();
             ChatUtil.a((Object) "Конфигурация авто-закупки успешно сохранена");
             return true;
         }
         if (button == 0 && MathUtil.a(mouseX, mouseY, this.f.x, this.f.y, this.f.z, this.f.w)) {
-            Delta.h().d().q().setup();
+            HydrogenClient.h().d().q().setup();
             ChatUtil.a((Object) "Конфигурация авто-закупки успешно загружена");
             a(this.h);
             return true;

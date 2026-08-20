@@ -2,7 +2,7 @@ package aethereal.ui.screen;
 
 import aethereal.core.NativeMethodLookup;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -62,8 +62,8 @@ public class StationScreen extends Screen {
         class_4587VarMethod_51448.translate(f5, ((1.0f - EasingList.p.ease(this.f.c())) * 14.0f) + f6, 0.0f);
         class_4587VarMethod_51448.scale(fEase, fEase, 1.0f);
         class_4587VarMethod_51448.translate(-f5, -f6, 0.0f);
-        Draw2DProcessor draw2DProcessorI = Delta.h().d().i();
-        ThemeProcessor themeProcessorO = Delta.h().d().o();
+        Draw2DProcessor draw2DProcessorI = HydrogenClient.h().d().i();
+        ThemeProcessor themeProcessorO = HydrogenClient.h().d().o();
         int iA = themeProcessorO.a(ThemeInfo.BACKGROUND_GUI).a();
         ThemeInfo themeInfo = ThemeInfo.PRIMARY;
         int iA2 = ColorUtil.a(ColorUtil.a(iA, themeProcessorO.a(themeInfo).a(), themeProcessorO.a(themeInfo).b() * 0.25f), 220);
@@ -72,9 +72,9 @@ public class StationScreen extends Screen {
         a(context, delta, iA2);
         this.d.set(vector4f2.x, this.c.y + this.c.w + 8.0f, vector4f2.z, ((vector4f2.y + vector4f2.w) - 8.0f) - ((this.c.y + this.c.w) + 12.0f));
         b().a(context, this.d, mouseX, mouseY, this.e.a(), delta);
-        Draw2DProcessor draw2DProcessorI2 = Delta.h().d().i();
+        Draw2DProcessor draw2DProcessorI2 = HydrogenClient.h().d().i();
         float f7 = this.h;
-        draw2DProcessorI2.a(context, f7 - 3.0f, this.c.y + this.c.w, 6.0f, 0.5f, Delta.h().d().o().a(ThemeInfo.PRIMARY).a());
+        draw2DProcessorI2.a(context, f7 - 3.0f, this.c.y + this.c.w, 6.0f, 0.5f, HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a());
         class_4587VarMethod_51448.pop();
         this.e.a(Math.min(0.0f, this.d.w - b().a(this.d)), 0.0f, 1.0f);
     }
@@ -185,8 +185,8 @@ public class StationScreen extends Screen {
     }
 
     private void a(DrawContext context, float delta, int background) {
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float iconsWidth = 12.0f * (this.a.size() - 1);
         Iterator<Section> it = this.a.iterator();
         while (it.hasNext()) {
@@ -199,9 +199,9 @@ public class StationScreen extends Screen {
         Fonts.a.a(context.getMatrices(), "a", this.b.x + 8.0f, this.c.y + ((this.c.w - Fonts.a.a(12.0f)) / 2.0f), 12.0f, ColorUtil.a(theme.a(ThemeInfo.PRIMARY).a(), 0.75f));
         float separatorX = this.b.x + 8.0f + Fonts.a.a("a", 12.0f) + 8.0f;
         draw.a(context.getMatrices(), separatorX, this.c.y + ((this.c.w - 8.0f) / 2.0f), 0.75f, 8.0f, 0.0f, ColorUtil.a(255, 255, 255, 25));
-        Fonts.c.a(context.getMatrices(), "deltaclient.xyz", separatorX + 8.0f, (this.c.y + ((this.c.w - Fonts.c.a(6.75f)) / 2.0f)) - 0.5f, 6.75f, theme.a(ThemeInfo.TEXT_DISABLED).a());
+        Fonts.c.a(context.getMatrices(), "hydrogendlc.xyz", separatorX + 8.0f, (this.c.y + ((this.c.w - Fonts.c.a(6.75f)) / 2.0f)) - 0.5f, 6.75f, theme.a(ThemeInfo.TEXT_DISABLED).a());
         float avatarX = ((this.b.x + this.b.z) - 12.0f) - 8.0f;
-        draw.a(context.getMatrices(), Identifier.of("delta", "icon.png"), avatarX, this.c.y + ((this.c.w - 12.0f) / 2.0f), 12.0f, 12.0f, 5.0f, -1);
+        draw.a(context.getMatrices(), Identifier.of("hydrogen", "icon.png"), avatarX, this.c.y + ((this.c.w - 12.0f) / 2.0f), 12.0f, 12.0f, 5.0f, -1);
         String sectionName = b().c();
         float separatorX2 = avatarX - 8.0f;
         draw.a(context.getMatrices(), separatorX2, this.c.y + ((this.c.w - 8.0f) / 2.0f), 0.75f, 8.0f, 0.0f, ColorUtil.a(255, 255, 255, 25));

@@ -1,7 +1,7 @@
 package aethereal.ui.element;
 
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
 import aethereal.render.ColorUtil;
@@ -77,8 +77,8 @@ public class ModeElement extends Element_2<ModeSetting> {
     @Override
     public void a(DrawContext context, double mouseX, double mouseY, float delta, float extend) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         Fonts.c.a(matrices, ((ModeSetting) this.b).i(), this.a.x, this.a.y, 6.5f, ColorUtil.a(theme.a(ThemeInfo.TEXT).a(), extend));
         float x = this.a.x;
         float y = this.a.y + Fonts.c.a(6.5f) + 5.0f;

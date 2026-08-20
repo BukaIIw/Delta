@@ -14,7 +14,7 @@ public class RectangleShader extends Shader {
     public Uniform f;
 
     public RectangleShader() {
-        super(Identifier.of("delta", "core/rect/rect"), VertexFormats.POSITION_COLOR);
+        super(Identifier.of("hydrogen", "core/rect/rect"), VertexFormats.POSITION_COLOR);
     }
 
     @Override

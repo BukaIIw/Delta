@@ -3,7 +3,7 @@ package aethereal.module.render;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.render.Fonts;
@@ -86,7 +86,7 @@ public class EntityESP extends Module {
                 continue;
             }
 
-            boolean friend = entity instanceof PlayerEntity && Delta.h().d().e().d(entity.getName().getString());
+            boolean friend = entity instanceof PlayerEntity && HydrogenClient.h().d().e().d(entity.getName().getString());
             int alpha = Math.max(160, InterfaceC0020Opcode.bN);
             int color = friend ? ColorUtil.a(0, 100, 0, alpha) : ColorUtil.a(0, 0, 0, alpha);
 
@@ -111,7 +111,7 @@ public class EntityESP extends Module {
 
     private void a(Entity entity, DrawEvent event, MatrixStack matrices, Vector2f screenPos, float fontSize, float padding, int color) {
         String name = entity.getName().getString();
-        StreamerMode streamerMode = Delta.h().d().t().aE();
+        StreamerMode streamerMode = HydrogenClient.h().d().t().aE();
         if (streamerMode != null && streamerMode.m() && streamerMode.r().c().booleanValue()) {
             name = streamerMode.a(name);
         }

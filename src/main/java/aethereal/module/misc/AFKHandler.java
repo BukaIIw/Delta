@@ -3,7 +3,7 @@ package aethereal.module.misc;
 import aethereal.handler.Handler_2;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.MathUtil;
 
 import aethereal.core.EventTarget;
@@ -45,7 +45,7 @@ public class AFKHandler extends BaseHandler implements Interface {
         if (this.b > 0) {
             e.a(ThreadLocalRandom.current().nextBoolean() ? 1.0f : -1.0f);
             e.b(ThreadLocalRandom.current().nextBoolean() ? 1.0f : -1.0f);
-            Delta.h().d().k().a(new Rotation(aM_.player.getYaw() + MathUtil.a(-2.0f, 2.0f), MathUtil.b(aM_.player.getPitch() + MathUtil.a(-1.0f, 1.0f), -90.0f, 90.0f)), 150.0f, 10, 1);
+            HydrogenClient.h().d().k().a(new Rotation(aM_.player.getYaw() + MathUtil.a(-2.0f, 2.0f), MathUtil.b(aM_.player.getPitch() + MathUtil.a(-1.0f, 1.0f), -90.0f, 90.0f)), 150.0f, 10, 1);
         }
     }
 }

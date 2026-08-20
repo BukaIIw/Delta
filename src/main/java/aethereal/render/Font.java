@@ -32,7 +32,7 @@ import org.joml.Matrix4f;
 import platform.client.processors.draw.fonts.FontData;
 
 public class Font {
-    private final ShaderProgramKey a = new ShaderProgramKey(Identifier.of("delta", "core/text/text"), VertexFormats.POSITION_TEXTURE_COLOR, Defines.EMPTY);
+    private final ShaderProgramKey a = new ShaderProgramKey(Identifier.of("hydrogen", "core/text/text"), VertexFormats.POSITION_TEXTURE_COLOR, Defines.EMPTY);
     private final String b;
     private final AbstractTexture c;
     private final FontData.AtlasData d;

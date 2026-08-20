@@ -1,7 +1,7 @@
 package aethereal.module.player;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -32,7 +32,7 @@ public class AutoTool extends Module implements Interface {
     @EventTarget
     public void a(TickEvent event) {
         int bestSlot;
-        InventoryHandler handler = Delta.h().d().v().a();
+        InventoryHandler handler = HydrogenClient.h().d().v().a();
         if (handler.a().isEmpty()) {
             if (aM_.crosshairTarget instanceof BlockHitResult class_3965Var) {
                 BlockHitResult hit = class_3965Var;

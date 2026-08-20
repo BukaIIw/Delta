@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ItemCooldownManagerMixin implements IItemCooldownManager {
     @Override
     public void setHealCooldown(int duration) {
-        ((ItemCooldownManager)(Object) this).set(Identifier.of("delta", "heal"), duration);
+        ((ItemCooldownManager)(Object) this).set(Identifier.of("hydrogen", "heal"), duration);
     }
 
     @Inject(method = {"getGroup"}, at = {@At("HEAD")}, cancellable = true)
@@ -30,7 +30,7 @@ public abstract class ItemCooldownManagerMixin implements IItemCooldownManager {
                 return effect.getEffectType() == StatusEffects.INSTANT_HEALTH;
             });
             if (heal) {
-                cir.setReturnValue(Identifier.of("delta", "heal"));
+                cir.setReturnValue(Identifier.of("hydrogen", "heal"));
             }
         }
     }

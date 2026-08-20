@@ -1,6 +1,6 @@
 package aethereal.module.player;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -49,7 +49,7 @@ public class OpenWalls extends Module {
         Vec3d end = start.add(player.getRotationVec(1.0f).multiply(player.getBlockInteractionRange()));
         return player.getWorld().raycast(new RaycastContext(start, end, RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, player) {
             public VoxelShape getBlockShape(BlockState state, BlockView world, BlockPos pos) {
-                for (Class<?> clazz : Delta.h().d().t().a().q()) {
+                for (Class<?> clazz : HydrogenClient.h().d().t().a().q()) {
                     if (clazz.isInstance(state.getBlock())) {
                         return super.getBlockShape(state, world, pos);
                     }

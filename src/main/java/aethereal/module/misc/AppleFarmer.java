@@ -4,7 +4,7 @@ import aethereal.core.Interface;
 
 import platform.inject.accessors.SlotAccessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 import aethereal.util.MathUtil;
@@ -52,8 +52,8 @@ public class AppleFarmer extends Module {
             }
             return;
         }
-        Delta.h().d().t().aV().b(19);
-        if (Delta.h().d().v().k().a() || !Delta.h().d().v().i().a(aM_.player.getMainHandStack(), 10.0d, 98.0d)) {
+        HydrogenClient.h().d().t().aV().b(19);
+        if (HydrogenClient.h().d().v().k().a() || !HydrogenClient.h().d().v().i().a(aM_.player.getMainHandStack(), 10.0d, 98.0d)) {
             return;
         }
         BlockPos leaf = a(5.0d, s -> {
@@ -251,7 +251,7 @@ public class AppleFarmer extends Module {
         int target = IntStream.range(0, 9).filter(i2 -> {
             return aM_.player.getInventory().getStack(i2).isEmpty();
         }).findFirst().orElse(aM_.player.getInventory().selectedSlot);
-        Delta.h().d().v().a().a(slot, target, 1);
+        HydrogenClient.h().d().v().a().a(slot, target, 1);
         aM_.player.getInventory().selectedSlot = target;
         return true;
     }
@@ -264,7 +264,7 @@ public class AppleFarmer extends Module {
     }
 
     private void a(Rotation rotation) {
-        Delta.h().d().k().a(rotation, 180.0f, 1, 1);
+        HydrogenClient.h().d().k().a(rotation, 180.0f, 1, 1);
     }
 
     private float t() {

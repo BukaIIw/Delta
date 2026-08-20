@@ -4,7 +4,7 @@ import aethereal.friend.FriendConstructor;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -66,7 +66,7 @@ public class StreamerMode extends Module {
     public String a(String text) {
         String result = text.replaceAll("(?i)" + aM_.getSession().getUsername(), "Protected");
         if (this.c.c().booleanValue()) {
-            for (FriendConstructor friend : Delta.h().d().e().a()) {
+            for (FriendConstructor friend : HydrogenClient.h().d().e().a()) {
                 result = Pattern.compile(friend.a(), 82).matcher(result).replaceAll("Protected");
             }
         }

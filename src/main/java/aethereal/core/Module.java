@@ -1,6 +1,6 @@
 package aethereal.core;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventManager;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.ColorUtil;
@@ -127,7 +127,7 @@ public class Module implements Interface {
         } else {
             c();
         }
-        Delta.h().d().t().at().d(this.k);
+        HydrogenClient.h().d().t().at().d(this.k);
     }
 
     public final void a(Setting<?>... settings) {
@@ -142,11 +142,11 @@ public class Module implements Interface {
 
     public void b() {
         EventManager.a(this);
-        Delta.h().d().m().a(new Notification("Q", ColorUtil.a(InterfaceC0020Opcode.bW, 220, InterfaceC0020Opcode.bv, 255), j() + " активирован", 1500));
+        HydrogenClient.h().d().m().a(new Notification("Q", ColorUtil.a(InterfaceC0020Opcode.bW, 220, InterfaceC0020Opcode.bv, 255), j() + " активирован", 1500));
     }
 
     public void c() {
         EventManager.b(this);
-        Delta.h().d().m().a(new Notification("Q", ColorUtil.a(230, InterfaceC0020Opcode.bW, InterfaceC0020Opcode.bW, 255), j() + " деактивирован", 1500));
+        HydrogenClient.h().d().m().a(new Notification("Q", ColorUtil.a(230, InterfaceC0020Opcode.bW, InterfaceC0020Opcode.bW, 255), j() + " деактивирован", 1500));
     }
 }

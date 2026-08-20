@@ -4,7 +4,7 @@ import aethereal.friend.FriendConstructor;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ServerUtil;
 
 import aethereal.command.BaseCommand;
@@ -39,7 +39,7 @@ public class CCCommand extends BaseCommand {
     @EventTarget
     public void a(TickEvent eventTick) {
         if (this.c >= aM_.player.age) {
-            for (FriendConstructor constructor : Delta.h().d().e().e()) {
+            for (FriendConstructor constructor : HydrogenClient.h().d().e().e()) {
                 PlayerListEntry entry = (PlayerListEntry) aM_.player.networkHandler.getPlayerList().stream().filter(listEntry -> {
                     return listEntry.getProfile().getName().equalsIgnoreCase(constructor.a());
                 }).findFirst().orElse(null);

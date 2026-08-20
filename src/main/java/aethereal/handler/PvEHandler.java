@@ -2,7 +2,7 @@ package aethereal.handler;
 
 import aethereal.handler.Handler_2;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 import aethereal.util.InventoryUtil;
 import aethereal.util.MoveUtil;
@@ -68,7 +68,7 @@ public class PvEHandler extends BaseHandler implements Interface {
         if (class_7439VarD instanceof GameMessageS2CPacket) {
             GameMessageS2CPacket gameMsg = class_7439VarD;
             if (gameMsg.content().getString().equals("Данная команда недоступна в режиме AFK")) {
-                Delta.h().d().v().g().a(7);
+                HydrogenClient.h().d().v().g().a(7);
             }
         }
     }
@@ -123,7 +123,7 @@ public class PvEHandler extends BaseHandler implements Interface {
 
         @Override
         public boolean a() {
-            InventoryHandler handler = Delta.h().d().v().a();
+            InventoryHandler handler = HydrogenClient.h().d().v().a();
             ItemStack offHand = aM_.player.getOffHandStack();
             ItemStack mainHand = aM_.player.getMainHandStack();
             switch (this.f) {
@@ -159,7 +159,7 @@ public class PvEHandler extends BaseHandler implements Interface {
                         this.f = 2;
                         return false;
                     }
-                    Delta.h().d().v().i().a().addFirst(new a(Items.EXPERIENCE_BOTTLE, 128, 2000));
+                    HydrogenClient.h().d().v().i().a().addFirst(new a(Items.EXPERIENCE_BOTTLE, 128, 2000));
                     return false;
                 case 2:
                     if (!handler.a().isEmpty() || offHand.getItem() != this.b) {
@@ -179,7 +179,7 @@ public class PvEHandler extends BaseHandler implements Interface {
                         aM_.player.getInventory().selectedSlot = bar != -1 ? bar : this.d;
                         return false;
                     }
-                    Delta.h().d().k().a(new Rotation(aM_.player.getYaw(), 90.0f), 360.0f, 1, 1);
+                    HydrogenClient.h().d().k().a(new Rotation(aM_.player.getYaw(), 90.0f), 360.0f, 1, 1);
                     aM_.interactionManager.interactItem(aM_.player, Hand.MAIN_HAND);
                     return false;
                 case 3:

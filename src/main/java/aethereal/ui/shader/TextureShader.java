@@ -16,7 +16,7 @@ public class TextureShader extends Shader {
     public Uniform e;
 
     public TextureShader() {
-        super(Identifier.of("delta", "core/rect/texture_rect"), VertexFormats.POSITION_TEXTURE_COLOR);
+        super(Identifier.of("hydrogen", "core/rect/texture_rect"), VertexFormats.POSITION_TEXTURE_COLOR);
     }
 
     @Override

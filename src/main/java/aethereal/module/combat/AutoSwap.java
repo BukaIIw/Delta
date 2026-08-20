@@ -1,7 +1,7 @@
 package aethereal.module.combat;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 
@@ -29,11 +29,11 @@ public class AutoSwap extends Module implements Interface {
     });
     private final SwapScreen e = new SwapScreen(Text.literal("SwapMenu"));
     private final BindSetting f = new BindSetting("Кнопка перемещения", 86, 0).a(() -> {
-        if (Delta.h().d().t().V().b) {
+        if (HydrogenClient.h().d().t().V().b) {
             return;
         }
         if (this.b.l("Двойной")) {
-            Delta.h().d().v().a().a(InventoryUtil.c(aM_.player.getOffHandStack().getItem() == a(this.c) ? a(this.d) : a(this.c)), 45, 1);
+            HydrogenClient.h().d().v().a().a(InventoryUtil.c(aM_.player.getOffHandStack().getItem() == a(this.c) ? a(this.d) : a(this.c)), 45, 1);
         } else if (this.b.l("Тройной")) {
             aM_.setScreen(this.e);
         }

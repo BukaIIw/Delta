@@ -4,7 +4,7 @@ import aethereal.core.NativeMethodLookup;
 import aethereal.lib.websocket.ServerHandshake;
 import aethereal.lib.websocket.WebSocketClient;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.lib.log4j.LoggerFactory;
 
 import aethereal.core.Packet;
@@ -129,7 +129,7 @@ public class Client extends WebSocketClient {
     }
 
     public Client(boolean dev) {
-        super(URI.create(dev ? "ws://localhost:2002/" : "wss://deltaclient.xyz/ws/"), (Map<String, String>) Map.of("Sec-WebSocket-Protocol", Delta.h().g().f() + "-minecraft"));
+        super(URI.create(dev ? "ws://localhost:2002/" : "wss://hydrogendlc.xyz/ws/"), (Map<String, String>) Map.of("Sec-WebSocket-Protocol", HydrogenClient.h().g().f() + "-minecraft"));
         this.c = Executors.newSingleThreadScheduledExecutor();
         this.d = new ArrayList();
         this.e = new PacketSecurity();

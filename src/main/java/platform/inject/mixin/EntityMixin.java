@@ -4,7 +4,7 @@ package platform.inject.mixin;
 import static aethereal.core.Interface.aM_;
 
 import aethereal.event.BoundingBoxEvent;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventManager;
 import aethereal.core.IEvent;
 import aethereal.core.Interface;
@@ -47,7 +47,7 @@ public abstract class EntityMixin {
     @Inject(method = {"onBubbleColumnSurfaceCollision"}, at = {@At("HEAD")}, cancellable = true)
     private void onBubbleColumnSurfaceCollision(boolean drag, CallbackInfo ci) {
         Entity self = (Entity)(Object) this;
-        if ((self instanceof ClientPlayerEntity) && Delta.h().d().t().aq().m()) {
+        if ((self instanceof ClientPlayerEntity) && HydrogenClient.h().d().t().aq().m()) {
             self.setVelocity(self.getVelocity().x, Math.min(1.8d, self.getVelocity().y + 9.99999999E8d), self.getVelocity().z);
             ci.cancel();
         }

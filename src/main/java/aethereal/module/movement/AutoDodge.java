@@ -4,7 +4,7 @@ import aethereal.core.Interface;
 
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 import aethereal.util.MathUtil;
@@ -65,23 +65,23 @@ public class AutoDodge extends Module {
             if (matched != null) {
                 boolean trace = a(potionEntity, playerHitboxExpanded);
                 int rgba = (-16777216) | (matched.a & 16777215);
-                if (!trace || Delta.h().d().e().d(matched.b)) {
+                if (!trace || HydrogenClient.h().d().e().d(matched.b)) {
                     return;
                 }
                 if ((rgba == -13447886 || rgba == -16776961) && aM_.player.distanceTo(potionEntity) > 2.300000381469741d && this.b >= 0) {
                     ItemStack kelp = Items.DRIED_KELP.getDefaultStack();
                     if (!aM_.player.getItemCooldownManager().isCoolingDown(kelp) && InventoryUtil.b(Items.DRIED_KELP) != -1) {
-                        if (Delta.h().d().v().b().a().isEmpty()) {
+                        if (HydrogenClient.h().d().v().b().a().isEmpty()) {
                             if (Rotation.b().a(new Rotation(aM_.player.getYaw(), aM_.player.getPitch())) < 20.0d) {
                                 this.b++;
                             }
                             if (this.b >= 2) {
                                 this.b = 5;
-                                Delta.h().d().v().b().a(Items.DRIED_KELP.getDefaultStack());
+                                HydrogenClient.h().d().v().b().a(Items.DRIED_KELP.getDefaultStack());
                             }
                         }
                         Rotation aimRotation = Rotation.a(aM_.player.getEyePos(), potionEntity.getEyePos());
-                        Delta.h().d().k().a(new Rotation(aimRotation.c() + MathUtil.a(-3.0f, 3.0f), aimRotation.d() + MathUtil.a(-3.0f, 3.0f)), 180.0f, 1, 1);
+                        HydrogenClient.h().d().k().a(new Rotation(aimRotation.c() + MathUtil.a(-3.0f, 3.0f), aimRotation.d() + MathUtil.a(-3.0f, 3.0f)), 180.0f, 1, 1);
                         break;
                     }
                 } else {

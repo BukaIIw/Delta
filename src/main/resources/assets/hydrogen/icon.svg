@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151726"/>
+      <stop offset="0.52" stop-color="#0d101b"/>
+      <stop offset="1" stop-color="#090b12"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a99dff"/>
+      <stop offset="0.48" stop-color="#826cff"/>
+      <stop offset="1" stop-color="#53d8e2"/>
+    </linearGradient>
+    <radialGradient id="aura" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#8874ff" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#8874ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <circle cx="128" cy="112" r="104" fill="url(#aura)"/>
+  <rect x="4" y="4" width="248" height="248" rx="52" fill="none" stroke="#b1a8ff" stroke-opacity=".16" stroke-width="3"/>
+  <path d="M76 58 Q66 58 66 68 V188 Q66 198 76 198 H91 Q101 198 101 188 V144 H155 V188 Q155 198 165 198 H180 Q190 198 190 188 V68 Q190 58 180 58 H165 Q155 58 155 68 V111 H101 V68 Q101 58 91 58 Z" fill="#7562ff" opacity=".58" filter="url(#shadow)"/>
+  <path d="M76 58 Q66 58 66 68 V188 Q66 198 76 198 H91 Q101 198 101 188 V144 H155 V188 Q155 198 165 198 H180 Q190 198 190 188 V68 Q190 58 180 58 H165 Q155 58 155 68 V111 H101 V68 Q101 58 91 58 Z" fill="url(#edge)"/>
+  <path d="M101 111 H155 V144 H101 Z" fill="#f2f0ff" opacity=".18"/>
+</svg>

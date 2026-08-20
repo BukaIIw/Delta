@@ -5,7 +5,7 @@ import static aethereal.core.Interface.aM_;
 
 import aethereal.render.AnimationUtil;
 import aethereal.event.CooldownEvent;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventManager;
 import aethereal.core.IEvent;
 import aethereal.mixin.IStatusEffectInstance;
@@ -35,8 +35,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ClientPlayNetworkHandlerMixin implements Interface {
     @Inject(method = {"sendChatMessage"}, at = {@At("HEAD")}, cancellable = true)
     private void sendChatMessage(String content, CallbackInfo ci) {
-        if (!Delta.h().d().t().am().m()) {
-            Delta.h().d().u().a(content, ci);
+        if (!HydrogenClient.h().d().t().am().m()) {
+            HydrogenClient.h().d().u().a(content, ci);
         }
     }
 

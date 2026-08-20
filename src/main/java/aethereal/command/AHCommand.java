@@ -4,7 +4,7 @@ import aethereal.autobuy.AutoBuyEntry;
 import aethereal.util.StringUtils;
 import aethereal.autobuy.AutoBuyProcessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 import aethereal.util.ServerUtil;
 
@@ -97,7 +97,7 @@ public class AHCommand extends BaseCommand implements Interface {
 
     private void a(float percent) {
         ItemStack stack = aM_.player.getMainHandStack();
-        AutoBuyEntry item = Delta.h().d().q().e().stream().filter(info -> {
+        AutoBuyEntry item = HydrogenClient.h().d().q().e().stream().filter(info -> {
             return info.a(stack);
         }).findFirst().orElse(null);
         if (item == null) {
@@ -125,7 +125,7 @@ public class AHCommand extends BaseCommand implements Interface {
 
     private String a(ItemStack stack) {
         this.d = this.d == null ? TranslationStorage.load(aM_.getResourceManager(), List.of("ru_ru"), false) : this.d;
-        String name = (String) Delta.h().d().q().e().stream().filter(item -> {
+        String name = (String) HydrogenClient.h().d().q().e().stream().filter(item -> {
             return item.a(stack);
         }).findFirst().map((v0) -> {
             return v0.b();

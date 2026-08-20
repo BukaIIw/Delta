@@ -102,7 +102,7 @@ public class Cosmetic implements GeoAnimatable {
         this.scale = scale;
         this.bakedModel = bakedModel;
         this.bakedAnimations = bakedAnimations;
-        this.image = Identifier.of("delta", "cosmetics/" + name);
+        this.image = Identifier.of("hydrogen", "cosmetics/" + name);
         this.renderer = new GeoObjectRenderer<>(new CosmeticsGeoModel(this));
         Interface.aM_.getTextureManager().registerTexture(this.image, new NativeImageBackedTexture(image));
     }

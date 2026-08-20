@@ -9,7 +9,7 @@ import aethereal.core.Module;
 import aethereal.command.CommandProcessor;
 import aethereal.command.LayoutCommand;
 import aethereal.config.ConfigProcessor;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventTarget;
 import aethereal.core.Processor_2;
 import aethereal.event.KeyEvent;
@@ -301,11 +301,11 @@ public class ModuleProcessor extends ConfigProcessor<Module> {
         }
         JSONArray jSONArrayY = jSONObject.y("layouts");
         if (jSONArrayY != null) {
-            Delta deltaH = Delta.h();
-            if (deltaH == null) {
+            HydrogenClient hydrogenClient = HydrogenClient.h();
+            if (hydrogenClient == null) {
                 throw new NullPointerException();
             }
-            Processor_2 processor_2D = deltaH.d();
+            Processor_2 processor_2D = hydrogenClient.d();
             if (processor_2D == null) {
                 throw new NullPointerException();
             }
@@ -428,11 +428,11 @@ public class ModuleProcessor extends ConfigProcessor<Module> {
             jSONArray.a(jSONObject);
         }
         JSONArray jSONArray2 = new JSONArray();
-        Delta deltaH = Delta.h();
-        if (deltaH == null) {
+        HydrogenClient hydrogenClient = HydrogenClient.h();
+        if (hydrogenClient == null) {
             throw new NullPointerException();
         }
-        Processor_2 processor_2D = deltaH.d();
+        Processor_2 processor_2D = hydrogenClient.d();
         if (processor_2D == null) {
             throw new NullPointerException();
         }

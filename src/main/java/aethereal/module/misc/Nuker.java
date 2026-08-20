@@ -3,7 +3,7 @@ package aethereal.module.misc;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
@@ -63,7 +63,7 @@ public class Nuker extends Module {
 
     @EventTarget
     public void a(TickEvent event) {
-        MineAssistant assistant = Delta.h().d().t().ak();
+        MineAssistant assistant = HydrogenClient.h().d().t().ak();
         this.f = null;
         ItemStack tool = aM_.player.getMainHandStack();
         if (tool.isDamageable() && tool.getMaxDamage() - tool.getDamage() < 50) {
@@ -100,7 +100,7 @@ public class Nuker extends Module {
         }
         if (this.f != null) {
             Rotation base = Rotation.a(eye, this.f.toCenterPos());
-            Delta.h().d().k().a(new Rotation(MathHelper.wrapDegrees(base.c() + MathUtil.a(-3.0f, 3.0f)), MathHelper.clamp(base.d() + MathUtil.a(-3.0f, 3.0f), -90.0f, 90.0f)), 180.0f, 1, 1);
+            HydrogenClient.h().d().k().a(new Rotation(MathHelper.wrapDegrees(base.c() + MathUtil.a(-3.0f, 3.0f)), MathHelper.clamp(base.d() + MathUtil.a(-3.0f, 3.0f), -90.0f, 90.0f)), 180.0f, 1, 1);
             if (Rotation.b().a(base) <= 20.0d) {
                 for (int i = 0; i < this.d.h().intValue(); i++) {
                     aM_.interactionManager.updateBlockBreakingProgress(this.f, face);

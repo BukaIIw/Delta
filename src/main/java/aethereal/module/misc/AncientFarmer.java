@@ -3,7 +3,7 @@ package aethereal.module.misc;
 import net.minecraft.item.ItemStack;
 import platform.inject.invokers.MinecraftClientInvoker;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
@@ -91,7 +91,7 @@ public class AncientFarmer extends Module {
         a missing = (AncientFarmer.a) Arrays.stream(AncientFarmer.a.values()).filter(requirement -> {
             return !requirement.a();
         }).findFirst().orElse(null);
-        XRay xray = Delta.h().d().t().E();
+        XRay xray = HydrogenClient.h().d().t().E();
         boolean work = missing == AncientFarmer.a.TNT && this.e != Phase.SEARCH;
         if (ServerUtil.a.d() == -1) {
         }
@@ -100,7 +100,7 @@ public class AncientFarmer extends Module {
             a();
             return;
         }
-        InteractHandler eat = Delta.h().d().v().k();
+        InteractHandler eat = HydrogenClient.h().d().v().k();
         int foodSlot = IntStream.range(0, 9).filter(slot -> {
             return aM_.player.getInventory().getStack(slot).contains(DataComponentTypes.FOOD);
         }).findFirst().orElse(-1);
@@ -178,7 +178,7 @@ public class AncientFarmer extends Module {
                             return Double.compare(eye.squaredDistanceTo(a2), eye.squaredDistanceTo(b2));
                         }).orElse(null);
                         if (aim != null) {
-                            Delta.h().d().k().a(Rotation.a(eye, aim), 180.0f, 0, 1);
+                            HydrogenClient.h().d().k().a(Rotation.a(eye, aim), 180.0f, 0, 1);
                             if (new Rotation(aM_.player).a(Rotation.b()) < 1.0d && aM_.player.age % 5 == 0) {
                                 aM_.player.getInventory().selectedSlot = flint;
                                 if (aM_.crosshairTarget instanceof BlockHitResult class_3965Var) {
@@ -216,7 +216,7 @@ public class AncientFarmer extends Module {
                     if (target != null) {
                         if (slot3 != -1) {
                             BlockPos support = target.down();
-                            Delta.h().d().k().a(Rotation.a(eye2, new Vec3d(((double) support.getX()) + 0.5d, support.getY() + 1, ((double) support.getZ()) + 0.5d)), 180.0f, 0, 1);
+                            HydrogenClient.h().d().k().a(Rotation.a(eye2, new Vec3d(((double) support.getX()) + 0.5d, support.getY() + 1, ((double) support.getZ()) + 0.5d)), 180.0f, 0, 1);
                             if (new Rotation(aM_.player).a(Rotation.b()) < 1.0d && aM_.player.age % 5 == 0) {
                                 if (aM_.player.getInventory().selectedSlot != slot3) {
                                     aM_.player.getInventory().selectedSlot = slot3;
@@ -279,7 +279,7 @@ public class AncientFarmer extends Module {
                     if (!xray.s().isEmpty()) {
                         if (!baritone.getMineProcess().isActive()) {
                             baritone.getMineProcess().minePositions(Items.ANCIENT_DEBRIS, xray.s());
-                            Delta.h().f().a(false, "telegram", "message", "⛏️ AncientFarmer — Найдены древние обломки!\n\n📍 Позиций для добычи: %s\n".formatted(Integer.valueOf(xray.s().size())));
+                            HydrogenClient.h().f().a(false, "telegram", "message", "⛏️ AncientFarmer — Найдены древние обломки!\n\n📍 Позиций для добычи: %s\n".formatted(Integer.valueOf(xray.s().size())));
                         }
                     } else if (!baritone.getMineProcess().isActive()) {
                         this.e = Phase.SEARCH;

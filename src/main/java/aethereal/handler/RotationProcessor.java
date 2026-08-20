@@ -4,7 +4,7 @@ import aethereal.handler.UseableHandler;
 import aethereal.module.combat.AuraUtil;
 import aethereal.core.NativeMethodLookup;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.MathUtil;
 import aethereal.util.MoveUtil;
 
@@ -127,7 +127,7 @@ public class RotationProcessor extends BaseProcessor implements Interface {
     }
 
     private static boolean e() {
-        List<UseableHandler.a> tasks = Delta.h().d().v().b().a();
+        List<UseableHandler.a> tasks = HydrogenClient.h().d().v().b().a();
         if (tasks.isEmpty() || ((UseableHandler.a) tasks.getFirst()).d() >= 1) {
             return false;
         }
@@ -170,7 +170,7 @@ public class RotationProcessor extends BaseProcessor implements Interface {
                 float basePitch2 = AuraUtil.a(aM_.player.getPitch(), Look.c(), MathUtil.a(0.1f, 0.45f));
                 return new Rotation(baseYaw2 + sw, MathHelper.clamp(basePitch2 + sw, -90.0f, 90.0f));
             case 7:
-                if (!Delta.h().d().t().aS().m()) {
+                if (!HydrogenClient.h().d().t().aS().m()) {
                     idleTicks = 25;
                 }
                 if (idleTicks <= 20) {

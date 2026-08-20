@@ -1,7 +1,7 @@
 package aethereal.ui.widget;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -141,7 +141,7 @@ public class EnvironmentWidget extends Widget implements Interface {
     }
 
     private void a(DrawEvent event, float x, float y, float width, float height, float radius, float animation, boolean empty) {
-        ThemeProcessor theme = Delta.h().d().o();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         int background = ColorUtil.a(theme.a(ThemeInfo.BACKGROUND_HUD).a(), theme.a(ThemeInfo.PRIMARY).a(), theme.a(ThemeInfo.PRIMARY).b() / 6.0f);
         event.d().b(event.h(), x, y, width, height, radius, ColorUtil.a(empty ? ColorUtil.a(background, ColorUtil.a(255, 60, 60, 255), 0.35f) : background, theme.a(ThemeInfo.BACKGROUND_HUD).b() * animation), animation);
     }
@@ -150,12 +150,12 @@ public class EnvironmentWidget extends Widget implements Interface {
     public void a(GlobalEvent event) {
         PlayerEntity class_1657Var;
         if (aM_.world != null && aM_.player != null) {
-            PlayerEntity class_1657VarS = (PlayerEntity) Delta.h().d().t().B().s();
+            PlayerEntity class_1657VarS = (PlayerEntity) HydrogenClient.h().d().t().B().s();
             if (class_1657VarS instanceof PlayerEntity) {
                 PlayerEntity aura = class_1657VarS;
                 class_1657Var = aura;
             } else {
-                PlayerEntity class_1657VarS2 = (PlayerEntity) Delta.h().d().t().X().s();
+                PlayerEntity class_1657VarS2 = (PlayerEntity) HydrogenClient.h().d().t().X().s();
                 if (class_1657VarS2 instanceof PlayerEntity) {
                     PlayerEntity trigger = class_1657VarS2;
                     class_1657Var = trigger;
@@ -170,7 +170,7 @@ public class EnvironmentWidget extends Widget implements Interface {
             }
             long now = System.currentTimeMillis();
             List<? extends PlayerEntity> nearby = aM_.world.getPlayers().stream().filter(player -> {
-                return (player == aM_.player || !player.isAlive() || Delta.h().d().e().d(player.getName().getString())) ? false : true;
+                return (player == aM_.player || !player.isAlive() || HydrogenClient.h().d().e().d(player.getName().getString())) ? false : true;
             }).sorted(Comparator.<PlayerEntity>comparingInt((PlayerEntity player2) -> {
                 if (player2.getUuid().equals(this.i[0])) {
                     return 0;
@@ -251,7 +251,7 @@ public class EnvironmentWidget extends Widget implements Interface {
         a(ItemStack stack, int hand) {
             this.a = stack.copy();
             this.a.setDamage(0);
-            this.a.set(DataComponentTypes.USE_COOLDOWN, new UseCooldownComponent(0.0f, Optional.of(Identifier.of("delta", "widget"))));
+            this.a.set(DataComponentTypes.USE_COOLDOWN, new UseCooldownComponent(0.0f, Optional.of(Identifier.of("hydrogen", "widget"))));
             this.d = hand;
         }
 
@@ -280,7 +280,7 @@ public class EnvironmentWidget extends Widget implements Interface {
 
         void a(PlayerEntity player, long now) {
             Identifier class_2960VarComp_1626;
-            StreamerMode streamer = Delta.h().d().t().aE();
+            StreamerMode streamer = HydrogenClient.h().d().t().aE();
             this.d = (streamer.m() && streamer.r().c().booleanValue()) ? streamer.a(player.getName().getString()) : player.getName().getString();
             if (player instanceof AbstractClientPlayerEntity) {
                 AbstractClientPlayerEntity client = (AbstractClientPlayerEntity) player;

@@ -3,7 +3,7 @@ package aethereal.ui.element;
 import aethereal.util.KeyUtil;
 import aethereal.render.ScissorUtil;
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
 import aethereal.render.ColorUtil;
@@ -80,8 +80,8 @@ public class BindElement extends Element_2<BindSetting> {
     @Override
     public void a(DrawContext context, double mouseX, double mouseY, float delta, float extend) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         b().a(this.d);
         b().a(0.0f, 1.0f, 0.4f, EasingList.p, delta);
         float centerY = this.a.y + (this.a.w / 2.0f) + 0.5f;

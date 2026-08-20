@@ -4,7 +4,7 @@ import aethereal.core.Interface;
 
 import platform.inject.accessors.SlotAccessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.command.BaseCommand;
@@ -38,7 +38,7 @@ public class LayoutCommand extends BaseCommand {
     }
 
     private void d() {
-        Delta.h().d().t().b("default");
+        HydrogenClient.h().d().t().b("default");
     }
 
     private void a(List<a> layout) {

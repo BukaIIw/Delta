@@ -5,7 +5,7 @@ import aethereal.core.NativeMethodLookup;
 import aethereal.ui.shader.GradientUtil;
 import aethereal.ui.widget.EffectMarker;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
@@ -60,7 +60,7 @@ public class MainScreen extends Screen {
         int iMethod_4486 = Interface.aM_.getWindow().getScaledWidth();
         int iMethod_4502 = Interface.aM_.getWindow().getScaledHeight();
         a(context, iMethod_4486, iMethod_4502, (int) dA, (int) dA2, 1.25f - (EasingList.s.ease(fMin) * 0.2f));
-        Delta.h().d().i().e().a(context.getMatrices());
+        HydrogenClient.h().d().i().e().a(context.getMatrices());
         a(iMethod_4486, iMethod_4502);
         a(context, iMethod_4486 * 0.5f, ((iMethod_4502 - this.c.c()) * 0.5f) - 58.0f, fMin);
         Iterator<Button> it = this.g.iterator();
@@ -164,7 +164,7 @@ public class MainScreen extends Screen {
         matrices.translate(width / 2.0f, height / 2.0f, 0.0f);
         matrices.scale(scale, scale, 1.0f);
         matrices.translate((-width) / 2.0f, (-height) / 2.0f, 0.0f);
-        Delta.h().d().i().a(matrices, Identifier.of("delta", "pictures/main.png"), (-marginX) + a[0], (-marginY) + a[1], width + (marginX * 2.0f), height + (marginY * 2.0f), 0.0f, -1);
+        HydrogenClient.h().d().i().a(matrices, Identifier.of("hydrogen", "pictures/main.png"), (-marginX) + a[0], (-marginY) + a[1], width + (marginX * 2.0f), height + (marginY * 2.0f), 0.0f, -1);
         matrices.pop();
     }
 
@@ -183,7 +183,7 @@ public class MainScreen extends Screen {
         float target = this.j >= 0.0f ? MathHelper.clamp((((mouseX - this.j) - this.k) - 1.75f) / 59.5f, 0.0f, 1.0f) : 0.0f;
         this.i += (target - this.i) * 0.25f;
         float scale = 0.85f + (0.15f * EasingList.s.ease(open));
-        Draw2DProcessor draw = Delta.h().d().i();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
         MatrixStack matrices = context.getMatrices();
         matrices.push();
         matrices.translate(this.k + 39.5f, this.l + 9.75f, 0.0f);
@@ -208,15 +208,15 @@ public class MainScreen extends Screen {
     }
 
     private void a(DrawContext context, float centerX, float titleY, float open) {
-        float titleWidth = Fonts.e.a("Delta Client", 12.0f);
+        float titleWidth = Fonts.e.a("HydrogenDLC", 12.0f);
         MatrixStack matrices = context.getMatrices();
         float scale = 0.85f + (0.15f * EasingList.s.ease(open));
         matrices.push();
         matrices.translate(centerX, titleY + 8.0f, 0.0f);
         matrices.scale(scale, scale, 1.0f);
         matrices.translate(-centerX, (-titleY) - 8.0f, 0.0f);
-        int primary = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
-        Fonts.e.a(matrices, (Text) GradientUtil.a("Delta Client", primary, 5.0f, 0.5f), centerX - (titleWidth / 2.0f), titleY + 1.5f, 12.0f, 0.0f, open);
+        int primary = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
+        Fonts.e.a(matrices, (Text) GradientUtil.a("HydrogenDLC", primary, 5.0f, 0.5f), centerX - (titleWidth / 2.0f), titleY + 1.5f, 12.0f, 0.0f, open);
         Fonts.e.a(matrices, "1.21.4", centerX - (Fonts.e.a("1.21.4", 12.0f) / 2.0f), titleY + 15.0f, 12.0f, ColorUtil.a(255, 255, 255, (int) (160.0f * open)));
         matrices.pop();
     }

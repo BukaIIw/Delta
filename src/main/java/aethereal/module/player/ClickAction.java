@@ -1,7 +1,7 @@
 package aethereal.module.player;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 
@@ -20,7 +20,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 @ModuleRegister(a = "Click Action", b = "Выполняет действие, привязанное к выбранной клавише", c = Category.Player)
 public class ClickAction extends Module implements Interface {
     private final BindSetting b = new BindSetting("Эндер-жемчуг", -1).a(() -> {
-        Delta.h().d().v().b().a(Items.ENDER_PEARL.getDefaultStack());
+        HydrogenClient.h().d().v().b().a(Items.ENDER_PEARL.getDefaultStack());
     });
     private final BindSetting c = new BindSetting("Добавление друга", -1).a(() -> {
         AbstractClientPlayerEntity class_746Var;
@@ -31,13 +31,13 @@ public class ClickAction extends Module implements Interface {
                 class_746Var = class_746VarMethod_17782;
                 if (class_746Var != aM_.player) {
                     String name = class_746Var.getName().getString();
-                    if (Delta.h().d().e().d(name)) {
-                        Delta.h().d().e().c(name);
-                        Delta.h().d().e().unSetup();
+                    if (HydrogenClient.h().d().e().d(name)) {
+                        HydrogenClient.h().d().e().c(name);
+                        HydrogenClient.h().d().e().unSetup();
                         ChatUtil.a((Object) ("Товарищ " + name + " был успешно удален из списка друзей."));
                     } else {
-                        Delta.h().d().e().b(name);
-                        Delta.h().d().e().unSetup();
+                        HydrogenClient.h().d().e().b(name);
+                        HydrogenClient.h().d().e().unSetup();
                         ChatUtil.a((Object) ("Товарищ " + name + " был успешно добавлен в список друзей."));
                     }
                 }

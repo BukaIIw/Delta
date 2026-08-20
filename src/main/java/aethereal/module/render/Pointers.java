@@ -3,7 +3,7 @@ package aethereal.module.render;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.render.ColorUtil;
@@ -61,7 +61,7 @@ public class Pointers extends Module {
                     PlayerEntity player = (PlayerEntity) class_746Var;
                     if (class_746Var != aM_.player && class_746Var.isAlive()) {
                         Vec3d pos = MathUtil.a((Entity) class_746Var, event.g()).add(0.0d, class_746Var.getHeight() / 2.0f, 0.0d);
-                        boolean isFriend = Delta.h().d().e().d(player.getName().getString());
+                        boolean isFriend = HydrogenClient.h().d().e().d(player.getName().getString());
                         if (!this.b.a("Фильтр по друзьям").c().booleanValue() || isFriend) {
                             buffer.vertex(matrix, (float) (start.getX() - cam.x), (float) (start.getY() - cam.y), (float) (start.getZ() - cam.z)).color(isFriend ? 0.0f : 1.0f, 1.0f, isFriend ? 0.0f : 1.0f, 1.0f);
                             buffer.vertex(matrix, (float) (pos.getX() - cam.x), (float) (pos.getY() - cam.y), (float) (pos.getZ() - cam.z)).color(isFriend ? 0.0f : 1.0f, 1.0f, isFriend ? 0.0f : 1.0f, 1.0f);
@@ -79,7 +79,7 @@ public class Pointers extends Module {
                 if (class_746Var2 instanceof PlayerEntity) {
                     PlayerEntity player2 = (PlayerEntity) class_746Var2;
                     if (class_746Var2 != aM_.player && class_746Var2.isAlive()) {
-                        boolean isFriend2 = Delta.h().d().e().d(player2.getName().getString());
+                        boolean isFriend2 = HydrogenClient.h().d().e().d(player2.getName().getString());
                         if (!this.b.a("Фильтр по друзьям").c().booleanValue() || isFriend2) {
                             Vec3d pos2 = MathUtil.a((Entity) class_746Var2, event.g());
                             Vec3d eye = MathUtil.a((Entity) aM_.player, event.g());
@@ -89,7 +89,7 @@ public class Pointers extends Module {
                             stack.push();
                             stack.translate((aM_.getWindow().getScaledWidth() / 2.0f) + (((float) Math.sin(radians)) * this.d.c().floatValue()), (aM_.getWindow().getScaledHeight() / 2.0f) - (((float) Math.cos(radians)) * this.d.c().floatValue()), 0.0f);
                             stack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(angle));
-                            event.d().a(stack, Identifier.of("delta", "pictures/pointer.png"), (-this.c.c().floatValue()) / 2.0f, (-this.c.c().floatValue()) / 2.0f, this.c.c().floatValue(), this.c.c().floatValue(), 0.0f, isFriend2 ? ColorUtil.a(85, 255, 85, InterfaceC0020Opcode.aL) : ColorUtil.a(255, 255, 255, InterfaceC0020Opcode.aL));
+                            event.d().a(stack, Identifier.of("hydrogen", "pictures/pointer.png"), (-this.c.c().floatValue()) / 2.0f, (-this.c.c().floatValue()) / 2.0f, this.c.c().floatValue(), this.c.c().floatValue(), 0.0f, isFriend2 ? ColorUtil.a(85, 255, 85, InterfaceC0020Opcode.aL) : ColorUtil.a(255, 255, 255, InterfaceC0020Opcode.aL));
                             stack.pop();
                         }
                     }

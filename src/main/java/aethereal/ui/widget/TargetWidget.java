@@ -2,7 +2,7 @@ package aethereal.ui.widget;
 
 import aethereal.render.ScissorUtil;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -65,7 +65,7 @@ public class TargetWidget extends Widget {
                 Fonts.a.a(event.h(), "B", x + 6.5f + ((headSize - 24.0f) / 2.0f), headY + ((headSize - 24.0f) / 2.0f), 24.0f, ColorUtil.a(-1, a()));
             }
             float textX = x + 5.0f + headSize + 5.0f;
-            StreamerMode streamerMode = Delta.h().d().t().aE();
+            StreamerMode streamerMode = HydrogenClient.h().d().t().aE();
             if (streamerMode.m() && streamerMode.r().c().booleanValue()) {
                 string = streamerMode.a(this.j.getName().getString());
             } else {
@@ -86,7 +86,7 @@ public class TargetWidget extends Widget {
                     }
                 }
             }
-            int primary = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+            int primary = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
             String hpValue = String.valueOf((int) ServerUtil.a.a(this.j));
             if (this.k.isEmpty()) {
                 this.k = hpValue;
@@ -99,7 +99,7 @@ public class TargetWidget extends Widget {
             }
             float targetHP = MathUtil.b(MathUtil.b(ServerUtil.a.a(this.j), 0.0f, this.j.getMaxHealth()) / this.j.getMaxHealth(), 0.0f, 1.0f);
             float lineHP = this.h.a(targetHP, targetHP, 0.5f);
-            float alpha = Delta.h().d().o().a(ThemeInfo.BACKGROUND_HUD).b() * a();
+            float alpha = HydrogenClient.h().d().o().a(ThemeInfo.BACKGROUND_HUD).b() * a();
             event.d().a(event.h(), textX, headY + 12.5f, 54.0f, 3.0f, 0.5f, ColorUtil.a(ColorUtil.b(primary, 0.3f), a()));
             event.d().a(event.h(), textX, headY + 12.5f, 54.0f * lineHP, 3.0f, 0.5f, ColorUtil.a(primary, alpha));
         }
@@ -131,7 +131,7 @@ public class TargetWidget extends Widget {
     public void a(GlobalEvent event) {
         LivingEntity class_1309Var;
         LivingEntity class_1309Var2;
-        LivingEntity targets = Delta.h().d().t().B().s() != null ? Delta.h().d().t().B().s() : Delta.h().d().t().X().s();
+        LivingEntity targets = HydrogenClient.h().d().t().B().s() != null ? HydrogenClient.h().d().t().B().s() : HydrogenClient.h().d().t().X().s();
         if (this.g.c().booleanValue()) {
             EntityHitResult class_3966Var = Interface.aM_.crosshairTarget instanceof EntityHitResult ? (EntityHitResult) Interface.aM_.crosshairTarget : null;
             if (class_3966Var instanceof EntityHitResult) {

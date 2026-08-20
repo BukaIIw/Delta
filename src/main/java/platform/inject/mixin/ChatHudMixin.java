@@ -4,7 +4,7 @@ package platform.inject.mixin;
 import static aethereal.core.Interface.aM_;
 
 import aethereal.render.Animations;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.core.Interface;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -43,7 +43,7 @@ public abstract class ChatHudMixin {
 
     @ModifyArgs(method = {"render(Lnet/minecraft/client/gui/DrawContext;IIIZ)V"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V"), require = 0)
     private void onRenderLineBackground(Args args, @Local ChatHudLine.Visible line) {
-        if (!Delta.h().d().t().as().m() || !Delta.h().d().t().as().q().c().booleanValue() || (((Integer) args.get(4)).intValue() & 16777215) != 0) {
+        if (!HydrogenClient.h().d().t().as().m() || !HydrogenClient.h().d().t().as().q().c().booleanValue() || (((Integer) args.get(4)).intValue() & 16777215) != 0) {
             return;
         }
         args.set(2, Integer.valueOf(((Integer) args.get(0)).intValue() + Interface.aM_.textRenderer.getWidth(line.content()) + 5));
@@ -51,7 +51,7 @@ public abstract class ChatHudMixin {
 
     @WrapOperation(method = {"render(Lnet/minecraft/client/gui/DrawContext;IIIZ)V"}, at = {@At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawTextWithShadow(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/OrderedText;III)I")})
     private int onRenderLineText(DrawContext context, TextRenderer renderer, OrderedText text, int x, int y, int color, Operation<Integer> original, @Local ChatHudLine.Visible line, @Local(argsOnly = true, ordinal = 0) int currentTick) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (!animations.m() || !animations.q().a("Появление сообщений").c().booleanValue()) {
             return ((Integer) original.call(new Object[]{context, renderer, text, Integer.valueOf(x), Integer.valueOf(y), Integer.valueOf(color)})).intValue();
         }

@@ -1,6 +1,6 @@
 package aethereal.command;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 
@@ -23,7 +23,7 @@ import net.minecraft.command.CommandSource;
 public class ConfigCommand extends BaseCommand {
     @Override
     public void a(LiteralArgumentBuilder<CommandSource> builder) {
-        ModuleProcessor processor = Delta.h().d().t();
+        ModuleProcessor processor = HydrogenClient.h().d().t();
         builder.then(a("save").executes(context -> {
             ChatUtil.a((Object) "Использование: .cfg save <имя>");
             return 1;
@@ -92,7 +92,7 @@ public class ConfigCommand extends BaseCommand {
     private SuggestionProvider<CommandSource> c() {
         return (context, builder) -> {
             File[] files;
-            ModuleProcessor processor = Delta.h().d().t();
+            ModuleProcessor processor = HydrogenClient.h().d().t();
             File configDir = processor.d();
             if (configDir.exists() && (files = configDir.listFiles((dir, name) -> {
                 return name.endsWith(".json");

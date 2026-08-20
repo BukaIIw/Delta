@@ -23,7 +23,7 @@ import org.joml.Matrix4f;
 import org.joml.Matrix4fStack;
 
 public class NoiseShader extends Shader implements Interface {
-    private static final Identifier c = Identifier.of("delta", "core/noise/noise_shader");
+    private static final Identifier c = Identifier.of("hydrogen", "core/noise/noise_shader");
     private final Matrix4f d;
     private SimpleFramebuffer e;
     private Uniform f;

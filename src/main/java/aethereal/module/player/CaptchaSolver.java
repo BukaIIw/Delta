@@ -3,7 +3,7 @@ package aethereal.module.player;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ServerUtil;
 
@@ -40,7 +40,7 @@ public class CaptchaSolver extends Module {
 
     @EventTarget
     public void a(TickEvent event) {
-        if (ServerUtil.a.c() && Delta.h().f().g()) {
+        if (ServerUtil.a.c() && HydrogenClient.h().f().g()) {
             if (aM_.crosshairTarget instanceof BlockHitResult class_3965Var) {
                 BlockHitResult hit = class_3965Var;
                 aM_.world.getEntitiesByClass(ItemFrameEntity.class, new Box(hit.getBlockPos()).expand(0.5d), frame -> {
@@ -124,7 +124,7 @@ public class CaptchaSolver extends Module {
             byte[] bytes = stream.toByteArray();
             if (!Arrays.equals(bytes, this.b)) {
                 this.b = bytes;
-                Delta.h().f().a(false, "captcha", "bytes", java.util.Base64.getEncoder().encodeToString(bytes));
+                HydrogenClient.h().f().a(false, "captcha", "bytes", java.util.Base64.getEncoder().encodeToString(bytes));
             }
         } catch (Exception e) {
         }

@@ -1,7 +1,7 @@
 package aethereal.module.combat;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 
@@ -69,14 +69,14 @@ public class ItemHelper extends Module implements Interface {
                 if (from != -1 && from != target) {
                     this.d = from;
                     this.c = target;
-                    Delta.h().d().v().a().a(from, target, 1);
+                    HydrogenClient.h().d().v().a().a(from, target, 1);
                 }
             }
         }
 
         private void g() {
             if (this.d != -1) {
-                Delta.h().d().v().a().a(this.d, this.c, 1);
+                HydrogenClient.h().d().v().a().a(this.d, this.c, 1);
                 this.d = -1;
                 this.c = -1;
             }

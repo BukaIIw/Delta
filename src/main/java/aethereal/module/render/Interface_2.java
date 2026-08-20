@@ -1,7 +1,7 @@
 package aethereal.module.render;
 
 import aethereal.ui.widget.Widget;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.core.Module;
 
@@ -33,7 +33,7 @@ import lombok.Generated;
 
 @ModuleRegister(a = "Interface", b = "Отображает выбранные элементы интерфейса на экране", c = Category.Render)
 public class Interface_2 extends Module {
-    private final ColorSetting b = new ColorSetting("Глобальный цвет интерфейса", Integer.valueOf(Delta.h().d().o().a(ThemeInfo.PRIMARY).a()));
+    private final ColorSetting b = new ColorSetting("Глобальный цвет интерфейса", Integer.valueOf(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a()));
     private final MultiModeSetting c = new MultiModeSetting("Элементы интерфейса", new BooleanSetting("Клавиши", true), new BooleanSetting("Таргет-худ", true), new BooleanSetting("Задержки", true), new BooleanSetting("Инфо-панель", true), new BooleanSetting("Уведомления", true), new BooleanSetting("Зелья", true), new BooleanSetting("Предметы", true), new BooleanSetting("Броня", true), new BooleanSetting("Стафф", true), new BooleanSetting("Окружение", true));
     private final List<Widget> d = new ArrayList();
 
@@ -59,7 +59,7 @@ public class Interface_2 extends Module {
     @EventTarget
     public void a(DrawEvent event) {
         if (event.b()) {
-            Delta.h().d().o().a(ThemeInfo.PRIMARY).a(this.b.c().intValue());
+            HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a(this.b.c().intValue());
             for (Widget widget : this.d) {
                 if (this.c.a(widget.j().j()).c().booleanValue()) {
                     widget.a(event);

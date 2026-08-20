@@ -3,7 +3,7 @@ package aethereal.ui.screen;
 import aethereal.ui.widget.Widget;
 import aethereal.render.ScissorUtil;
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.render.EasingList;
@@ -153,8 +153,8 @@ public class GUIPanel {
 
     public void a(DrawContext context, int mouseX, int mouseY, float delta) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float scale = 0.8f + (0.2f * EasingList.s.ease(this.c.c()));
         matrices.push();
         matrices.translate(this.a.x + (this.a.z / 2.0f), this.a.y + (this.a.w / 2.0f) + ((1.0f - EasingList.p.ease(this.c.c())) * 14.0f), 0.0f);
@@ -180,8 +180,8 @@ public class GUIPanel {
 
     private void a(DrawContext context, int mouseX, int mouseY, float y, float delta) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float view = (((this.a.y + this.a.w) - 6.0f) - y) + 4.0f;
         float content = 0.0f;
         Iterator<Module> it = this.e.iterator();

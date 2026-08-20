@@ -1,6 +1,6 @@
 package aethereal.command;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.command.BaseCommand;
@@ -20,7 +20,7 @@ import net.minecraft.command.CommandSource;
 public class MacrosCommand extends BaseCommand {
     @Override
     public void a(LiteralArgumentBuilder<CommandSource> builder) {
-        MacrosProcessor processor = Delta.h().d().d();
+        MacrosProcessor processor = HydrogenClient.h().d().d();
         LiteralArgumentBuilder literalArgumentBuilderThen = builder.then(a("add").executes(context -> {
             ChatUtil.a((Object) "Использование: .macros add <клавиша> <команда>");
             return 1;

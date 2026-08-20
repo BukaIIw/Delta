@@ -3,7 +3,7 @@ package aethereal.module.combat;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -31,7 +31,7 @@ public class HitBoxes extends Module {
             PlayerEntity player = class_1657VarC;
             Box box = event.b();
             Box changedBox = new Box(box.minX - ((double) (this.b.h().floatValue() / 2.0f)), box.minY, box.minZ - ((double) (this.b.h().floatValue() / 2.0f)), box.maxX + ((double) (this.b.h().floatValue() / 2.0f)), box.maxY + ((double) this.c.h().floatValue()), box.maxZ + ((double) (this.b.h().floatValue() / 2.0f)));
-            if (player.getId() != aM_.player.getId() && !Delta.h().d().e().d(player.getName().getString())) {
+            if (player.getId() != aM_.player.getId() && !HydrogenClient.h().d().e().d(player.getName().getString())) {
                 event.a(changedBox);
             }
         }

@@ -2,7 +2,7 @@ package aethereal.ui.widget;
 
 import aethereal.util.KeyUtil;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -34,7 +34,7 @@ public class ItemsWidget extends Widget implements Interface {
     @Override
     public void a(DrawEvent event) {
         d().a(0.0f, 1.0f, 0.3f, EasingList.g, event.g());
-        ServerAssistant assistant = Delta.h().d().t().aj();
+        ServerAssistant assistant = HydrogenClient.h().d().t().aj();
         List<ServerAssistant.b> providers = assistant.q();
         boolean active = false;
         for (ServerAssistant.b provider : providers) {
@@ -58,7 +58,7 @@ public class ItemsWidget extends Widget implements Interface {
                 float width = 19.5f + Fonts.e.a(label, 6.5f) + 5.0f;
                 float textY = (y + ((this.d - Fonts.e.a(6.5f)) / 2.0f)) - 0.5f;
                 a(event, contentX, y, width, this.d, true, animation);
-                Delta.h().d().j().a(event.i(), provider2.c().getDefaultStack(), contentX + 3.0f, y + ((this.d - 16.0f) / 2.0f) + 3.0f, InterfaceC0020Opcode.aN, animation, 0.6f, false);
+                HydrogenClient.h().d().j().a(event.i(), provider2.c().getDefaultStack(), contentX + 3.0f, y + ((this.d - 16.0f) / 2.0f) + 3.0f, InterfaceC0020Opcode.aN, animation, 0.6f, false);
                 a(event, contentX + 15.5f, y, this.d, animation);
                 Fonts.e.a(event.h(), label, contentX + 19.5f, textY, 6.5f, ColorUtil.a(-1, animation));
                 contentX += (width + 2.0f) * animation;
@@ -72,7 +72,7 @@ public class ItemsWidget extends Widget implements Interface {
 
     @Override
     public void a(GlobalEvent event) {
-        ServerAssistant assistant = Delta.h().d().t().aj();
+        ServerAssistant assistant = HydrogenClient.h().d().t().aj();
         boolean visible = aM_.currentScreen instanceof ChatScreen;
         for (ServerAssistant.b provider : assistant.q()) {
             provider.a().a(assistant.m() && provider.b().c().intValue() != -1 && provider.b().e().get().booleanValue() && InventoryUtil.b(provider.c()) != -1);

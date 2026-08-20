@@ -3,7 +3,7 @@ package aethereal.module.combat;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 import aethereal.util.Look;
@@ -54,7 +54,7 @@ public class AutoEXP extends Module {
         if (!this.c && this.d[0] != -1) {
             aM_.player.getInventory().selectedSlot = this.d[0];
             if (this.d[1] != -1) {
-                Delta.h().d().v().a().a(7, this.d[1], 1);
+                HydrogenClient.h().d().v().a().a(7, this.d[1], 1);
             }
             this.d[0] = -1;
             this.d[1] = -1;
@@ -73,14 +73,14 @@ public class AutoEXP extends Module {
                 }
                 return;
             } else {
-                if (Delta.h().d().v().a().a().isEmpty() && this.c && (invSlot = InventoryUtil.b(Items.EXPERIENCE_BOTTLE)) != -1) {
+                if (HydrogenClient.h().d().v().a().a().isEmpty() && this.c && (invSlot = InventoryUtil.b(Items.EXPERIENCE_BOTTLE)) != -1) {
                     if (this.d[1] == -1) {
                         this.d[1] = invSlot;
                     }
                     if (aM_.player.getInventory().selectedSlot != 7) {
                         aM_.player.getInventory().selectedSlot = 7;
                     }
-                    Delta.h().d().v().a().a(invSlot, 7, 1);
+                    HydrogenClient.h().d().v().a().a(invSlot, 7, 1);
                     return;
                 }
                 return;
@@ -89,7 +89,7 @@ public class AutoEXP extends Module {
         float t = aM_.player.age + aM_.getRenderTickCounter().getTickDelta(false);
         float smoothYaw = ((float) ((((Math.sin(t * 0.8f) * 11.0d) + (Math.sin((((double) t) * 0.04000000011823444d) + 17.20000385061287d) * 1.5d)) + (Math.sin((((double) t) * 0.10999997043280933d) + 5.800000963109878d) * 3.0d)) + (Math.sin((((double) t) * 0.07000004669766619d) + 12.300002384186381d) * 1.0d))) / 3.0f;
         float smoothPitch = (float) (Math.sin(((double) t) * 0.10000000392993033d) + (Math.sin((((double) t) * 0.029999989348000328d) + 54.099982886210135d) * 0.5d));
-        Delta.h().d().k().a(new Rotation(Look.b() + smoothYaw, 86.0f + smoothPitch), 70.0f, 1, 3);
+        HydrogenClient.h().d().k().a(new Rotation(Look.b() + smoothYaw, 86.0f + smoothPitch), 70.0f, 1, 3);
         if (Rotation.b().d() > 83.0f) {
             aM_.interactionManager.interactItem(aM_.player, Hand.MAIN_HAND);
             aM_.player.swingHand(Hand.MAIN_HAND);

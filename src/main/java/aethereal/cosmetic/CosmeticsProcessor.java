@@ -113,7 +113,7 @@ public class CosmeticsProcessor extends BaseProcessor {
         byte[] texture = java.util.Base64.getDecoder().decode(security.a(cosmetic, "texture"));
         float scale = Float.parseFloat(security.a(cosmetic, "scale"));
         Vector3f offset = new Vector3f(Float.parseFloat(security.a(cosmetic, "x")), Float.parseFloat(security.a(cosmetic, "y")), Float.parseFloat(security.a(cosmetic, "z")));
-        BakedGeoModel bakedModel = BakedModelFactory.getForNamespace("delta").constructGeoModel(GeometryTree.fromModel((Model) KeyFramesAdapter.GEO_GSON.fromJson(geometry, Model.class)));
+        BakedGeoModel bakedModel = BakedModelFactory.getForNamespace("hydrogen").constructGeoModel(GeometryTree.fromModel((Model) KeyFramesAdapter.GEO_GSON.fromJson(geometry, Model.class)));
         BakedAnimations bakedAnimations = animations == null ? null : (BakedAnimations) KeyFramesAdapter.GEO_GSON.fromJson((JsonElement) JsonParser.parseString(animations).getAsJsonObject().getAsJsonObject("animations"), BakedAnimations.class);
         NativeImage image;
         try {

@@ -3,7 +3,7 @@ package aethereal.module.combat;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.Look;
 
@@ -94,7 +94,7 @@ public class ProjectileHelper extends Module {
             class_243VarArr[i % this.c.length] = new Vec3d(this.b[0].getX() - this.b[0].prevX, 0.0d, this.b[0].getZ() - this.b[0].prevZ);
         }
         if (r() && (aim = a(stack)) != null) {
-            Delta.h().d().k().a(aim, 180.0f, 1, 1);
+            HydrogenClient.h().d().k().a(aim, 180.0f, 1, 1);
         }
     }
 
@@ -119,7 +119,7 @@ public class ProjectileHelper extends Module {
         return StreamSupport.stream(aM_.world.getEntities().spliterator(), false)
                 .filter(PlayerEntity.class::isInstance)
                 .map(e -> (PlayerEntity) e)
-                .filter(e -> e != aM_.player && e.isAlive() && !Delta.h().d().e().d(e.getName().getString()) && eye.squaredDistanceTo(e.getBoundingBox().getCenter()) <= 14400.0d)
+                .filter(e -> e != aM_.player && e.isAlive() && !HydrogenClient.h().d().e().d(e.getName().getString()) && eye.squaredDistanceTo(e.getBoundingBox().getCenter()) <= 14400.0d)
                 .min(Comparator.comparingDouble(e2 -> -look.dotProduct(e2.getBoundingBox().getCenter().subtract(eye).normalize())))
                 .map(e -> (LivingEntity) e)
                 .orElse(null);

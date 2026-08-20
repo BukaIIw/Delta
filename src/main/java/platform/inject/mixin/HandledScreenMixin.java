@@ -6,7 +6,7 @@ import static aethereal.core.Interface.aM_;
 import aethereal.render.Animations;
 import aethereal.module.misc.AutoBuy;
 import aethereal.event.ContainerEvent;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventManager;
 import aethereal.core.IEvent;
 import aethereal.mixin.ISlot;
@@ -61,7 +61,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> {
 
     @Inject(method = {"drawSlot"}, at = {@At("HEAD")})
     private void onDrawSlotHead(DrawContext context, Slot slot, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Предметы").c().booleanValue()) {
             boolean focused = slot == ((HandledScreenAccessor) this).getFocusedSlot() && slot.hasStack();
             float scale = ((ISlot) slot).getAnimation().a(focused ? 1.25f : 1.0f, focused ? 1.25f : 0.75f);
@@ -74,7 +74,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> {
 
     @Inject(method = {"drawSlot"}, at = {@At("RETURN")})
     private void onDrawSlotTail(DrawContext context, Slot slot, CallbackInfo ci) {
-        Animations animations = Delta.h().d().t().Q();
+        Animations animations = HydrogenClient.h().d().t().Q();
         if (animations.m() && animations.q().a("Предметы").c().booleanValue()) {
             context.getMatrices().pop();
         }
@@ -91,8 +91,8 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> {
     private void onInit(CallbackInfo ci) {
         int iMethod_17388;
         if ((this.handler instanceof GenericContainerScreenHandler) || (this.handler instanceof ShulkerBoxScreenHandler)) {
-            Delta.h().d().v().l();
-            AutoBuy autoBuy = Delta.h().d().t().ba();
+            HydrogenClient.h().d().v().l();
+            AutoBuy autoBuy = HydrogenClient.h().d().t().ba();
             HandledScreenAccessor screen = (HandledScreenAccessor) (HandledScreenAccessor) this;
             ScreenAccessor screenBase = (ScreenAccessor) this;
             GenericContainerScreenHandler class_1707Var = this.handler instanceof GenericContainerScreenHandler ? (GenericContainerScreenHandler) this.handler : null;
@@ -193,7 +193,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> {
 
     @Inject(method = {"onMouseClick(Lnet/minecraft/screen/slot/Slot;IILnet/minecraft/screen/slot/SlotActionType;)V"}, at = {@At("HEAD")}, cancellable = true)
     private void onMouseClick(Slot slot, int slotId, int button, SlotActionType actionType, CallbackInfo ci) {
-        SwapScreen swapScreen = Delta.h().d().t().L().q();
+        SwapScreen swapScreen = HydrogenClient.h().d().t().L().q();
         if (swapScreen.b() && !slot.getStack().isEmpty()) {
             swapScreen.a(swapScreen.a(), slot.getStack());
             swapScreen.a(-1);
@@ -205,7 +205,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> {
 
     @Inject(method = {"removed"}, at = {@At("HEAD")})
     private void onRemoved(CallbackInfo ci) {
-        SwapScreen swapMenu = Delta.h().d().t().L().q();
+        SwapScreen swapMenu = HydrogenClient.h().d().t().L().q();
         if (swapMenu.b()) {
             swapMenu.a(false);
         }
@@ -221,7 +221,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> {
             this.buttonDrop.active = ((ScreenHandler) this.handler).slots.subList(0, this.chestSize).stream().anyMatch(this::hasStack);
         }
         EventManager.a((IEvent) new ContainerEvent((HandledScreen)(Object) this, context, mouseX, mouseY, ContainerEvent.Phase.PRE));
-        ItemScroller itemScroller = Delta.h().d().t().w();
+        ItemScroller itemScroller = HydrogenClient.h().d().t().w();
         if (itemScroller.m() && ((HandledScreenAccessor) this).getFocusedSlot() != null && ((HandledScreenAccessor) this).getFocusedSlot().hasStack() && GLFW.glfwGetMouseButton(Interface.aM_.getWindow().getHandle(), 0) == 1 && GLFW.glfwGetKey(Interface.aM_.getWindow().getHandle(), TokenId.O_) == 1 && itemScroller.r().a(itemScroller.q().c().intValue())) {
             Interface.aM_.interactionManager.clickSlot(((ScreenHandler) this.handler).syncId, ((HandledScreenAccessor) this).getFocusedSlot().id, 0, SlotActionType.QUICK_MOVE, Interface.aM_.player);
             itemScroller.r().b();

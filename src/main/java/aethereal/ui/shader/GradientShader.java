@@ -17,7 +17,7 @@ public class GradientShader extends Shader {
     public Uniform i;
 
     public GradientShader() {
-        super(Identifier.of("delta", "core/rect/gradient_rect"), VertexFormats.POSITION_COLOR);
+        super(Identifier.of("hydrogen", "core/rect/gradient_rect"), VertexFormats.POSITION_COLOR);
     }
 
     @Override

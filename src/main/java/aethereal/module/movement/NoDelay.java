@@ -5,7 +5,7 @@ import aethereal.core.Interface;
 import platform.inject.accessors.LivingEntityAccessor;
 import platform.inject.accessors.MinecraftClientAccessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -27,7 +27,7 @@ public class NoDelay extends Module {
 
     @EventTarget
     public void a(TickEvent event) {
-        if (this.b.a("Поставку блоков").c().booleanValue() && (aM_.player.getMainHandStack().getItem() instanceof BlockItem) && !Delta.h().d().t().aS().m()) {
+        if (this.b.a("Поставку блоков").c().booleanValue() && (aM_.player.getMainHandStack().getItem() instanceof BlockItem) && !HydrogenClient.h().d().t().aS().m()) {
             ((platform.inject.accessors.MinecraftClientAccessor) (Object) aM_).setItemUseCooldown(0);
         }
         if (this.b.a("Прыжки").c().booleanValue()) {

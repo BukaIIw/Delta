@@ -1,7 +1,7 @@
 package aethereal.module.combat;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -48,7 +48,7 @@ public class AutoArmor extends Module implements Interface {
 
     @EventTarget
     public void a(TickEvent event) {
-        if (!Delta.h().d().v().a().a().isEmpty()) {
+        if (!HydrogenClient.h().d().v().a().a().isEmpty()) {
             return;
         }
         this.d++;
@@ -102,7 +102,7 @@ public class AutoArmor extends Module implements Interface {
         if (bestBundle != -1) {
             aM_.player.networkHandler.sendPacket(new BundleItemSelectedC2SPacket(bestSlot < 9 ? 36 + bestSlot : bestSlot, bestBundle));
         }
-        Delta.h().d().v().a().b(bestSlot, armorIndex, 1);
+        HydrogenClient.h().d().v().a().b(bestSlot, armorIndex, 1);
         return true;
     }
 

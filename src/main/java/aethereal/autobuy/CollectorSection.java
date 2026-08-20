@@ -4,7 +4,7 @@ import aethereal.render.ScissorUtil;
 import aethereal.util.Marker_2;
 import aethereal.util.ProcessIdUtil;
 import aethereal.module.misc.Collector_2;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -50,14 +50,14 @@ public class CollectorSection extends Section {
 
     private void a(DrawContext context, Vector4f frame, float slot, float gap, int columns, float top, float scroll, int mouseX, int mouseY, float delta) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        Draw3DProcessor draw3d = Delta.h().d().j();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        Draw3DProcessor draw3d = HydrogenClient.h().d().j();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float startX = frame.x + 8.0f;
         float bottom = frame.y + frame.w;
         float scale = (slot / 16.0f) * 0.75f;
         float offset = (slot - (16.0f * scale)) / 2.0f;
-        List<Collector_2.b> items = Delta.h().d().p().e();
+        List<Collector_2.b> items = HydrogenClient.h().d().p().e();
         this.g = 0.0f;
         this.d = null;
         if (this.c == null && !items.isEmpty()) {
@@ -90,9 +90,9 @@ public class CollectorSection extends Section {
 
     private void a(DrawContext context, Vector4f frame, float settingsX, float y, int mouseX, int mouseY, float delta) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        Draw3DProcessor draw3d = Delta.h().d().j();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        Draw3DProcessor draw3d = HydrogenClient.h().d().j();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float width = ((frame.x + frame.z) - 8.0f) - settingsX;
         this.e = null;
         if (this.c == null) {

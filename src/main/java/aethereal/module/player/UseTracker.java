@@ -5,7 +5,7 @@ import aethereal.module.render.EntityESP;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
@@ -71,12 +71,12 @@ public class UseTracker extends Module {
                         if (class_746Var2.getItemUseTimeLeft() == 1) {
                             String color = active.getItem() instanceof PotionItem ? "&a" : "&c";
                             if (active.isOf(Items.MILK_BUCKET)) {
-                                Delta.h().d().t().aa().q().removeIf(info -> {
+                                HydrogenClient.h().d().t().aa().q().removeIf(info -> {
                                     return info.b() == class_746Var2.getId();
                                 });
                             }
                             ChatUtil.a("[" + j() + "]", class_746Var2.getName().getString() + " использовал \"" + color + active.getItem().getName().getString() + "&7\"");
-                            Delta.h().d().m().a(new Notification(active.copy(), class_746Var2.getName().getString() + " использовал " + active.getItem().getName().getString(), 1500));
+                            HydrogenClient.h().d().m().a(new Notification(active.copy(), class_746Var2.getName().getString() + " использовал " + active.getItem().getName().getString(), 1500));
                         }
                     }
                 }
@@ -107,12 +107,12 @@ public class UseTracker extends Module {
                                 }
                                 if (class_746Var == aM_.player) {
                                     class_5250VarMethod_10852 = Text.literal("Вы получили эффекты от ").styled(style -> {
-                                        return style.withColor(Delta.h().d().o().a(ThemeInfo.PRIMARY).a());
+                                        return style.withColor(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a());
                                     }).append(type.a()).append(ChatUtil.b(" &7(" + ((int) (factor * 100.0d)) + "%)"));
                                 } else {
                                     class_5250VarMethod_10852 = ChatUtil.b(class_746Var.getName().getString() + " получил эффекты от ").append(type.a()).append(ChatUtil.b(" &7(" + ((int) (factor * 100.0d)) + "%)"));
                                 }
-                                Delta.h().d().m().a(new Notification("o", class_5250VarMethod_10852, 2000));
+                                HydrogenClient.h().d().m().a(new Notification("o", class_5250VarMethod_10852, 2000));
                                 for (Map.Entry<RegistryEntry<StatusEffect>, int[]> entry : type.b()) {
                                     int duration = Math.max(0, MathHelper.floor((((double) entry.getValue()[0]) * factor) + 0.5d));
                                     int amplifier = entry.getValue()[1];
@@ -127,7 +127,7 @@ public class UseTracker extends Module {
                                     }
                                 }
                                 if (!effects.isEmpty()) {
-                                    Delta.h().d().t().aa().q().add(new EntityESP.a(List.copyOf(effects), class_746Var.getId(), ((PlayerEntity) class_746Var).age));
+                                    HydrogenClient.h().d().t().aa().q().add(new EntityESP.a(List.copyOf(effects), class_746Var.getId(), ((PlayerEntity) class_746Var).age));
                                 }
                             }
                         }
@@ -148,7 +148,7 @@ public class UseTracker extends Module {
                     if (entry.attribute().getKey().toString().contains("minecraft:movement_speed")) {
                         for (EntityAttributeModifier modifier : entry.modifiers()) {
                             if ((aM_.world.getEntityById(packet.getEntityId()) instanceof PlayerEntity) && modifier.id().toString().equals("minecraft:effect.speed") && modifier.value() <= 0.40000001199465773d && modifier.operation() == EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL) {
-                                Delta.h().d().t().aa().q().removeIf(info -> {
+                                HydrogenClient.h().d().t().aa().q().removeIf(info -> {
                                     return info.b() == packet.getEntityId();
                                 });
                             }
@@ -163,7 +163,7 @@ public class UseTracker extends Module {
                 if (class_746VarMethod_11469 instanceof LivingEntity) {
                     ClientPlayerEntity class_746Var = (ClientPlayerEntity) (LivingEntity) class_746VarMethod_11469;
                     if (s2CPacket.getStatus() == 35) {
-                        Delta.h().d().t().aa().q().removeIf(info2 -> {
+                        HydrogenClient.h().d().t().aa().q().removeIf(info2 -> {
                             return info2.b() == class_746Var.getId();
                         });
                         if (this.b.a("Тотема").c().booleanValue()) {

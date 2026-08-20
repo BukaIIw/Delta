@@ -2,7 +2,7 @@ package platform.inject.mixin;
 
 
 import aethereal.command.CommandProcessor;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -53,7 +53,7 @@ public abstract class ChatInputSuggestorMixin {
 
     @Inject(method = {"refresh"}, at = {@At(value = "INVOKE", target = "Lcom/mojang/brigadier/StringReader;canRead()Z", remap = false)}, cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
     public void onRefresh(CallbackInfo callbackInfo, @Local StringReader reader) {
-        CommandProcessor commandProcessor = Delta.h().d().u();
+        CommandProcessor commandProcessor = HydrogenClient.h().d().u();
         String prefix = commandProcessor.i();
         if (reader.canRead(prefix.length()) && reader.getString().startsWith(prefix, reader.getCursor())) {
             String text = this.textField.getText();

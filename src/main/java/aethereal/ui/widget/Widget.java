@@ -1,7 +1,7 @@
 package aethereal.ui.widget;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
@@ -109,7 +109,7 @@ public class Widget {
     }
 
     public void a(GlobalEvent event) {
-        e().a(this.i == Delta.h().d().s().g());
+        e().a(this.i == HydrogenClient.h().d().s().g());
     }
 
     public void a(PacketEvent event) {
@@ -148,7 +148,7 @@ public class Widget {
     }
 
     protected void a(DrawEvent event, String icon, Object title, float width, float animation) {
-        a(event, icon, title, width, animation, Delta.h().d().o().a(ThemeInfo.PRIMARY).a());
+        a(event, icon, title, width, animation, HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a());
     }
 
     protected void a(DrawEvent event, String icon, Object title, float width, float animation, int iconColor) {
@@ -168,7 +168,7 @@ public class Widget {
             float iconSize = this.e + 1.0f;
             a(event, x, y, width, this.d, true, animation);
             if (stack != null) {
-                Delta.h().d().j().a(event.i(), stack, x + 3.0f, (y + ((this.d - 8.0f) / 2.0f)) - 0.25f, 0, animation, 0.5f, false);
+                HydrogenClient.h().d().j().a(event.i(), stack, x + 3.0f, (y + ((this.d - 8.0f) / 2.0f)) - 0.25f, 0, animation, 0.5f, false);
             } else {
                 Fonts.a.a(event.h(), icon, x + 3.0f, y + ((this.d - Fonts.a.a(iconSize)) / 2.0f), iconSize, ColorUtil.a(iconColor, animation));
             }
@@ -184,7 +184,7 @@ public class Widget {
 
     protected void a(DrawEvent event, float x, float y, float width, float height, boolean glow, float animation) {
         if (animation > 0.0f) {
-            ThemeProcessor themeProcessor = Delta.h().d().o();
+            ThemeProcessor themeProcessor = HydrogenClient.h().d().o();
             float alpha = themeProcessor.a(ThemeInfo.BACKGROUND_HUD).b() * animation;
             int background = ColorUtil.a(themeProcessor.a(ThemeInfo.BACKGROUND_HUD).a(), themeProcessor.a(ThemeInfo.PRIMARY).a(), themeProcessor.a(ThemeInfo.PRIMARY).b() / 6.0f);
             themeProcessor.a(ThemeInfo.BACKGROUND_HUD).e(InterfaceC0020Opcode.cY);

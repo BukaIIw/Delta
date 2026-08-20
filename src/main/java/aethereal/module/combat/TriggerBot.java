@@ -8,7 +8,7 @@ import platform.inject.invokers.MinecraftClientInvoker;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 import aethereal.util.Look;
@@ -134,7 +134,7 @@ public class TriggerBot extends Module {
             return;
         }
         boolean skip = false;
-        if ((Delta.h().d().t().H().e || (aM_.player.fallDistance > 2.0f && Delta.h().d().t().H().c.c().booleanValue())) && InventoryUtil.b(Items.MACE) != -1) {
+        if ((HydrogenClient.h().d().t().H().e || (aM_.player.fallDistance > 2.0f && HydrogenClient.h().d().t().H().c.c().booleanValue())) && InventoryUtil.b(Items.MACE) != -1) {
             if (aM_.player.fallDistance < 1.5f) {
                 return;
             }
@@ -142,7 +142,7 @@ public class TriggerBot extends Module {
                 return Double.valueOf(pos.distanceTo(this.o.getPos()));
             }).orElse(Double.valueOf(33.0d))).doubleValue();
             boolean hitNow = landDist > 2.0d;
-            if ((!this.c && !MaceUtil.b() && Delta.h().d().t().H().b.c().booleanValue() && !hitNow) || !MaceUtil.a() || aM_.player.isGliding()) {
+            if ((!this.c && !MaceUtil.b() && HydrogenClient.h().d().t().H().b.c().booleanValue() && !hitNow) || !MaceUtil.a() || aM_.player.isGliding()) {
                 return;
             } else {
                 skip = true;
@@ -180,10 +180,10 @@ public class TriggerBot extends Module {
     }
 
     private boolean b(LivingEntity entity) {
-        if (Delta.h().d().t().G().m() && aM_.player.isGliding()) {
+        if (HydrogenClient.h().d().t().G().m() && aM_.player.isGliding()) {
             return true;
         }
-        return AuraUtil.a((Entity) entity, 4.0d + (aM_.player.getVelocity().length() * 3.0d) + ((double) ((InventoryUtil.b(Items.MACE) == -1 || ((double) aM_.player.fallDistance) <= 1.5d) ? 0.0f : 1.5f)) + ((double) ((Delta.h().d().t().H().m() && InventoryUtil.b(Items.MACE) != -1 && ((Boolean) MaceUtil.a(aM_.player, (World) aM_.world).map(p -> {
+        return AuraUtil.a((Entity) entity, 4.0d + (aM_.player.getVelocity().length() * 3.0d) + ((double) ((InventoryUtil.b(Items.MACE) == -1 || ((double) aM_.player.fallDistance) <= 1.5d) ? 0.0f : 1.5f)) + ((double) ((HydrogenClient.h().d().t().H().m() && InventoryUtil.b(Items.MACE) != -1 && ((Boolean) MaceUtil.a(aM_.player, (World) aM_.world).map(p -> {
             return Boolean.valueOf(aM_.player.getY() - p.getY() > 2.0d);
         }).orElse(false)).booleanValue()) ? 10 : 0)));
     }
@@ -217,7 +217,7 @@ public class TriggerBot extends Module {
         if ((this.h.a("Открыт контейнер") != null && this.h.a("Открыт контейнер").c().booleanValue() && aM_.currentScreen != null && !(aM_.currentScreen instanceof GUIScreen) && !(aM_.currentScreen instanceof AssistantScreen)) || !AuraUtil.a(this.o, 3.0d)) {
             return false;
         }
-        if (Delta.h().d().t().H().e) {
+        if (HydrogenClient.h().d().t().H().e) {
             if (aM_.player.getItemCooldownManager().isCoolingDown(aM_.player.getMainHandStack())) {
                 return false;
             }
@@ -285,7 +285,7 @@ public class TriggerBot extends Module {
     private boolean d(LivingEntity e) {
         if (e instanceof PlayerEntity) {
             PlayerEntity p = (PlayerEntity) e;
-            return this.f.a("Игроки").c().booleanValue() && (this.f.a("Друзья").c().booleanValue() || !Delta.h().d().e().d(p.getName().getString()));
+            return this.f.a("Игроки").c().booleanValue() && (this.f.a("Друзья").c().booleanValue() || !HydrogenClient.h().d().e().d(p.getName().getString()));
         }
         if (e instanceof MobEntity) {
             return this.f.a("Мобы").c().booleanValue();

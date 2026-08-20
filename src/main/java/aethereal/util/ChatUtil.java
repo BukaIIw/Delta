@@ -2,7 +2,7 @@ package aethereal.util;
 
 import aethereal.ui.shader.GradientUtil;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.ColorUtil;
 
 import aethereal.config.ThemeInfo;
@@ -21,7 +21,7 @@ public class ChatUtil implements Interface {
     }
 
     public static void a(Object message) {
-        a("[Delta 1.21.4]", message);
+        a("[HydrogenClient 1.21.4]", message);
     }
 
     public static void a(String prefix, Object message) {
@@ -61,7 +61,7 @@ public class ChatUtil implements Interface {
     }
 
     private static MutableText a(String prefix) {
-        int primary = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+        int primary = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
         return GradientUtil.a(prefix + " » ", primary, ColorUtil.b(primary, 0.5f), 1, 5.0f);
     }
 }

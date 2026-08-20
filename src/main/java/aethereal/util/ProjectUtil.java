@@ -1,7 +1,7 @@
 package aethereal.util;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 
 import aethereal.core.Interface;
 
@@ -31,7 +31,7 @@ public class ProjectUtil implements Interface {
 
     private static Vector2f a(Vector3f result3f, double fov) {
         float realAspect = aM_.getWindow().getFramebufferWidth() / aM_.getWindow().getFramebufferHeight();
-        float modifiedAspect = Delta.h().d().t().aB().m() ? Delta.h().d().t().aB().q() : realAspect;
+        float modifiedAspect = HydrogenClient.h().d().t().aB().m() ? HydrogenClient.h().d().t().aB().q() : realAspect;
         double scaleFactorY = ((double) (aM_.getWindow().getScaledHeight() / 2.0f)) / (((double) result3f.z) * Math.tan(Math.toRadians(fov / 2.0d)));
         double scaleFactorX = (scaleFactorY * ((double) realAspect)) / ((double) modifiedAspect);
         return result3f.z < 0.0f ? new Vector2f((float) ((((double) (-result3f.x())) * scaleFactorX) + ((double) (aM_.getWindow().getScaledWidth() / 2.0f))), (float) (((double) (aM_.getWindow().getScaledHeight() / 2.0f)) - (((double) result3f.y()) * scaleFactorY))) : new Vector2f(Float.MAX_VALUE, Float.MAX_VALUE);

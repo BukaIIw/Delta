@@ -3,7 +3,7 @@ package aethereal.module.player;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -34,7 +34,7 @@ public class AutoEat extends Module {
     public void b(int level) {
         int slot;
         if (aM_.player != null && aM_.player.getHungerManager().getFoodLevel() < level && (slot = q()) >= 0) {
-            Delta.h().d().v().k().a(slot);
+            HydrogenClient.h().d().v().k().a(slot);
         }
     }
 

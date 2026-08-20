@@ -13,7 +13,7 @@ import aethereal.render.ColorUtil;
 import aethereal.util.MathUtil;
 
 import aethereal.config.ThemeInfo;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Processor_2;
 import aethereal.render.Draw2DProcessor;
 import aethereal.ui.screen.MainScreen;
@@ -84,8 +84,8 @@ public class AltScreen extends Screen {
                                 EasingList.a aVar = EasingList.s;
                                 if (aVar != null) {
                                     MainScreen.a(context, iMethod_4486, iMethod_4502, (int) dA, (int) dA2, (aVar.ease(fMin) * 0.2f) + 1.05f);
-                                    Delta deltaH = Delta.h();
-                                    if (deltaH != null && (processor_2D = deltaH.d()) != null && (draw2DProcessorI = processor_2D.i()) != null && (blurShaderE = draw2DProcessorI.e()) != null && context != null) {
+                                    HydrogenClient hydrogenClient = HydrogenClient.h();
+                                    if (hydrogenClient != null && (processor_2D = hydrogenClient.d()) != null && (draw2DProcessorI = processor_2D.i()) != null && (blurShaderE = draw2DProcessorI.e()) != null && context != null) {
                                         blurShaderE.a(context.getMatrices());
                                         EasingList.a aVar2 = EasingList.s;
                                         if (aVar2 != null) {
@@ -273,8 +273,8 @@ public class AltScreen extends Screen {
     }
 
     private void a(MatrixStack matrices, int w, float px, float py, float open) {
-        Draw2DProcessor draw = Delta.h().d().i();
-        AccountConstructor selected = Delta.h().d().h().a();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        AccountConstructor selected = HydrogenClient.h().d().h().a();
         Fonts.e.a(matrices, (Text) GradientUtil.a("Менеджер Аккаунтов", a(open), 5.0f, 0.5f), (w - Fonts.e.a("Менеджер Аккаунтов", 11.0f)) / 2.0f, py - 28.0f, 11.0f, 0.0f, open);
         String info = (selected != null ? selected.b() : "Не выбран") + "  |  " + a().size() + " аккаунтов";
         Fonts.b.a(matrices, info, (w - Fonts.b.a(info, 7.0f)) / 2.0f, py - 13.5f, 7.0f, ColorUtil.a(255, 255, 255, (int) (255.0f * open)));
@@ -283,8 +283,8 @@ public class AltScreen extends Screen {
     }
 
     private void a(MatrixStack matrices, int w, int h, float scale, float px, float py, int mx, int my, float open) {
-        Draw2DProcessor draw = Delta.h().d().i();
-        AccountConstructor selected = Delta.h().d().h().a();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        AccountConstructor selected = HydrogenClient.h().d().h().a();
         int accent = a(open);
         float listTop = py + 10.0f;
         float listBottom = py + 218.0f;
@@ -340,7 +340,7 @@ public class AltScreen extends Screen {
 
     private void a(DrawContext context, float px, float py, int mx, int my, float delta, float open) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
         a(open);
         int white = ColorUtil.a(222, 222, 222, (int) (222.0f * open));
         float fieldY = py + 224.0f;
@@ -356,7 +356,7 @@ public class AltScreen extends Screen {
     }
 
     private int a(float open) {
-        int rgba = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+        int rgba = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
         return (rgba & 16777215) | (((int) (((rgba >>> 24) & 255) * open)) << 24);
     }
 
@@ -381,7 +381,7 @@ public class AltScreen extends Screen {
     }
 
     private List<AccountConstructor> a() {
-        return Delta.h().d().h().e();
+        return HydrogenClient.h().d().h().e();
     }
 
     private void a(AccountConstructor account) {

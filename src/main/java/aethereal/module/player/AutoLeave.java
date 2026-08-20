@@ -3,7 +3,7 @@ package aethereal.module.player;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 import aethereal.util.ServerUtil;
@@ -41,7 +41,7 @@ public class AutoLeave extends Module {
             return;
         }
         PlayerEntity near = (PlayerEntity) aM_.world.getPlayers().stream().filter(player -> {
-            return (player == aM_.player || aM_.player.squaredDistanceTo(player) > ((double) (this.d.c().floatValue() * this.d.c().floatValue())) || Delta.h().d().e().d(player.getName().getString())) ? false : true;
+            return (player == aM_.player || aM_.player.squaredDistanceTo(player) > ((double) (this.d.c().floatValue() * this.d.c().floatValue())) || HydrogenClient.h().d().e().d(player.getName().getString())) ? false : true;
         }).findFirst().orElse(null);
         if (((this.b.a("Малое ХП").c().booleanValue() && aM_.player.getHealth() <= this.c.c().floatValue()) || (this.b.a("Игроки рядом").c().booleanValue() && near != null)) && !ServerUtil.e()) {
             aM_.player.networkHandler.sendChatCommand("hub");

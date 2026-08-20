@@ -1,7 +1,7 @@
 package aethereal.ui.element;
 
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -63,8 +63,8 @@ public class BooleanElement extends Element_2<BooleanSetting> {
     @Override
     public void a(DrawContext context, double mouseX, double mouseY, float delta, float extend) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         b().a(((BooleanSetting) this.b).c().booleanValue());
         b().a(0.0f, 1.0f, 0.5f, EasingList.i, delta);
         float enabled = b().c();
@@ -88,7 +88,7 @@ public class BooleanElement extends Element_2<BooleanSetting> {
     public void a(DrawEvent event, float x, float y, float width, float animation) {
         b().a(((BooleanSetting) this.b).c().booleanValue());
         b().a(0.0f, 1.0f, 0.3f, EasingList.g, event.g());
-        ThemeProcessor theme = Delta.h().d().o();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         float textX = x + 19.5f;
         float toggleX = ((x + width) - 11.0f) - 5.0f;
         float toggleY = y + 2.25f;

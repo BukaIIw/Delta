@@ -9,4 +9,4 @@ pluginManagement {
 	}
 }
 
-rootProject.name = 'delta-client'
+rootProject.name = 'hydrogendlc'

@@ -1,7 +1,7 @@
 package aethereal.ui.element;
 
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.Fonts;
 import aethereal.render.ColorUtil;
 import aethereal.util.MathUtil;
@@ -82,8 +82,8 @@ public class SliderElement extends Element_2<SliderSetting> {
     @Override
     public void a(DrawContext context, double mouseX, double mouseY, float delta, float extend) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         this.a.w = 18.0f;
         if (this.d) {
             a(mouseX);

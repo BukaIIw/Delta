@@ -2,7 +2,7 @@ package aethereal.ui.element;
 
 import java.util.Arrays;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Interface;
 import aethereal.render.Fonts;
 import aethereal.render.ColorUtil;
@@ -49,7 +49,7 @@ public class BottomBar {
     private void a(DrawContext context, float alpha) {
         float[] fArr = this.a;
         fArr[1] = fArr[1] + ((this.a[0] - this.a[1]) * 0.25f);
-        Draw2DProcessor draw = Delta.h().d().i();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
         MatrixStack matrices = context.getMatrices();
         float knobX = this.c + 1.75f + (this.a[1] * Math.max(1.0f, 79.0f - 19.5f));
         float knobY = this.d + ((19.5f - 16.0f) / 2.0f);

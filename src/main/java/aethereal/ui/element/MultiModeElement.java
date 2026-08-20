@@ -1,7 +1,7 @@
 package aethereal.ui.element;
 
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
 import aethereal.setting.Setting;
@@ -97,8 +97,8 @@ public class MultiModeElement extends Element_2<MultiModeSetting> {
     @Override
     public void a(DrawContext context, double mouseX, double mouseY, float delta, float extend) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         long selectedCount = ((MultiModeSetting) this.b).c().stream().filter((v0) -> {
             return v0.c();
         }).count();

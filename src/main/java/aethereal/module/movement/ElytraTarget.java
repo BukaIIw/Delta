@@ -4,7 +4,7 @@ import aethereal.module.combat.AuraUtil;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -29,11 +29,11 @@ public class ElytraTarget extends Module {
 
     @EventTarget
     public void a(TickEvent event) {
-        Aura aura = Delta.h().d().t().B();
+        Aura aura = HydrogenClient.h().d().t().B();
         if (aura.m() && aM_.player.isGliding()) {
-            if (aM_.player.getOffHandStack().getItem() != Items.FIREWORK_ROCKET && !Delta.h().d().t().V().b) {
-                if (Delta.h().d().v().a().a().isEmpty()) {
-                    Delta.h().d().v().a().a(Items.FIREWORK_ROCKET, 45, 1);
+            if (aM_.player.getOffHandStack().getItem() != Items.FIREWORK_ROCKET && !HydrogenClient.h().d().t().V().b) {
+                if (HydrogenClient.h().d().v().a().a().isEmpty()) {
+                    HydrogenClient.h().d().v().a().a(Items.FIREWORK_ROCKET, 45, 1);
                 }
             } else if ((this.b.a(150L) && aM_.player.getVelocity().length() < 1.5d) || aura.b == 1) {
                 aM_.interactionManager.interactItem(aM_.player, Hand.OFF_HAND);
@@ -55,7 +55,7 @@ public class ElytraTarget extends Module {
             Rotation aimRotation = Rotation.a(eye, aim);
             float Yaw = AuraUtil.a(aM_.player.getYaw(), aimRotation.c(), 1.0f);
             float Pitch = AuraUtil.a(aM_.player.getPitch(), aura.b <= 3 ? 0.0f : aimRotation.d(), aura.b <= 3 ? 1.0f : Math.clamp(aura.b / 10.0f, 0.0f, 1.0f));
-            Delta.h().d().k().a(new Rotation(Yaw, Pitch), 180.0f, 1, 1);
+            HydrogenClient.h().d().k().a(new Rotation(Yaw, Pitch), 180.0f, 1, 1);
         }
     }
 

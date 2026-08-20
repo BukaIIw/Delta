@@ -4,7 +4,7 @@ import aethereal.util.StringUtils;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
@@ -123,8 +123,8 @@ public class AutoWarden extends Module {
         this.h = 1;
         this.o = a.COLLECTING;
         this.d.clear();
-        if (!Delta.h().d().t().i().m()) {
-            Delta.h().d().t().i().a();
+        if (!HydrogenClient.h().d().t().i().m()) {
+            HydrogenClient.h().d().t().i().a();
         }
         ChatUtil.a((Object) "Shift + Пробел — быстрое выключение функции");
         BaritoneAPI.getSettings().avoidance.value = true;
@@ -284,7 +284,7 @@ public class AutoWarden extends Module {
         if (aM_.world.getBlockState(aM_.player.getBlockPos()).isIn(BlockTags.CANDLES) || aM_.world.getBlockState(aM_.player.getBlockPos().down()).isIn(BlockTags.CANDLES)) {
             return true;
         }
-        return !A() && this.o == a.COLLECTING && E() && aM_.currentScreen == null && !L() && !Delta.h().d().v().k().a() && s();
+        return !A() && this.o == a.COLLECTING && E() && aM_.currentScreen == null && !L() && !HydrogenClient.h().d().v().k().a() && s();
     }
 
     private boolean s() {
@@ -298,7 +298,7 @@ public class AutoWarden extends Module {
     }
 
     private boolean a(double range) {
-        for (BlockPos chest : Delta.h().d().t().i().q()) {
+        for (BlockPos chest : HydrogenClient.h().d().t().i().q()) {
             if (aM_.player.squaredDistanceTo(Vec3d.ofCenter(chest)) <= range * range) {
                 return true;
             }
@@ -362,8 +362,8 @@ public class AutoWarden extends Module {
         if (y()) {
             return;
         }
-        Delta.h().d().t().aV().b(18);
-        if (Delta.h().d().v().k().a()) {
+        HydrogenClient.h().d().t().aV().b(18);
+        if (HydrogenClient.h().d().v().k().a()) {
             if (L()) {
                 C();
                 return;
@@ -446,7 +446,7 @@ public class AutoWarden extends Module {
             if (speedSlot < 0) {
                 H();
             } else {
-                Delta.h().d().v().k().a(speedSlot);
+                HydrogenClient.h().d().v().k().a(speedSlot);
             }
         }
     }
@@ -486,7 +486,7 @@ public class AutoWarden extends Module {
             return;
         }
         BlockPos near = J();
-        if ((aM_.currentScreen instanceof GenericContainerScreen) || (near != null && Delta.h().d().t().i().a(near) < 0 && aM_.player.getEyePos().squaredDistanceTo(Vec3d.ofCenter(near)) <= 16.0d)) {
+        if ((aM_.currentScreen instanceof GenericContainerScreen) || (near != null && HydrogenClient.h().d().t().i().a(near) < 0 && aM_.player.getEyePos().squaredDistanceTo(Vec3d.ofCenter(near)) <= 16.0d)) {
             H();
             return;
         }
@@ -583,7 +583,7 @@ public class AutoWarden extends Module {
         if (pick == null) {
             pick = I();
         }
-        boolean stay = (pick == null || this.l == null || pick.equals(this.l) || Delta.h().d().t().i().a(this.l) <= 25000) ? false : true;
+        boolean stay = (pick == null || this.l == null || pick.equals(this.l) || HydrogenClient.h().d().t().i().a(this.l) <= 25000) ? false : true;
         if (!stay) {
             this.m.b();
         }
@@ -595,7 +595,7 @@ public class AutoWarden extends Module {
             this.o = a.ESCAPE;
             this.j = true;
         }
-        long remaining = Delta.h().d().t().i().a(target);
+        long remaining = HydrogenClient.h().d().t().i().a(target);
         if (target != null && remaining > 1000 && a(target, 7.0d)) {
             BlockPos spot = c(target);
             if (spot != null) {
@@ -638,7 +638,7 @@ public class AutoWarden extends Module {
     }
 
     private BlockPos I() {
-        WardenESP esp = Delta.h().d().t().i();
+        WardenESP esp = HydrogenClient.h().d().t().i();
         BlockPos best = null;
         long bestMs = 45000;
         for (BlockPos chest : esp.q()) {
@@ -652,7 +652,7 @@ public class AutoWarden extends Module {
     }
 
     private BlockPos J() {
-        WardenESP esp = Delta.h().d().t().i();
+        WardenESP esp = HydrogenClient.h().d().t().i();
         BlockPos best = null;
         int bestTier = 99;
         double bestSq = 1.7976922776554316E308d;
@@ -799,7 +799,7 @@ public class AutoWarden extends Module {
     private void K() {
         int slot = a(this::e);
         if (slot >= 0 && aM_.player.age > 20) {
-            Delta.h().d().v().k().a(slot);
+            HydrogenClient.h().d().v().k().a(slot);
         }
     }
 
@@ -843,7 +843,7 @@ public class AutoWarden extends Module {
         Rotation target = Rotation.a(eye, aim);
         float t = aM_.player.age + aM_.getRenderTickCounter().getTickDelta(false);
         float sw = (float) (((Math.sin(t * 0.31f) * 0.5d) + (Math.sin((t * 0.73f) + 1.1f) * 0.3000000317022817d) + (Math.sin((t * 1.7f) + 2.6f) * 0.1999999860971588d)) * 8.0d);
-        Delta.h().d().k().a(new Rotation(target.c() + sw, MathUtil.b(target.d() + (sw / 4.0f), -90.0f, 90.0f)), 120.0f, 1, 1);
+        HydrogenClient.h().d().k().a(new Rotation(target.c() + sw, MathUtil.b(target.d() + (sw / 4.0f), -90.0f, 90.0f)), 120.0f, 1, 1);
         if (aM_.player.age % rate != 0 || Rotation.b().a(target) > 5.0d) {
             return false;
         }
@@ -876,7 +876,7 @@ public class AutoWarden extends Module {
                     C();
                 }
                 if (aM_.player.age % 10 == 4) {
-                    Delta.h().d().v().a().a(aM_.player.getInventory().selectedSlot, i2, 1);
+                    HydrogenClient.h().d().v().a().a(aM_.player.getInventory().selectedSlot, i2, 1);
                     return;
                 }
                 return;

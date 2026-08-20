@@ -1,7 +1,7 @@
 package aethereal.cosmetic;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 
 import aethereal.core.Interface;
 import aethereal.cosmetic.CosmeticsType;
@@ -25,7 +25,7 @@ public class CosmeticsRenderer extends FeatureRenderer<PlayerEntityRenderState, 
         if (entity != null) {
             UUID uuid = entity.getUuid();
             float tickDelta = aM_.getRenderTickCounter().getTickDelta(false);
-            for (Cosmetic cosmetic : Delta.h().d().r().getCosmetics()) {
+            for (Cosmetic cosmetic : HydrogenClient.h().d().r().getCosmetics()) {
                 if (uuid.equals(cosmetic.getUuid()) && cosmetic.getType() == CosmeticsType.COSMETIC) {
                     matrices.push();
                     cosmetic.getCategory().transform(matrices, (PlayerEntityModel) getContextModel(), cosmetic);

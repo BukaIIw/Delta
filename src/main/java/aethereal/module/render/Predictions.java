@@ -3,7 +3,7 @@ package aethereal.module.render;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.render.EasingList;
@@ -175,7 +175,7 @@ public class Predictions extends Module {
             return;
         }
 
-        int primaryColor = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+        int primaryColor = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
         float hueBase = (hueSeed & 65535L) / 65535.0f;
         int segCount = path.size() - 1;
 

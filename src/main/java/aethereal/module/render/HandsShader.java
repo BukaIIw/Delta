@@ -3,7 +3,7 @@ package aethereal.module.render;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.render.ColorUtil;
 
@@ -27,13 +27,13 @@ public class HandsShader extends Module {
 
     @EventTarget
     public void a(HandEvent event) {
-        NoiseShader shader = Delta.h().d().i().f();
+        NoiseShader shader = HydrogenClient.h().d().i().f();
         if (aM_.options.getPerspective() == Perspective.FIRST_PERSON) {
             if (event.b()) {
                 shader.e();
             }
             if (event.c()) {
-                float[] color = ColorUtil.a(Delta.h().d().o().a(ThemeInfo.PRIMARY).a());
+                float[] color = ColorUtil.a(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a());
                 color[3] = this.b.c().floatValue();
                 shader.a(color);
             }

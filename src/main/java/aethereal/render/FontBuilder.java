@@ -29,8 +29,8 @@ public class FontBuilder implements Interface {
 
     public FontBuilder a(String fontName) {
         this.e = fontName;
-        this.c = Identifier.of("delta", "fonts/" + fontName + ".json");
-        this.d = Identifier.of("delta", "fonts/" + fontName + ".png");
+        this.c = Identifier.of("hydrogen", "fonts/" + fontName + ".json");
+        this.d = Identifier.of("hydrogen", "fonts/" + fontName + ".png");
         return this;
     }
 

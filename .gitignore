@@ -1,0 +1,14 @@
+# Gradle caches and generated output
+.gradle/
+build/
+bin/
+
+# Local Minecraft runtime data
+run/
+
+# IDE-local module files
+*.iml
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

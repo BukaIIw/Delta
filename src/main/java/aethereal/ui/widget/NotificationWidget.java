@@ -1,7 +1,7 @@
 package aethereal.ui.widget;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
 
@@ -41,7 +41,7 @@ public class NotificationWidget extends Widget implements Interface {
 
     @Override
     public void a(GlobalEvent event) {
-        d().a((aM_.currentScreen instanceof ChatScreen) || !Delta.h().d().m().b().isEmpty());
+        d().a((aM_.currentScreen instanceof ChatScreen) || !HydrogenClient.h().d().m().b().isEmpty());
         super.a(event);
     }
 
@@ -50,7 +50,7 @@ public class NotificationWidget extends Widget implements Interface {
         float fA;
         d().a(0.0f, 1.0f, 0.3f, EasingList.g, event.g());
         float contentY = j().b();
-        for (Notification notification : Delta.h().d().m().b()) {
+        for (Notification notification : HydrogenClient.h().d().m().b()) {
             float animation = notification.a().c() * a();
             if (animation > 0.0f) {
                 Object message = notification.c();
@@ -62,7 +62,7 @@ public class NotificationWidget extends Widget implements Interface {
                 }
                 float width = 17.5f + fA + 4.0f;
                 float x = (aM_.getWindow().getScaledWidth() - width) / 2.0f;
-                int color = notification.e() == -1 ? Delta.h().d().o().a(ThemeInfo.PRIMARY).a() : notification.e();
+                int color = notification.e() == -1 ? HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a() : notification.e();
                 Object objD = notification.d();
                 if (objD instanceof ItemStack) {
                     ItemStack stack = (ItemStack) objD;
@@ -92,7 +92,7 @@ public class NotificationWidget extends Widget implements Interface {
                     if (class_1542VarMethod_8469 instanceof ItemEntity) {
                         ItemEntity itemEntity = class_1542VarMethod_8469;
                         if (class_746Var != aM_.player && !itemEntity.getStack().getName().getString().contains("Упс.") && ((itemEntity.getStack().contains(DataComponentTypes.CUSTOM_NAME) && itemEntity.getStack().contains(DataComponentTypes.LORE)) || itemEntity.getStack().isOf(Items.ENCHANTED_GOLDEN_APPLE))) {
-                            Delta.h().d().m().a(new Notification(itemEntity.getStack().copy(), class_746Var.getName().copy().append(" подобрал ").append(itemEntity.getStack().getName()).append(itemPickupAnimationS2CPacket.getStackAmount() > 1 ? " x" + itemPickupAnimationS2CPacket.getStackAmount() : ""), 1500));
+                            HydrogenClient.h().d().m().a(new Notification(itemEntity.getStack().copy(), class_746Var.getName().copy().append(" подобрал ").append(itemEntity.getStack().getName()).append(itemPickupAnimationS2CPacket.getStackAmount() > 1 ? " x" + itemPickupAnimationS2CPacket.getStackAmount() : ""), 1500));
                         }
                     }
                 }
@@ -105,10 +105,10 @@ public class NotificationWidget extends Widget implements Interface {
     public void a(BackendEvent event) {
         String message = event.d().a().a(event.d().c(), "message");
         if ("friend".equals(event.d().b()) && this.g.c().booleanValue() && message != null) {
-            Delta.h().d().m().a(new Notification("o", message, 5000));
+            HydrogenClient.h().d().m().a(new Notification("o", message, 5000));
         }
         if ("application".equals(event.d().b()) && message != null) {
-            Delta.h().d().m().a(new Notification("o", message, 15000));
+            HydrogenClient.h().d().m().a(new Notification("o", message, 15000));
         }
         super.a(event);
     }

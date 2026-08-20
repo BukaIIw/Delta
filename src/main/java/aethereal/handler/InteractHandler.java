@@ -2,7 +2,7 @@ package aethereal.handler;
 
 import aethereal.handler.Handler_2;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.core.EventTarget;
@@ -28,7 +28,7 @@ public class InteractHandler extends BaseHandler implements Interface {
     }
 
     public void a(int slot) {
-        if (this.b.isEmpty() && Delta.h().d().v().a().a().isEmpty()) {
+        if (this.b.isEmpty() && HydrogenClient.h().d().v().a().a().isEmpty()) {
             this.b.add(new a(slot));
         }
     }
@@ -40,7 +40,7 @@ public class InteractHandler extends BaseHandler implements Interface {
     @EventTarget
     public void a(TickEvent event) {
         if (!this.b.isEmpty() && aM_.player.age > 40) {
-            InventoryHandler inventoryHandler = Delta.h().d().v().a();
+            InventoryHandler inventoryHandler = HydrogenClient.h().d().v().a();
             a task = (a) this.b.getFirst();
             boolean inventory = task.b() > 8;
             task.a(task.d() + 1);

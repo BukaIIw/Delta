@@ -1,7 +1,7 @@
 package aethereal.command;
 
 import aethereal.friend.FriendConstructor;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.command.BaseCommand;
@@ -18,7 +18,7 @@ import net.minecraft.command.CommandSource;
 public class FriendCommand extends BaseCommand {
     @Override
     public void a(LiteralArgumentBuilder<CommandSource> builder) {
-        FriendProcessor processor = Delta.h().d().e();
+        FriendProcessor processor = HydrogenClient.h().d().e();
         LiteralArgumentBuilder literalArgumentBuilderThen = builder.then(a("add").executes(context -> {
             ChatUtil.a((Object) "Использование: .friend add <ник>");
             return 1;

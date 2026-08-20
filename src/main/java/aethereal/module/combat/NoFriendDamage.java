@@ -1,6 +1,6 @@
 package aethereal.module.combat;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -12,6 +12,6 @@ import aethereal.event.AttackEvent;
 public class NoFriendDamage extends Module {
     @EventTarget
     public void a(AttackEvent event) {
-        event.a(Delta.h().d().e().d(event.b().getName().getString()));
+        event.a(HydrogenClient.h().d().e().d(event.b().getName().getString()));
     }
 }

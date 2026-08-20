@@ -51,10 +51,10 @@ public class BlurShader extends Shader implements Interface {
     }
 
     public BlurShader() {
-        super(Identifier.of("delta", "core/rect/blurred_rect"), VertexFormats.POSITION_TEXTURE_COLOR);
+        super(Identifier.of("hydrogen", "core/rect/blurred_rect"), VertexFormats.POSITION_TEXTURE_COLOR);
         this.n = new ArrayList();
-        this.o = new ShaderProgramKey(Identifier.of("delta", "core/blur/upscale"), VertexFormats.POSITION, Defines.EMPTY);
-        this.p = new ShaderProgramKey(Identifier.of("delta", "core/blur/downscale"), VertexFormats.POSITION, Defines.EMPTY);
+        this.o = new ShaderProgramKey(Identifier.of("hydrogen", "core/blur/upscale"), VertexFormats.POSITION, Defines.EMPTY);
+        this.p = new ShaderProgramKey(Identifier.of("hydrogen", "core/blur/downscale"), VertexFormats.POSITION, Defines.EMPTY);
         EventManager.a(this);
     }
 

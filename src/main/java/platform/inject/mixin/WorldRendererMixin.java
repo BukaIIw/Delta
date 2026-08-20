@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.EventManager;
 import aethereal.core.IEvent;
 import aethereal.core.Interface;
@@ -29,6 +29,6 @@ public class WorldRendererMixin implements Interface {
 
     @ModifyVariable(method = {"setupTerrain(Lnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/Frustum;ZZ)V"}, at = @At("HEAD"), argsOnly = true, index = 4)
     private boolean onSetupTerrain(boolean spectator) {
-        return Delta.h().d().t().h().m() || spectator;
+        return HydrogenClient.h().d().t().h().m() || spectator;
     }
 }

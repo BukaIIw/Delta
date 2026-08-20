@@ -1,7 +1,7 @@
 package aethereal.module.player;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 
@@ -86,7 +86,7 @@ public class ElytraHelper extends Module implements Interface {
         });
         this.f = new BindSetting("Кнопка переключения", -1).a(() -> {
             int slot = aM_.player.getEquippedStack(EquipmentSlot.CHEST).getItem() == Items.ELYTRA ? InventoryUtil.a() : InventoryUtil.b(Items.ELYTRA);
-            Delta.h().d().v().a().b(slot, 1, 1);
+            HydrogenClient.h().d().v().a().b(slot, 1, 1);
             if (this.b.c().booleanValue() && InventoryUtil.b(Items.ELYTRA) == slot) {
                 this.i = aM_.player.age;
                 this.g = true;
@@ -152,7 +152,7 @@ public class ElytraHelper extends Module implements Interface {
 
     private void z() {
         if (aM_.player.isGliding()) {
-            Delta.h().d().v().b().a(Items.FIREWORK_ROCKET.getDefaultStack());
+            HydrogenClient.h().d().v().b().a(Items.FIREWORK_ROCKET.getDefaultStack());
         }
     }
 

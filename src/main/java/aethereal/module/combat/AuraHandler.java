@@ -3,7 +3,7 @@ package aethereal.module.combat;
 import aethereal.handler.Handler_2;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.ColorUtil;
 
@@ -56,12 +56,12 @@ public class AuraHandler extends BaseHandler implements Interface {
         if (event.c() && this.f != null) {
             float anim = this.e.c();
             if (anim > 0.0f) {
-                int themeColor = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+                int themeColor = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
                 Vec3d renderPos = a(this.f);
                 float ringWidth = this.f.getWidth() * 1.5f;
                 float ringScale = 1.25f - (0.5f * anim);
                 b();
-                if (Delta.h().d().t().B().r().l("Круг")) {
+                if (HydrogenClient.h().d().t().B().r().l("Круг")) {
                     a(event.h(), renderPos, ColorUtil.a(themeColor, anim));
                 } else {
                     a(event.h(), renderPos, ringWidth, ringScale, moving, ColorUtil.a(themeColor, anim));
@@ -75,14 +75,14 @@ public class AuraHandler extends BaseHandler implements Interface {
     @EventTarget
     public void a(GlobalEvent event) {
         if (aM_.player != null) {
-            Delta.h().d().t().B().b++;
+            HydrogenClient.h().d().t().B().b++;
         }
     }
 
     @EventTarget
     public void a(TickEvent event) {
-        Aura aura = Delta.h().d().t().B();
-        LivingEntity current = aura.s() != null ? aura.s() : Delta.h().d().t().X().s();
+        Aura aura = HydrogenClient.h().d().t().B();
+        LivingEntity current = aura.s() != null ? aura.s() : HydrogenClient.h().d().t().X().s();
         boolean changed = (current == null || this.f == null || current == this.f) ? false : true;
         boolean visible = (current == null || changed) ? false : true;
         if (visible) {
@@ -139,7 +139,7 @@ public class AuraHandler extends BaseHandler implements Interface {
         int green = rgba[1];
         int blue = rgba[2];
         int alpha = rgba[3];
-        RenderSystem.setShaderTexture(0, Identifier.of("delta", "pictures/bloom.png"));
+        RenderSystem.setShaderTexture(0, Identifier.of("hydrogen", "pictures/bloom.png"));
         RenderSystem.setShader(ShaderProgramKeys.POSITION_TEX_COLOR);
         a(stack, renderPos, ringWidth, ringScale, moving, 1.5f * anim, red, green, blue, alpha);
         a(stack, renderPos, ringWidth, ringScale, moving, 0.6f * anim, red, green, blue, alpha);

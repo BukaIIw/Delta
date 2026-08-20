@@ -3,7 +3,7 @@ package aethereal.module.combat;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.InventoryUtil;
 import aethereal.util.MathUtil;
@@ -108,7 +108,7 @@ public class AutoExplosion extends Module {
 
     private void a(Vec3d point) {
         Rotation r = Rotation.a(aM_.player.getEyePos(), point);
-        Delta.h().d().k().a(new Rotation(r.c() + MathUtil.a(-3.0f, 3.0f), r.d() + MathUtil.a(-3.0f, 3.0f)), 120.0f, 1, 2);
+        HydrogenClient.h().d().k().a(new Rotation(r.c() + MathUtil.a(-3.0f, 3.0f), r.d() + MathUtil.a(-3.0f, 3.0f)), 120.0f, 1, 2);
     }
 
     private void q() {

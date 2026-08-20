@@ -1,7 +1,7 @@
 package aethereal.ui.widget;
 
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.ColorUtil;
 import aethereal.util.MathUtil;
@@ -67,7 +67,7 @@ public class EffectMarker {
             matrices.push();
             matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(angleDeg));
             matrices.translate(offset, 0.0f, 0.0f);
-            Delta.h().d().i().a(matrices, (-length) / 2.0f, -0.25f, length, 0.5f, 0.0f, color);
+            HydrogenClient.h().d().i().a(matrices, (-length) / 2.0f, -0.25f, length, 0.5f, 0.0f, color);
             matrices.pop();
         }
 

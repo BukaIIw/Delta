@@ -3,7 +3,7 @@ package aethereal.ui.screen;
 import aethereal.ui.screen.AssistantScreen;
 import aethereal.util.Marker_2;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -125,7 +125,7 @@ public class RadialScreen implements Interface {
             if (segment != null) {
                 segment.a().a(0.0f, 1.0f, 0.3f, EasingList.g, aM_.getRenderTickCounter().getTickDelta(false));
                 segment.a().a(slot == a((double) mouseX, (double) mouseY, center));
-                int primary = ColorUtil.a(Delta.h().d().o().a(ThemeInfo.PRIMARY).a(), 80);
+                int primary = ColorUtil.a(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a(), 80);
                 int hoverColor = ColorUtil.a(ColorUtil.a(255, 255, 255, 80), primary, segment.a().c());
                 boolean assistant = aM_.currentScreen instanceof AssistantScreen;
                 int amount = (!assistant || segment.b.isEmpty()) ? -1 : InventoryUtil.c(segment.b, false);
@@ -138,7 +138,7 @@ public class RadialScreen implements Interface {
                 float iconX = cx + offsetX + (((float) Math.cos(midAngle)) * iconRadius);
                 float iconY = cy + offsetY + (((float) Math.sin(midAngle)) * iconRadius);
                 if (!segment.b.isEmpty()) {
-                    Delta.h().d().j().a(context, segment.b, iconX - 8.0f, iconY - 8.0f, 0, 1.0f, 1.0f, false);
+                    HydrogenClient.h().d().j().a(context, segment.b, iconX - 8.0f, iconY - 8.0f, 0, 1.0f, 1.0f, false);
                     if (assistant && amount > 0) {
                         String label = String.valueOf(amount);
                         Fonts.e.a(context.getMatrices(), label, (iconX + 8.0f) - Fonts.e.a(label, 10.0f), (iconY + 10.0f) - Fonts.e.a(10.0f), 10.0f, ColorUtil.a(255, 255, 255, amount > 0 ? 235 : InterfaceC0020Opcode.al));

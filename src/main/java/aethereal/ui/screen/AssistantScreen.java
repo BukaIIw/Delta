@@ -4,7 +4,7 @@ import aethereal.autobuy.AutoBuyEntry;
 import aethereal.lib.javassist.TokenId;
 import aethereal.autobuy.AutoBuyProcessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.Fonts;
 import aethereal.render.ColorUtil;
@@ -138,7 +138,7 @@ public class AssistantScreen extends Screen implements Interface {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         this.b.a(context, mouseX, mouseY, new Vector2f(this.width / 2.0f, this.height / 2.0f));
         if (this.g != -1 && this.b.a(mouseX, mouseY, new Vector2f(this.width / 2.0f, this.height / 2.0f)) != this.g) {
-            Delta.h().d().j().a(context, this.b.c(this.g), mouseX - 8, mouseY - 8, TokenId.a_, 1.0f, 1.0f, false);
+            HydrogenClient.h().d().j().a(context, this.b.c(this.g), mouseX - 8, mouseY - 8, TokenId.a_, 1.0f, 1.0f, false);
         }
         if (this.f != -1 && this.d != null) {
             a(context, mouseX, mouseY);
@@ -147,9 +147,9 @@ public class AssistantScreen extends Screen implements Interface {
 
     private void a(DrawContext context, int mouseX, int mouseY) {
         MatrixStack matrices = context.getMatrices();
-        Draw2DProcessor draw = Delta.h().d().i();
-        Draw3DProcessor draw3d = Delta.h().d().j();
-        ThemeProcessor theme = Delta.h().d().o();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
+        Draw3DProcessor draw3d = HydrogenClient.h().d().j();
+        ThemeProcessor theme = HydrogenClient.h().d().o();
         draw.a(matrices, this.d.getX(), this.d.getY(), this.e.getX(), this.e.getY(), 8.0f, theme.a(ThemeInfo.BACKGROUND_GUI).a(), 1.0f, theme.a(ThemeInfo.BACKGROUND_GUI).a(), 11.0f);
         draw.a(matrices, this.d.getX(), this.d.getY(), this.e.getX(), this.e.getY(), 8.0f, 1.0f, ColorUtil.a(255, 255, 255, 15));
         for (int index = 0; index < this.c.size(); index++) {
@@ -171,7 +171,7 @@ public class AssistantScreen extends Screen implements Interface {
                 this.d = d(slot);
                 this.e = d();
             } else {
-                Delta.h().d().v().b().a(this.b.c(slot));
+                HydrogenClient.h().d().v().b().a(this.b.c(slot));
                 aM_.player.closeScreen();
             }
         };

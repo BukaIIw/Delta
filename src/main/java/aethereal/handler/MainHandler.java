@@ -4,7 +4,7 @@ import aethereal.lib.javassist.TokenId;
 import aethereal.handler.Handler_2;
 import aethereal.util.StringUtils;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 import aethereal.util.ServerUtil;
 
@@ -166,7 +166,7 @@ public class MainHandler extends BaseHandler implements Interface {
                 }
                 this.c = trimmed;
                 ChatUtil.a((Object) "&cВы находитесь в PvP режиме! &7Чтобы отправить эту команду, повторите её");
-                Delta.h().d().u().f().d();
+                HydrogenClient.h().d().u().f().d();
                 event.a(true);
             }
         }
@@ -209,7 +209,7 @@ public class MainHandler extends BaseHandler implements Interface {
     public void a(GlobalEvent globalEvent) {
         String str;
         if (aM_.player != null || (aM_.currentScreen instanceof MultiplayerScreen)) {
-            Client clientF = Delta.h().f();
+            Client clientF = HydrogenClient.h().f();
             Object[] objArr = new Object[6];
             objArr[0] = "uuid";
             objArr[1] = aM_.player != null ? aM_.player.getUuid() : null;

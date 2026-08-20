@@ -4,7 +4,7 @@ import aethereal.ui.shader.GradientUtil;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.render.ColorUtil;
@@ -38,7 +38,7 @@ public class ChinaHat extends Module {
         BipedEntityModel<?> class_572VarE = (BipedEntityModel<?>) (Object) event.e();
         if (class_572VarE instanceof BipedEntityModel) {
             BipedEntityModel<?> bipedModel = class_572VarE;
-            boolean friend = Delta.h().d().e().d(event.d().getName().getString());
+            boolean friend = HydrogenClient.h().d().e().d(event.d().getName().getString());
             if (event.d() == aM_.player || friend) {
                 PlayerEntity player = event.d();
                 MatrixStack matrices = event.b();

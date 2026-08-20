@@ -4,7 +4,7 @@ import aethereal.util.BooleanUtils;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.command.BaseCommand;
@@ -45,7 +45,7 @@ public class GPSCommand extends BaseCommand {
             a(new Vec3d(b((CommandContext<CommandSource>) context4, "x"), b((CommandContext<CommandSource>) context4, "y или z"), b((CommandContext<CommandSource>) context4, "z")));
             return 1;
         })))).then(a("event").executes(context5 -> {
-            Delta.h().d().u().c().a(WayCommand.a.GPS);
+            HydrogenClient.h().d().u().c().a(WayCommand.a.GPS);
             aM_.player.networkHandler.sendCommand("event delay");
             return 1;
         })).executes(context6 -> {

@@ -5,7 +5,7 @@ import aethereal.handler.UseableHandler;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.Look;
 import aethereal.util.MoveUtil;
@@ -62,7 +62,7 @@ public class Scaffold extends Module {
         if (s() != null) {
             MoveUtil.a(e, Look.b(), 1);
             if (this.b.c().booleanValue()) {
-                Delta.h().d().t().ah().b(e);
+                HydrogenClient.h().d().t().ah().b(e);
             }
         }
         if (a(aM_.player.getMainHandStack()) || a(aM_.player.getOffHandStack())) {
@@ -70,7 +70,7 @@ public class Scaffold extends Module {
         }
         int hotbarSlot = d(true);
         if (hotbarSlot != -1) {
-            if (aM_.player.getInventory().selectedSlot != hotbarSlot && this.e[2] < 7 && Delta.h().d().v().a().a().isEmpty()) {
+            if (aM_.player.getInventory().selectedSlot != hotbarSlot && this.e[2] < 7 && HydrogenClient.h().d().v().a().a().isEmpty()) {
                 aM_.player.getInventory().selectedSlot = hotbarSlot;
                 this.e[2] = 9;
                 return;
@@ -78,14 +78,14 @@ public class Scaffold extends Module {
             return;
         }
         int invSlot = d(false);
-        if (this.e[2] < 5 && invSlot != -1 && Delta.h().d().v().a().a().isEmpty()) {
+        if (this.e[2] < 5 && invSlot != -1 && HydrogenClient.h().d().v().a().a().isEmpty()) {
             if (this.e[1] == -1) {
                 this.e[1] = invSlot;
             }
             if (aM_.player.getInventory().selectedSlot != 5) {
                 aM_.player.getInventory().selectedSlot = 5;
             }
-            Delta.h().d().v().a().a(invSlot, 5, 1);
+            HydrogenClient.h().d().v().a().a(invSlot, 5, 1);
             this.e[2] = 9;
         }
     }
@@ -135,8 +135,8 @@ public class Scaffold extends Module {
         Rotation rotation = b(this.c);
         rotation.a(rotation.c() + smoothYaw);
         rotation.b(rotation.d() + smoothPitch);
-        Delta.h().d().k().a(rotation, 100.0f, 7, 1);
-        if (u() && !v() && !Delta.h().d().v().c().a()) {
+        HydrogenClient.h().d().k().a(rotation, 100.0f, 7, 1);
+        if (u() && !v() && !HydrogenClient.h().d().v().c().a()) {
             ((platform.inject.invokers.MinecraftClientInvoker) aM_).invokeDoItemUse();
             this.e[2] = 9;
             this.c = null;
@@ -190,7 +190,7 @@ public class Scaffold extends Module {
     }
 
     private boolean r() {
-        List<UseableHandler.a> tasks = Delta.h().d().v().b().a();
+        List<UseableHandler.a> tasks = HydrogenClient.h().d().v().b().a();
         return !tasks.isEmpty() && ((UseableHandler.a) tasks.getFirst()).d() <= 1;
     }
 
@@ -210,7 +210,7 @@ public class Scaffold extends Module {
         if (this.e[0] != -1 && aM_.player != null) {
             aM_.player.getInventory().selectedSlot = this.e[0];
             if (this.e[1] != -1) {
-                Delta.h().d().v().a().a(this.e[1], 5, 1);
+                HydrogenClient.h().d().v().a().a(this.e[1], 5, 1);
             }
         }
         this.e[0] = -1;

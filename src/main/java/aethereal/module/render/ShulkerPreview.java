@@ -4,7 +4,7 @@ import aethereal.core.Interface;
 
 import platform.inject.accessors.HandledScreenAccessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.render.ColorUtil;
 import aethereal.util.ProjectUtil;
@@ -75,13 +75,13 @@ public class ShulkerPreview extends Module {
         matrices.push();
         matrices.translate(x, y, 500.0f);
         matrices.scale(scale, scale, 1.0f);
-        context.drawTexture(RenderLayer::getGuiTextured, Identifier.of("delta", "pictures/minecraft/3x9.png"), 0, 0, 0.0f, 0.0f, (int) this.b.x(), (int) this.b.y(), 256, 256, ColorUtil.a(((BlockItem) itemStack.getItem()).getBlock().getDefaultMapColor().color, 255));
+        context.drawTexture(RenderLayer::getGuiTextured, Identifier.of("hydrogen", "pictures/minecraft/3x9.png"), 0, 0, 0.0f, 0.0f, (int) this.b.x(), (int) this.b.y(), 256, 256, ColorUtil.a(((BlockItem) itemStack.getItem()).getBlock().getDefaultMapColor().color, 255));
         for (int i = 0; i < Math.min(stacks.size(), 27); i++) {
             ItemStack stack = stacks.get(i);
             if (stack != null && !stack.isEmpty()) {
                 int slotX = 9 + ((i % 9) * 18) + 1;
                 int slotY = 9 + ((i / 9) * 18) + 1;
-                Delta.h().d().j().a(context, stack, slotX, slotY, 0, 1.0f, 0.75f, overlay);
+                HydrogenClient.h().d().j().a(context, stack, slotX, slotY, 0, 1.0f, 0.75f, overlay);
             }
         }
         matrices.pop();

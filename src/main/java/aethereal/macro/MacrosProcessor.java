@@ -7,7 +7,7 @@ import aethereal.core.Interface;
 import aethereal.lib.json.JSONArray;
 import aethereal.lib.json.JSONObject;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 
 import aethereal.config.ConfigProcessor;
 import aethereal.core.EventTarget;
@@ -61,7 +61,7 @@ public class MacrosProcessor extends ConfigProcessor<MacrosConstructor> {
     @EventTarget
     public void a(KeyEvent event) {
         if (event.d() == 1 && aM_.currentScreen == null) {
-            for (MacrosConstructor constructor : Delta.h().d().d().e()) {
+            for (MacrosConstructor constructor : HydrogenClient.h().d().d().e()) {
                 if (KeyUtil.a(event.b()) == KeyUtil.a(constructor.a())) {
                     aM_.player.networkHandler.sendChatMessage(constructor.b());
                 }

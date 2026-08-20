@@ -1,7 +1,7 @@
 package aethereal.ui.element;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.MathUtil;
 
 import aethereal.core.Interface;
@@ -101,7 +101,7 @@ public class DragInfo implements Interface {
         this.d = y;
         this.e = width;
         this.f = height;
-        Delta.h().d().s().e().add(this);
+        HydrogenClient.h().d().s().e().add(this);
     }
 
     public float a() {

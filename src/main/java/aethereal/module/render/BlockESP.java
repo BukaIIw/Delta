@@ -5,7 +5,7 @@ import aethereal.command.BlockESPCommand;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.Module;
 import aethereal.render.ColorUtil;
@@ -58,7 +58,7 @@ public class BlockESP extends Module {
         int i = this.d + 1;
         this.d = i;
         if (i % 12 == 0) {
-            List<BlockESPCommand.a> list = Delta.h().d().u().g().c();
+            List<BlockESPCommand.a> list = HydrogenClient.h().d().u().g().c();
             if (list.isEmpty()) {
                 this.b.clear();
             } else {
@@ -74,7 +74,7 @@ public class BlockESP extends Module {
     @EventTarget
     public void a(DrawEvent event) {
         if (event.c()) {
-            List<BlockESPCommand.a> entries = Delta.h().d().u().g().c();
+            List<BlockESPCommand.a> entries = HydrogenClient.h().d().u().g().c();
             if (!entries.isEmpty()) {
                 Map<Block, Integer> colors = (Map) entries.stream().collect(Collectors.toMap((v0) -> {
                     return v0.a();
@@ -98,7 +98,7 @@ public class BlockESP extends Module {
     private void a(DrawEvent event, BlockPos pos, Map<Block, Integer> colors) {
         Integer color = colors.get(aM_.world.getBlockState(pos).getBlock());
         if (color != null) {
-            event.e().a(event.h(), new Box(pos), color.intValue() != -1 ? color.intValue() : ColorUtil.a(Delta.h().d().o().a(ThemeInfo.PRIMARY).a(), InterfaceC0020Opcode.al), 1.5f);
+            event.e().a(event.h(), new Box(pos), color.intValue() != -1 ? color.intValue() : ColorUtil.a(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a(), InterfaceC0020Opcode.al), 1.5f);
         }
     }
 

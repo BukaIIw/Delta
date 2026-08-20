@@ -3,7 +3,7 @@ package aethereal.module.render;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.render.ColorUtil;
 import aethereal.util.MathUtil;
@@ -109,7 +109,7 @@ public class EntityBox extends Module {
     private int q() {
         int raw = this.c.l("Статичный")
                 ? this.e.c().intValue()
-                : Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+                : HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
         return ColorUtil.a((raw >> 16) & 255, (raw >> 8) & 255, raw & 255, 255);
     }
 

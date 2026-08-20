@@ -1,6 +1,6 @@
 package aethereal.command;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.command.BaseCommand;
@@ -15,7 +15,7 @@ import net.minecraft.command.CommandSource;
 public class WardenCommand extends BaseCommand {
     @Override
     public void a(LiteralArgumentBuilder<CommandSource> builder) {
-        List<Integer> anarchies = Delta.h().d().t().aU().q();
+        List<Integer> anarchies = HydrogenClient.h().d().t().aU().q();
         builder.then(a("add").executes(context -> {
             ChatUtil.a((Object) "Использование: .warden add <анархия>");
             return 1;

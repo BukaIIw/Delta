@@ -2,7 +2,7 @@ package aethereal.ui.widget;
 
 import aethereal.render.ScaleUtil;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 
 import aethereal.core.Interface;
@@ -35,7 +35,7 @@ public class ArmorWidget extends Widget implements Interface {
             if (count > 0) {
                 ScaleUtil.b(event.i());
                 event.i().getMatrices().push();
-                event.i().getMatrices().translate(0.0f, (-16.0f) * Delta.h().d().t().Q().s().c(), 0.0f);
+                event.i().getMatrices().translate(0.0f, (-16.0f) * HydrogenClient.h().d().t().Q().s().c(), 0.0f);
                 int startX = ((aM_.getWindow().getScaledWidth() / 2) - 91) + InterfaceC0020Opcode.bJ + 4;
                 int startY = aM_.getWindow().getScaledHeight() - 22;
                 int epta = startX + ((aM_.player.getMainArm() != Arm.LEFT || aM_.player.getOffHandStack().isEmpty()) ? 0 : 30);

@@ -3,7 +3,7 @@ package aethereal.module.movement;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.MoveUtil;
 
@@ -46,7 +46,7 @@ public class ScreenWalk extends Module {
     @EventTarget(a = 0)
     public void a(PacketEvent event) {
         boolean z;
-        StopHandler stopHandler = Delta.h().d().v().c();
+        StopHandler stopHandler = HydrogenClient.h().d().v().c();
         if (event.b()) {
             if (aM_.currentScreen instanceof InventoryScreen) {
                 ClickSlotC2SPacket class_2813VarD = (ClickSlotC2SPacket) event.d();

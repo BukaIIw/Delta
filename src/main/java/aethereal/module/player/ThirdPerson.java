@@ -4,7 +4,7 @@ import aethereal.core.Interface;
 import aethereal.lib.javassist.TokenId;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.Look;
 import aethereal.util.MathUtil;
@@ -54,7 +54,7 @@ public class ThirdPerson extends Module {
             if (aM_.currentScreen != null) {
                 d(false);
             } else {
-                Delta.h().d().k().a(new Rotation(aM_.player.getYaw(), MathUtil.b(aM_.player.getPitch(), -89.0f, 89.0f)), 360.0f, 0, 1);
+                HydrogenClient.h().d().k().a(new Rotation(aM_.player.getYaw(), MathUtil.b(aM_.player.getPitch(), -89.0f, 89.0f)), 360.0f, 0, 1);
             }
         }
     }

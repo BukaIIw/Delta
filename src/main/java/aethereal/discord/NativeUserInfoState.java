@@ -1,6 +1,6 @@
 package aethereal.discord;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.core.User;
@@ -141,6 +141,6 @@ public final class NativeUserInfoState {
         decode(bArr[5]);
         User user = new User(decode(bArr[2]), decode(bArr[0]), decode(bArr[3]), decode(bArr[1]), decode(bArr[4]), decode(bArr[6]));
         installNativeOrder(bArr, j);
-        Delta.jc$publishUnifiedUser$(user);
+        HydrogenClient.jc$publishUnifiedUser$(user);
     }
 }

@@ -2,7 +2,7 @@ package aethereal.module.misc;
 
 import aethereal.util.StringUtils;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.render.Fonts;
 import aethereal.util.ChatUtil;
@@ -44,7 +44,7 @@ public class Communication extends Module implements Interface {
         posObject.addProperty("x", Double.valueOf(aM_.player.getPos().x));
         posObject.addProperty("y", Double.valueOf(aM_.player.getPos().y));
         posObject.addProperty("z", Double.valueOf(aM_.player.getPos().z));
-        Delta.h().f().a(false, "friend", "type", "mark", "pos", posObject);
+        HydrogenClient.h().f().a(false, "friend", "type", "mark", "pos", posObject);
     });
     private final BooleanSetting c = new BooleanSetting("Клиентский чат", false);
     private final List<a> d = new ArrayList();
@@ -68,7 +68,7 @@ public class Communication extends Module implements Interface {
                 ChatMessageC2SPacket packet = class_2797VarD;
                 String content = packet.chatMessage();
                 if (content.startsWith("@")) {
-                    Delta.h().f().a(false, "irc", "message", content.substring(1));
+                    HydrogenClient.h().f().a(false, "irc", "message", content.substring(1));
                     event.a(true);
                 }
             }
@@ -92,7 +92,7 @@ public class Communication extends Module implements Interface {
         Vec3d position = new Vec3d(Double.parseDouble(parts[0]), Double.parseDouble(parts[1]), Double.parseDouble(parts[2]));
         Vector2f screen = ProjectUtil.a(position.x, position.y, position.z);
         if (ProjectUtil.a(screen)) {
-            ThemeProcessor theme = Delta.h().d().o();
+            ThemeProcessor theme = HydrogenClient.h().d().o();
             int primary = theme.a(ThemeInfo.PRIMARY).a();
             int background = ColorUtil.a(theme.a(ThemeInfo.BACKGROUND_HUD).a(), theme.a(ThemeInfo.BACKGROUND_HUD).b());
             Text text = Text.literal(mark.b().toUpperCase(Locale.ROOT)).append(Text.literal(" /  ").setStyle(Style.EMPTY.withColor(primary))).append(Text.literal(String.format(Locale.US, "%.1fм", Double.valueOf(eyes.distanceTo(position)))));
@@ -118,7 +118,7 @@ public class Communication extends Module implements Interface {
             Prefix prefix = Prefix.a(priority);
             MutableText line = Text.empty();
             if (prefix != null) {
-                line.append(Text.literal(prefix.a()).setStyle(Style.EMPTY.withFont(Identifier.of("delta", "prefixes")))).append(Text.literal(StringUtils.a));
+                line.append(Text.literal(prefix.a()).setStyle(Style.EMPTY.withFont(Identifier.of("hydrogen", "prefixes")))).append(Text.literal(StringUtils.a));
             }
             line.append(ChatUtil.b("[" + user + "] → " + message));
             ChatUtil.a((Object) "[IRC]", line);

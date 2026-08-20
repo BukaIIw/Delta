@@ -1,7 +1,7 @@
 package aethereal.discord;
 
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 
 import aethereal.config.BaseProcessor;
 import aethereal.discord.ActivityType;
@@ -35,7 +35,7 @@ public class DiscordProcessor extends BaseProcessor {
     public void a(Void result, Throwable ex) {
         if (ex == null) {
             try {
-                this.b.a(new Activity.a().a(ActivityType.PLAYING).b("username: " + Delta.h().g().b()).a("build: " + (Delta.h().c() != null ? "development" : "public")).a("https://deltaclient.xyz/api/logotype.png", "https://deltaclient.xyz/").a(System.currentTimeMillis() / 1000).a("https://i.imgur.com/E6dkFRc.jpeg", "https://deltaclient.xyz/").c("Купить", "https://deltaclient.xyz/").c("Новости", "https://t.me/dlcformine").a());
+                this.b.a(new Activity.a().a(ActivityType.PLAYING).b("username: " + HydrogenClient.h().g().b()).a("build: " + (HydrogenClient.h().c() != null ? "development" : "public")).a("https://hydrogendlc.xyz/api/logotype.png", "https://hydrogendlc.xyz/").a(System.currentTimeMillis() / 1000).a("https://i.imgur.com/E6dkFRc.jpeg", "https://hydrogendlc.xyz/").c("Купить", "https://hydrogendlc.xyz/").c("Новости", "https://t.me/hydrogendlc").a());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

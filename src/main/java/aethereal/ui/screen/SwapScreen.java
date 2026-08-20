@@ -1,7 +1,7 @@
 package aethereal.ui.screen;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 
 import aethereal.core.Interface;
 import aethereal.ui.screen.RadialScreen;
@@ -45,7 +45,7 @@ public class SwapScreen extends Screen implements Interface {
             aM_.setScreen(new InventoryScreen(aM_.player));
             a(true);
         } else {
-            Delta.h().d().v().a().a(stack, 45, 1);
+            HydrogenClient.h().d().v().a().a(stack, 45, 1);
             aM_.player.closeScreen();
         }
     }

@@ -2,7 +2,7 @@ package aethereal.core;
 
 import aethereal.config.BaseProcessor;
 import aethereal.core.NativeMethodLookup;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.lib.log4j.LoggerFactory;
 
 import aethereal.core.Interface;
@@ -83,7 +83,7 @@ public class Processor_2 implements Interface {
     }
 
     public Processor_2() {
-        Delta.h().a(this);
+        HydrogenClient.h().a(this);
         this.c = new ArrayList();
         this.d = new MacrosProcessor();
         this.e = new FriendProcessor();

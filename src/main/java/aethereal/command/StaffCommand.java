@@ -1,7 +1,7 @@
 package aethereal.command;
 
 import aethereal.staff.StaffConstructor;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.ChatUtil;
 
 import aethereal.command.BaseCommand;
@@ -18,7 +18,7 @@ import net.minecraft.command.CommandSource;
 public class StaffCommand extends BaseCommand {
     @Override
     public void a(LiteralArgumentBuilder<CommandSource> builder) {
-        StaffProcessor processor = Delta.h().d().f();
+        StaffProcessor processor = HydrogenClient.h().d().f();
         LiteralArgumentBuilder literalArgumentBuilderThen = builder.then(a("add").executes(context -> {
             ChatUtil.a((Object) "Использование: .staff add <ник>");
             return 1;

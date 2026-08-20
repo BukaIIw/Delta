@@ -2,7 +2,7 @@ package aethereal.ui.widget;
 
 import platform.inject.accessors.BossBarHudAccessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
 import aethereal.render.ColorUtil;
@@ -77,7 +77,7 @@ public class WatermarkWidget extends Widget implements Interface {
         j().b(y);
         j().c(topWidth);
         j().d(bottomSections.length > 0 ? this.d + 3.0f + this.d : this.d);
-        int primaryColor = ColorUtil.a(Delta.h().d().o().a(ThemeInfo.PRIMARY).a(), 1.0f);
+        int primaryColor = ColorUtil.a(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a(), 1.0f);
         a(event, x, y, topWidth, topSections, true, primaryColor, iconSize, logoSize, 5.0f, sectionGap, 3.0f, 4.0f, -0.5f);
         if (bottomSections.length > 0) {
             a(event, bottomX, y + this.d + 3.0f, bottomWidth, bottomSections, false, primaryColor, iconSize, logoSize, 5.0f, sectionGap, 3.0f, 4.0f, -0.5f);
@@ -157,7 +157,7 @@ public class WatermarkWidget extends Widget implements Interface {
     private String[][] k() {
         List<String[]> sections = new ArrayList<>();
         if (this.l.c().booleanValue()) {
-            sections.add(new String[]{"L", Delta.h().g().b()});
+            sections.add(new String[]{"L", HydrogenClient.h().g().b()});
         }
         if (this.i.c().booleanValue()) {
             sections.add(new String[]{"q", ((int) this.f) + " FPS"});
@@ -177,7 +177,7 @@ public class WatermarkWidget extends Widget implements Interface {
             sections.add(new String[]{"b", "x " + ((int) aM_.player.getX()) + " y " + ((int) aM_.player.getY()) + " z " + ((int) aM_.player.getZ())});
         }
         if (this.n.c().booleanValue()) {
-            sections.add(new String[]{"g", String.format("%.1f TPS", Float.valueOf(Delta.h().d().v().j().a()))});
+            sections.add(new String[]{"g", String.format("%.1f TPS", Float.valueOf(HydrogenClient.h().d().v().j().a()))});
         }
         if (this.o.c().booleanValue()) {
             sections.add(new String[]{"e", String.format("%.2f BPS", Double.valueOf(ServerUtil.c()))});

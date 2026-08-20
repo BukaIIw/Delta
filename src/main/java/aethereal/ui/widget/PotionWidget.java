@@ -1,7 +1,7 @@
 package aethereal.ui.widget;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -104,7 +104,7 @@ public class PotionWidget extends Widget implements Interface {
     }
 
     private void d(DrawEvent event) {
-        int primary = Delta.h().d().o().a(ThemeInfo.PRIMARY).a();
+        int primary = HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a();
         int visibleCount = 0;
         Iterator<StatusEffectInstance> it = k().iterator();
         while (it.hasNext()) {
@@ -158,8 +158,8 @@ public class PotionWidget extends Widget implements Interface {
                     visible = true;
                 }
                 if (effect != this.g && effect.getDuration() == 100 && (effect.getEffectType().equals(StatusEffects.STRENGTH) || effect.getEffectType().equals(StatusEffects.SPEED) || effect.getEffectType().equals(StatusEffects.HEALTH_BOOST) || effect.getEffectType().equals(StatusEffects.INVISIBILITY))) {
-                    Delta.h().d().m().a(new Notification("E", Text.literal("Эффект ").append(Text.translatable(((StatusEffect) effect.getEffectType().value()).getTranslationKey()).append(" " + (effect.getAmplifier() + 1)).styled(style -> {
-                        return style.withColor(Delta.h().d().o().a(ThemeInfo.PRIMARY).a());
+                    HydrogenClient.h().d().m().a(new Notification("E", Text.literal("Эффект ").append(Text.translatable(((StatusEffect) effect.getEffectType().value()).getTranslationKey()).append(" " + (effect.getAmplifier() + 1)).styled(style -> {
+                        return style.withColor(HydrogenClient.h().d().o().a(ThemeInfo.PRIMARY).a());
                     })).append(Text.literal(" заканчивается")), 2500));
                 }
             }

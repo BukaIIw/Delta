@@ -3,7 +3,7 @@ package aethereal.module.misc;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -43,13 +43,13 @@ public class AntiAFK extends Module {
                     aM_.player.swingHand(Hand.MAIN_HAND);
                 }
                 if (this.c.a("Движение").c().booleanValue()) {
-                    Delta.h().d().v().g().a(7);
+                    HydrogenClient.h().d().v().g().a(7);
                     return;
                 }
                 return;
             }
             if (this.b.l("FunTime") && !this.d.c().booleanValue()) {
-                Delta.h().d().v().g().a(7);
+                HydrogenClient.h().d().v().g().a(7);
             }
         }
     }
@@ -61,7 +61,7 @@ public class AntiAFK extends Module {
             if (class_7439VarD instanceof GameMessageS2CPacket) {
                 GameMessageS2CPacket messageS2CPacket = class_7439VarD;
                 if (messageS2CPacket.content().getString().equals("Данная команда недоступна в режиме AFK")) {
-                    Delta.h().d().v().g().a(7);
+                    HydrogenClient.h().d().v().g().a(7);
                 }
             }
         }

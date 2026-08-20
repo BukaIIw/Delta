@@ -1,6 +1,6 @@
 package aethereal.module.render;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -59,7 +59,7 @@ public class SwingAnimation extends Module {
 
     @EventTarget
     public void a(HandAnimationEvent event) {
-        if ((!this.b.c().booleanValue() || Delta.h().d().t().B().s() != null) && event.c() == Hand.MAIN_HAND) {
+        if ((!this.b.c().booleanValue() || HydrogenClient.h().d().t().B().s() != null) && event.c() == Hand.MAIN_HAND) {
             MatrixStack matrices = event.b();
             float anim = (float) Math.sin(((double) event.d()) * 3.1415936112270124d);
             float power = this.f.c().floatValue() * 10.0f;

@@ -1,6 +1,6 @@
 package aethereal.ui.element;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.InterfaceC0020Opcode;
 import aethereal.render.EasingList;
 import aethereal.render.Fonts;
@@ -84,7 +84,7 @@ public class Button {
         matrices.translate(cx, cy, 0.0f);
         matrices.scale(scale, scale, 1.0f);
         matrices.translate(-cx, -cy, 0.0f);
-        Draw2DProcessor draw = Delta.h().d().i();
+        Draw2DProcessor draw = HydrogenClient.h().d().i();
         draw.b(matrices, this.f, this.g, this.b, this.c, 8.0f, ColorUtil.a(11, 11, 13, InterfaceC0020Opcode.bN), open);
         draw.a(matrices, this.f, this.g, this.b, this.c, 8.0f, 0.5f, ColorUtil.a(255, 255, 255, (int) (hover * 20.0f * open)));
         if (this.d != null) {

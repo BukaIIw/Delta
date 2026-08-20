@@ -2,7 +2,7 @@ package aethereal.handler;
 
 import aethereal.handler.Handler_2;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.util.InventoryUtil;
 
 import aethereal.core.EventTarget;
@@ -33,7 +33,7 @@ public class InventoryHandler extends BaseHandler implements Interface {
     public void a(TickEvent event) {
         if (!this.b.isEmpty()) {
             a task = (a) this.b.getFirst();
-            StopHandler stopHandler = Delta.h().d().v().c();
+            StopHandler stopHandler = HydrogenClient.h().d().v().c();
             if (stopHandler.c() < task.c()) {
                 int from = a(task.a());
                 int to = task.d() ? task.b() : a(task.b());
@@ -92,7 +92,7 @@ public class InventoryHandler extends BaseHandler implements Interface {
     private void a(a task) {
         if (task.a() != -1 && task.b() != -1) {
             if (this.b.isEmpty() && task.c > 0) {
-                Delta.h().d().v().c().a(task.c);
+                HydrogenClient.h().d().v().c().a(task.c);
             }
             this.b.add(task);
         }

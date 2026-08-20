@@ -1,7 +1,7 @@
 package aethereal.module.misc;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 import aethereal.render.ColorUtil;
@@ -123,7 +123,7 @@ public class ServerAssistant extends Module implements Interface {
                     return effect.getEffectType() == StatusEffects.WEAKNESS && effect.getAmplifier() >= 1 && ((double) effect.getDuration()) / 20.0d >= 15.0d;
                 });
                 if (InventoryUtil.b(Items.PHANTOM_MEMBRANE) != -1 && hasBadEffect && !aM_.player.getItemCooldownManager().isCoolingDown(Items.PHANTOM_MEMBRANE.getDefaultStack()) && this.v.a(5000L) && aM_.player.getAbsorptionAmount() <= 3.0f) {
-                    Delta.h().d().v().b().a(Items.PHANTOM_MEMBRANE.getDefaultStack());
+                    HydrogenClient.h().d().v().b().a(Items.PHANTOM_MEMBRANE.getDefaultStack());
                     this.v.b();
                 }
             }
@@ -200,7 +200,7 @@ public class ServerAssistant extends Module implements Interface {
                     }
                     HandledScreenAccessor accessor = (HandledScreenAccessor) handledScreenAccessor;
                     float pulse = (float) ((Math.sin(((System.currentTimeMillis() % 100000) / 1000.0f) * 10.0f) + 1.0d) * 0.5d);
-                    Delta.h().d().i().a(event.d(), accessor.getX() + ((Slot) this.x).x, accessor.getY() + ((Slot) this.x).y, 16.0f, 16.0f, ColorUtil.a(0, 255, 0, (int) (25.0f + (175.0f * pulse))));
+                    HydrogenClient.h().d().i().a(event.d(), accessor.getX() + ((Slot) this.x).x, accessor.getY() + ((Slot) this.x).y, 16.0f, 16.0f, ColorUtil.a(0, 255, 0, (int) (25.0f + (175.0f * pulse))));
                 }
             }
         }
@@ -288,7 +288,7 @@ public class ServerAssistant extends Module implements Interface {
             if (InventoryUtil.b(item) == -1) {
                 ChatUtil.a((Object) ("&c" + name + "&7 - нет в инвентаре"));
             } else {
-                Delta.h().d().v().b().a(item.getDefaultStack());
+                HydrogenClient.h().d().v().b().a(item.getDefaultStack());
             }
         }).a(() -> {
             Stream stream = Arrays.stream(servers);

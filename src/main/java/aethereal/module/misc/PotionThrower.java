@@ -3,7 +3,7 @@ package aethereal.module.misc;
 import aethereal.autobuy.AutoBuyEntry;
 import aethereal.autobuy.AutoBuyProcessor;
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -45,7 +45,7 @@ public class PotionThrower extends Module implements Interface {
         for (AutoBuyEntry potion : AutoBuyEntry.values()) {
             if (potion.d() == Items.SPLASH_POTION) {
                 a(new BindSetting(potion.b(), -1).a(() -> {
-                    Delta.h().d().v().b().a(potion.a());
+                    HydrogenClient.h().d().v().b().a(potion.a());
                 }).a(() -> {
                     return Boolean.valueOf(this.b.l("Клавиша"));
                 }));

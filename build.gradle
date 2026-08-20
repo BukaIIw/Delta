@@ -10,7 +10,7 @@ repositories {
 
 loom {
 	mods {
-		"delta-client" {
+		"hydrogendlc" {
 			sourceSet sourceSets.main
 		}
 	}

@@ -4,7 +4,7 @@ import platform.inject.invokers.MinecraftClientInvoker;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 import aethereal.util.InventoryUtil;
@@ -48,7 +48,7 @@ public class ClanUpgrader extends Module {
         }
         float randomPitch = ((float) (Math.sin(System.currentTimeMillis() / 1220.0d) * ((double) (Math.abs(90.0f - aM_.player.getPitch()) / 8.0f)))) + MathUtil.a(-0.1f, 0.1f);
         Rotation rotation = new Rotation(Look.b() + MathUtil.a(-1.0f, 1.0f), MathUtil.b(88.0f + randomPitch, -90.0f, 90.0f));
-        Delta.h().d().k().a(rotation, 90.0f, 1, 1);
+        HydrogenClient.h().d().k().a(rotation, 90.0f, 1, 1);
         if (this.b == -1) {
             this.b = aM_.player.getInventory().selectedSlot;
         }

@@ -4,7 +4,7 @@ import aethereal.util.StringUtils;
 import aethereal.core.Interface;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 
 import aethereal.core.Category;
@@ -37,7 +37,7 @@ public class AutoAccept extends Module {
             if (class_7439VarD instanceof GameMessageS2CPacket) {
                 GameMessageS2CPacket s2CPacket = class_7439VarD;
                 String chat = s2CPacket.content().getString().toLowerCase();
-                if (this.c.c().booleanValue() && Delta.h().d().e().a().stream().noneMatch(friend -> {
+                if (this.c.c().booleanValue() && HydrogenClient.h().d().e().a().stream().noneMatch(friend -> {
                     return chat.contains(friend.a().toLowerCase());
                 })) {
                     return;

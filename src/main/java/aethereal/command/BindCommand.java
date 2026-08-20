@@ -1,6 +1,6 @@
 package aethereal.command;
 
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 
@@ -22,7 +22,7 @@ import net.minecraft.command.CommandSource;
 public class BindCommand extends BaseCommand {
     @Override
     public void a(LiteralArgumentBuilder<CommandSource> builder) {
-        ModuleProcessor processor = Delta.h().d().t();
+        ModuleProcessor processor = HydrogenClient.h().d().t();
         LiteralArgumentBuilder literalArgumentBuilderExecutes = a("add").executes(context -> {
             ChatUtil.a((Object) "Использование: .bind add <название модуля> <клавиша>");
             return 1;

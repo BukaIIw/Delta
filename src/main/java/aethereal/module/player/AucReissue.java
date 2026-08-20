@@ -1,7 +1,7 @@
 package aethereal.module.player;
 
 import static aethereal.core.Interface.aM_;
-import aethereal.core.Delta;
+import aethereal.core.HydrogenClient;
 import aethereal.core.Module;
 import aethereal.util.ChatUtil;
 import aethereal.util.ServerUtil;
@@ -39,7 +39,7 @@ public class AucReissue extends Module implements Interface {
 
     @EventTarget
     public void a(TickEvent event) {
-        if (!ServerUtil.e() && ((ServerUtil.a.d() != -1 || ServerUtil.d.b() != -1) && aM_.player.age >= 220 && !Delta.h().d().v().g().a() && !aM_.player.getItemCooldownManager().isCoolingDown(Items.CLOCK.getDefaultStack()))) {
+        if (!ServerUtil.e() && ((ServerUtil.a.d() != -1 || ServerUtil.d.b() != -1) && aM_.player.age >= 220 && !HydrogenClient.h().d().v().g().a() && !aM_.player.getItemCooldownManager().isCoolingDown(Items.CLOCK.getDefaultStack()))) {
             HandledScreen<?> class_465Var = (HandledScreen<?>) aM_.currentScreen;
             if (class_465Var instanceof HandledScreen) {
                 HandledScreen<?> handledScreen = class_465Var;
@@ -74,7 +74,7 @@ public class AucReissue extends Module implements Interface {
                     GameMessageS2CPacket packet = class_7439VarD;
                     String msg = packet.content().getString();
                     if (msg.equals("Данная команда недоступна в режиме AFK")) {
-                        Delta.h().d().v().g().a(10);
+                        HydrogenClient.h().d().v().g().a(10);
                     }
                     if (msg.equals("[☃] В хранилище отсутствуют предметы для перевыставления.")) {
                         ChatUtil.a((Object) "Авто-выключение: в хранилище отсутствуют предметы для перевыставления");
