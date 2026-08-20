@@ -67,6 +67,17 @@ public abstract class MinecraftClientMixin implements Interface {
 
     @Inject(method = {"reloadResources()Ljava/util/concurrent/CompletableFuture;"}, at = {@At("HEAD")}, cancellable = true)
     private void reloadResources(CallbackInfoReturnable<CompletableFuture<Void>> cir) {
+        if (HydrogenClient.h() != null && HydrogenClient.h().d() != null && HydrogenClient.h().d().t() != null) {
+            if (HydrogenClient.h().d().t().aN().skipLanguageReload() && fromLanguageChange()) {
+                cir.setReturnValue(CompletableFuture.completedFuture(null));
+                return;
+            }
+            if (HydrogenClient.h().d().t().aN().skipResourceReload() && this.resourcePacks != null) {
+                cir.setReturnValue(CompletableFuture.completedFuture(null));
+                this.resourcePacks = null;
+                return;
+            }
+        }
         if (this.resourcePacks != null) {
             Set<String> current = (Set) aM_.getResourcePackManager().getEnabledProfiles().stream().map((v0) -> {
                 return v0.getId();
@@ -76,6 +87,17 @@ public abstract class MinecraftClientMixin implements Interface {
             }
             this.resourcePacks = null;
         }
+    }
+
+    @Unique
+    private boolean fromLanguageChange() {
+        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+            String name = element.getClassName();
+            if (name.contains("LanguageManager") || name.contains("LanguageOptions") || name.contains("GameOptions")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Inject(method = {"setScreen"}, at = {@At("HEAD")}, cancellable = true)

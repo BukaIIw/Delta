@@ -15,16 +15,7 @@ import static hydrogen.ui.dashboard.DashboardPalette.*;
 /** Pure custom-renderer view for the Hydrogen control center. */
 public final class DashboardRenderer {
     public void render(Renderer2D draw, DashboardController controller, DashboardLayout layout, RenderStats previousStats) {
-        draw.gradient(0.0f, 0.0f, layout.screenWidth, layout.screenHeight, 0.0f,
-            BACKDROP_TL, BACKDROP_TR, BACKDROP_BR, BACKDROP_BL);
-        draw.surface(layout.screenWidth * 0.16f, layout.screenHeight * 0.08f, 150.0f, 150.0f, 75.0f,
-            Color.argb(32, 139, 124, 255), Color.argb(18, 139, 124, 255),
-            Color.argb(0, 139, 124, 255), Color.argb(14, 139, 124, 255),
-            0.0f, 0, 48.0f, Color.argb(68, 92, 72, 220));
-        draw.surface(layout.screenWidth * 0.76f, layout.screenHeight * 0.64f, 190.0f, 190.0f, 95.0f,
-            Color.argb(20, 92, 214, 224), Color.argb(10, 92, 214, 224),
-            Color.argb(0, 92, 214, 224), Color.argb(10, 92, 214, 224),
-            0.0f, 0, 58.0f, Color.argb(52, 42, 166, 183));
+        // World stays visible (blurred by GUIScreen). Only a light dim, like the old clickgui.
 
         float entrance = clamp(controller.entrance());
         float eased = 1.0f - (float) Math.pow(1.0f - entrance, 3.0);

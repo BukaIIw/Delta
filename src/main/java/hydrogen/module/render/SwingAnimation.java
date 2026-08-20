@@ -19,7 +19,7 @@ import net.minecraft.util.math.RotationAxis;
 @ModuleRegister(a = "Swing Animation", b = "Настраивает анимацию взмаха руки", c = Category.Render)
 public class SwingAnimation extends Module {
     private final BooleanSetting b = new BooleanSetting("Учитывать включённую Aura", true);
-    private final ModeSetting c = new ModeSetting("Режим анимации", "Мод 1", "Мод 1", "Мод 2", "Мод 3", "Мод 4", "Мод 5");
+    private final ModeSetting c = new ModeSetting("Режим анимации", "Мод 1", "Мод 1", "Мод 2", "Мод 3", "Мод 4", "Мод 5", "Мод 6", "Мод 7", "Мод 8");
     private final SliderSetting d = (SliderSetting) new SliderSetting("Угол поворота", 75.0f, 0.0f, 360.0f, 1.0f).a(() -> {
         return Boolean.valueOf(this.c.l("Мод 1"));
     });
@@ -99,6 +99,25 @@ public class SwingAnimation extends Module {
                     matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(arm * swing * (-22.0f) * strength));
                     matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(swing * (-85.0f) * strength));
                     matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(arm * (-45.0f)));
+                    break;
+                case "Мод 6":
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(arm * 80));
+                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(arm * (-50.0f + (power * anim * 0.35f))));
+                    matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees((-90.0f) + (power * anim)));
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(arm * 25.0f * anim));
+                    break;
+                case "Мод 7":
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(arm * 95));
+                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(arm * (-40)));
+                    matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees((-20.0f) - (power * anim * 1.35f)));
+                    matrices.translate(0.0f, 0.0f, -0.18f * anim);
+                    break;
+                case "Мод 8":
+                    float loop = (float) Math.sin(((double) event.d()) * 6.283185d);
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(arm * (70.0f + (loop * 18.0f))));
+                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(arm * ((-55.0f) - (anim * 20.0f))));
+                    matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees((-55.0f) - (power * 0.55f * anim)));
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(arm * loop * power * 0.25f));
                     break;
             }
             event.a(true);

@@ -1,5 +1,8 @@
 package hydrogen.module.combat;
 
+import hydrogen.ai.AiAimModel;
+import hydrogen.ai.AiFeatures;
+import hydrogen.ai.AiNamedRecorder;
 import hydrogen.ui.screen.AssistantScreen;
 import hydrogen.ui.screen.GUIScreen;
 
@@ -26,6 +29,7 @@ import hydrogen.lib.log4j.Logger_2;
 import hydrogen.setting.ModeSetting;
 import hydrogen.setting.MultiModeSetting;
 import hydrogen.setting.SliderSetting;
+import hydrogen.setting.StringSetting;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
@@ -62,7 +66,9 @@ public class Aura extends Module {
     private static final Logger_2 g = LoggerFactory.a((Class<?>) Aura.class);
     private LivingEntity t;
     boolean d;
-    private final ModeSetting h = new ModeSetting("Выберите тип наведения", "ФанТайм", "ФанТайм", "ФанТайм ФОВ", "Легит", "SpookyTime");
+    private final ModeSetting h = new ModeSetting("Выберите тип наведения", "ФанТайм", "ФанТайм", "ФанТайм ФОВ", "Легит", "SpookyTime", "AI");
+    private final StringSetting aiDataset = new StringSetting("Имя AI датасета", "combat");
+    private final BooleanSetting aiRecord = (BooleanSetting) new BooleanSetting("Запись AI датасета", false).a(() -> this.h.l("AI"));
     private final MultiModeSetting i = new MultiModeSetting("Цели для атаки", new BooleanSetting("Без брони", true), new BooleanSetting("Враждебные мобы", false), new BooleanSetting("Животные", false), new BooleanSetting("Друзья", false), new BooleanSetting("Игроки", true));
     private final SliderSetting j = new SliderSetting("Дистанция атаки", 3.0f, 0.1f, 6.0f, 0.1f);
     private final SliderSetting k = new SliderSetting("Дополнительная дистанция", 0.5f, 0.1f, 3.0f, 0.1f);
@@ -120,7 +126,7 @@ public class Aura extends Module {
     }
 
     public Aura() {
-        a(this.j, this.k, this.h, this.r, this.s, this.q, this.i, this.n, this.l, this.m, this.o, this.p);
+        a(this.j, this.k, this.h, this.aiDataset, this.aiRecord, this.r, this.s, this.q, this.i, this.n, this.l, this.m, this.o, this.p);
     }
 
     @Override
@@ -142,6 +148,7 @@ public class Aura extends Module {
         super.c();
         this.c[10] = 0.0f;
         this.t = null;
+        AiNamedRecorder.flush();
         x();
     }
 
@@ -550,6 +557,9 @@ public class Aura extends Module {
                 break;
             case "SpookyTime":
                 spooky(yawToTarget, pitchToTarget, targetPosition);
+                break;
+            case "AI":
+                aiAim(yawToTarget, pitchToTarget);
                 break;
         }
         float[] fArr = this.c;
