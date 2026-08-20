@@ -27,12 +27,14 @@ public class ScreenMixin {
     @Inject(method = {"render"}, at = {@At("HEAD")}, cancellable = true)
     private void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         Screen self = (Screen)(Object) this;
-        if ((self instanceof ReconfiguringScreen || self instanceof DownloadingTerrainScreen)
-                && hydrogen.module.player.FastLoad.shouldSkipTerrain()) {
-            if (Interface.aM_ != null && Interface.aM_.currentScreen == self) {
+        if (self instanceof DownloadingTerrainScreen && hydrogen.module.player.FastLoad.shouldSkipTerrain()) {
+            if (Interface.aM_ != null && Interface.aM_.player != null && Interface.aM_.world != null
+                    && Interface.aM_.currentScreen == self) {
                 Interface.aM_.setScreen(null);
             }
-            ci.cancel();
+            if (Interface.aM_ != null && Interface.aM_.player != null) {
+                ci.cancel();
+            }
         }
     }
 

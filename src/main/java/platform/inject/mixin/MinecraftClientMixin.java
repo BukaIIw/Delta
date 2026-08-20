@@ -69,10 +69,6 @@ public abstract class MinecraftClientMixin implements Interface {
                     .map(profile -> profile.getId())
                     .collect(Collectors.toCollection(HashSet::new));
         }
-        if (FastLoad.shouldSkipTerrain() && (screen instanceof DownloadingTerrainScreen || screen instanceof ReconfiguringScreen)) {
-            ci.cancel();
-            return;
-        }
         if (aM_.currentScreen instanceof GUIScreen) {
             if (screen == null || screen instanceof DownloadingTerrainScreen) {
                 for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
@@ -90,6 +86,9 @@ public abstract class MinecraftClientMixin implements Interface {
         if (!FastLoad.shouldSkipTerrain() || aM_.currentScreen == null) {
             return;
         }
+        if (aM_.player == null || aM_.world == null) {
+            return;
+        }
         if (aM_.currentScreen instanceof DownloadingTerrainScreen || aM_.currentScreen instanceof ReconfiguringScreen) {
             aM_.setScreen(null);
         }
@@ -101,7 +100,7 @@ public abstract class MinecraftClientMixin implements Interface {
             cir.setReturnValue(CompletableFuture.completedFuture(null));
             return;
         }
-        if (this.skipNextResourceReload || (FastLoad.shouldSkipResourceReload() && fromPackOrLanguageStack())) {
+        if (this.skipNextResourceReload) {
             this.skipNextResourceReload = false;
             this.resourcePacks = null;
             cir.setReturnValue(CompletableFuture.completedFuture(null));
