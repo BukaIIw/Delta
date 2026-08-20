@@ -56,7 +56,7 @@ public class AiCommand extends BaseCommand {
             return 1;
         }
         String used = aura.stopAiRecord();
-        ChatUtil.a((Object) ("Запись AI датасета &cвыключена&7. Файл: &f" + used + ".csv &8(" + AiNamedRecorder.rowsWritten() + " строк)"));
+        ChatUtil.a((Object) ("Запись &cstop&7: &f" + used + ".csv &8(" + AiNamedRecorder.rowsWritten() + " строк)"));
         return 1;
     }
 
