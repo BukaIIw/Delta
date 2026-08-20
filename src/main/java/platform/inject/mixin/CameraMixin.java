@@ -1,13 +1,13 @@
 package platform.inject.mixin;
 
 
-import aethereal.render.Animations;
-import aethereal.event.CameraPositionEvent;
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.RemovalsEvent;
-import aethereal.event.RotationEvent;
+import hydrogen.render.Animations;
+import hydrogen.event.CameraPositionEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.RemovalsEvent;
+import hydrogen.event.RotationEvent;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.BlockView;

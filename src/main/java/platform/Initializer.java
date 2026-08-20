@@ -1,8 +1,8 @@
 package platform;
 
-import aethereal.api.Compile;
-import aethereal.core.HydrogenClient;
-import aethereal.core.NativeMethodLookup;
+import hydrogen.api.Compile;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.NativeMethodLookup;
 import hydrogen.Hydrogen;
 import hydrogen.integration.ClientModuleRepository;
 import net.fabricmc.api.ClientModInitializer;

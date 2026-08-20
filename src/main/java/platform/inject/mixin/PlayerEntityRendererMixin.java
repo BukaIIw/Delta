@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.HydrogenClient;
+import hydrogen.core.HydrogenClient;
 import net.minecraft.client.render.entity.state.PlayerEntityRenderState;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.text.Text;

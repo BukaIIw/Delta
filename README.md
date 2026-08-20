@@ -25,15 +25,17 @@ The implementation targets OpenGL 3.2 plus instanced arrays (core in 3.3 or `ARB
 
 ## Application architecture
 
-The `hydrogen` tree is independent of Minecraft except for the thin `GUIScreen` adapter:
+All project-owned client code lives in the canonical `hydrogen` namespace:
 
-- `ui/model` defines stable UI-facing module and setting contracts.
-- `integration/ClientModuleRepository` adapts the gameplay module core to the renderer-independent UI model.
+- `core`, `module`, `setting`, `event`, and `config` contain the gameplay runtime and feature model.
+- `ui/model` defines stable renderer-facing module and setting contracts.
+- `integration/ClientModuleRepository` isolates the gameplay model from the dashboard.
 - `ui/dashboard` contains responsive geometry, hit testing, filtering, scrolling, spring animation, and visual composition.
-- `render` owns GPU resources and all custom drawing.
-- `Hydrogen` is the lifecycle facade initialized by the Fabric composition root.
+- `render` owns GPU resources and all custom drawing; it does not call Minecraft drawing APIs.
+- `Hydrogen` is the lifecycle facade, while `core/HydrogenClient` owns the gameplay runtime.
+- `platform` is the Fabric entrypoint and mixin boundary. Embedded third-party API surfaces remain separated from Hydrogen-owned code.
 
-This boundary keeps gameplay modules operational while allowing the presentation and rendering systems to evolve independently.
+These boundaries keep gameplay modules operational while allowing presentation and rendering systems to evolve independently.
 
 ## Build
 

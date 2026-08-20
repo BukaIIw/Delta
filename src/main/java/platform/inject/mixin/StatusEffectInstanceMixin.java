@@ -1,8 +1,8 @@
 package platform.inject.mixin;
 
 
-import aethereal.render.AnimationUtil;
-import aethereal.mixin.IStatusEffectInstance;
+import hydrogen.render.AnimationUtil;
+import hydrogen.mixin.IStatusEffectInstance;
 import lombok.Generated;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import org.spongepowered.asm.mixin.Mixin;

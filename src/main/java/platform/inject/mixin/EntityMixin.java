@@ -1,14 +1,14 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.event.BoundingBoxEvent;
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.event.RemovalsEvent;
+import hydrogen.event.BoundingBoxEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.event.RemovalsEvent;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Box;

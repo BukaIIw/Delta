@@ -1,8 +1,8 @@
 package platform.inject.mixin;
 
 
-import aethereal.render.AnimationUtil;
-import aethereal.mixin.IItemCooldownManager;
+import hydrogen.render.AnimationUtil;
+import hydrogen.mixin.IItemCooldownManager;
 import lombok.Generated;
 import net.minecraft.entity.player.ItemCooldownManager;
 import org.spongepowered.asm.mixin.Mixin;

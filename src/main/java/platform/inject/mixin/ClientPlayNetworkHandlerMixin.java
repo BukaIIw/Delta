@@ -1,16 +1,16 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.AnimationUtil;
-import aethereal.event.CooldownEvent;
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.mixin.IStatusEffectInstance;
-import aethereal.core.Interface;
-import aethereal.event.SyncEvent;
+import hydrogen.render.AnimationUtil;
+import hydrogen.event.CooldownEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.mixin.IStatusEffectInstance;
+import hydrogen.core.Interface;
+import hydrogen.event.SyncEvent;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.recipe.display.RecipeDisplay;
 import net.minecraft.entity.effect.StatusEffectInstance;

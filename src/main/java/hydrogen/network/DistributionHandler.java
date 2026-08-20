@@ -1,0 +1,88 @@
+package hydrogen.network;
+
+import hydrogen.handler.Handler_2;
+
+import static hydrogen.core.Interface.aM_;
+import hydrogen.core.HydrogenClient;
+import hydrogen.util.MathUtil;
+
+import hydrogen.core.EventTarget;
+import hydrogen.core.Interface;
+import hydrogen.event.ClickEvent;
+import hydrogen.event.ContainerEvent;
+import hydrogen.handler.BaseHandler;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import net.minecraft.screen.GenericContainerScreenHandler;
+import net.minecraft.screen.slot.SlotActionType;
+import net.minecraft.screen.slot.Slot;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableTextContent;
+import net.minecraft.util.Identifier;
+import net.minecraft.registry.DefaultedRegistry;
+import net.minecraft.registry.Registries;
+import platform.inject.accessors.HandledScreenAccessor;
+
+@Handler_2
+public class DistributionHandler extends BaseHandler implements Interface {
+    private boolean b;
+
+    @EventTarget
+    public void a(ContainerEvent event) {
+        this.b = false;
+        if (event.h() == ContainerEvent.Phase.POST && (event.c() instanceof GenericContainerScreenHandler)) {
+            TranslatableTextContent class_2588VarMethod_10851 = (TranslatableTextContent) event.i().getContent();
+            if (class_2588VarMethod_10851 instanceof TranslatableTextContent) {
+                TranslatableTextContent content = class_2588VarMethod_10851;
+                if (content.getKey().equals("container.chest") || content.getKey().equals("container.chestDouble")) {
+                    HandledScreenAccessor screen = (HandledScreenAccessor) event.b();
+                    float x = (screen.getX() + screen.getBackgroundWidth()) - 17;
+                    float y = screen.getY() + 5;
+                    this.b = MathUtil.a(event.f(), event.g(), x, y, 10.0f, 10.0f);
+                    HydrogenClient.h().d().i().a(event.d().getMatrices(), Identifier.of("hydrogen", this.b ? "pictures/minecraft/distribution_button_hovered.png" : "pictures/minecraft/distribution_button.png"), x, y, 10.0f, 10.0f, 0.0f, -1);
+                    if (this.b) {
+                        event.d().drawTooltip(event.b().getTextRenderer(), List.of(Text.of("Отсортировать предметы")), event.f(), event.g());
+                    }
+                }
+            }
+        }
+    }
+
+    @EventTarget
+    public void a(ClickEvent event) {
+        if (event.b() && this.b) {
+            GenericContainerScreenHandler class_1707Var = aM_.player.currentScreenHandler instanceof GenericContainerScreenHandler ? (GenericContainerScreenHandler) aM_.player.currentScreenHandler : null;
+            if (class_1707Var instanceof GenericContainerScreenHandler) {
+                GenericContainerScreenHandler handler = class_1707Var;
+                List<Slot> slots = handler.slots.subList(0, handler.getRows() * 9);
+                List<Item> order = new ArrayList<>(slots.stream().map(slot -> {
+                    return slot.getStack().getItem();
+                }).filter(item -> {
+                    return item != Items.AIR;
+                }).toList());
+                DefaultedRegistry class_7922Var = Registries.ITEM;
+                Objects.requireNonNull(class_7922Var);
+                order.sort(Comparator.comparingInt((v1) -> {
+                    return class_7922Var.getRawId(v1);
+                }));
+                for (int i = 0; i < order.size(); i++) {
+                    Item item2 = order.get(i);
+                    Slot target = slots.get(i);
+                    if (target.getStack().getItem() != item2) {
+                        Slot source = slots.stream().skip(i + 1).filter(slot2 -> {
+                            return slot2.getStack().getItem() == item2;
+                        }).findFirst().orElseThrow();
+                        aM_.interactionManager.clickSlot(handler.syncId, source.id, 0, SlotActionType.PICKUP, aM_.player);
+                        aM_.interactionManager.clickSlot(handler.syncId, target.id, 0, SlotActionType.PICKUP, aM_.player);
+                        aM_.interactionManager.clickSlot(handler.syncId, source.id, 0, SlotActionType.PICKUP, aM_.player);
+                    }
+                }
+            }
+        }
+    }
+}

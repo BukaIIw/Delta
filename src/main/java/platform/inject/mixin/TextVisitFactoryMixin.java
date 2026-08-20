@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.TextVisitEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.TextVisitEvent;
 import net.minecraft.text.TextVisitFactory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

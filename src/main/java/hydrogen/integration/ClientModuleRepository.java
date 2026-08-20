@@ -1,17 +1,17 @@
 package hydrogen.integration;
 
-import aethereal.core.Category;
-import aethereal.core.HydrogenClient;
-import aethereal.setting.BindSetting;
-import aethereal.setting.BooleanSetting;
-import aethereal.setting.ButtonSetting;
-import aethereal.setting.ColorSetting;
-import aethereal.setting.ModeSetting;
-import aethereal.setting.MultiModeSetting;
-import aethereal.setting.Setting;
-import aethereal.setting.SliderSetting;
-import aethereal.setting.StringSetting;
-import aethereal.util.KeyUtil;
+import hydrogen.core.Category;
+import hydrogen.core.HydrogenClient;
+import hydrogen.setting.BindSetting;
+import hydrogen.setting.BooleanSetting;
+import hydrogen.setting.ButtonSetting;
+import hydrogen.setting.ColorSetting;
+import hydrogen.setting.ModeSetting;
+import hydrogen.setting.MultiModeSetting;
+import hydrogen.setting.Setting;
+import hydrogen.setting.SliderSetting;
+import hydrogen.setting.StringSetting;
+import hydrogen.util.KeyUtil;
 import hydrogen.ui.model.ModuleModel;
 import hydrogen.ui.model.ModuleRepository;
 import hydrogen.ui.model.SettingModel;
@@ -29,7 +29,7 @@ public final class ClientModuleRepository implements ModuleRepository {
     public ClientModuleRepository(HydrogenClient client) {
         List<ModuleModel> adapted = new ArrayList<>();
         if (client != null && client.d() != null && client.d().t() != null) {
-            for (aethereal.core.Module module : client.d().t().e()) {
+            for (hydrogen.core.Module module : client.d().t().e()) {
                 adapted.add(new ModuleAdapter(module));
             }
         }
@@ -42,12 +42,12 @@ public final class ClientModuleRepository implements ModuleRepository {
     }
 
     private static final class ModuleAdapter implements ModuleModel {
-        private final aethereal.core.Module delegate;
+        private final hydrogen.core.Module delegate;
         private final String id;
         private final UiCategory category;
         private final List<SettingModel> settings;
 
-        private ModuleAdapter(aethereal.core.Module delegate) {
+        private ModuleAdapter(hydrogen.core.Module delegate) {
             this.delegate = delegate;
             category = map(delegate.l());
             id = category.name().toLowerCase(Locale.ROOT) + "." + slug(delegate.j());

@@ -1,13 +1,13 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.event.TooltipEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.event.TooltipEvent;
 import java.util.List;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;

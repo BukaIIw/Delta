@@ -1,12 +1,12 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.core.HydrogenClient;
-import aethereal.render.EasingList;
-import aethereal.core.Interface;
+import hydrogen.render.Animations;
+import hydrogen.core.HydrogenClient;
+import hydrogen.render.EasingList;
+import hydrogen.core.Interface;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;

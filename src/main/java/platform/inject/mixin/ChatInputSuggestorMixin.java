@@ -1,8 +1,8 @@
 package platform.inject.mixin;
 
 
-import aethereal.command.CommandProcessor;
-import aethereal.core.HydrogenClient;
+import hydrogen.command.CommandProcessor;
+import hydrogen.core.HydrogenClient;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.sugar.Local;

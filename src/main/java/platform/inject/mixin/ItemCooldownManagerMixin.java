@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.mixin.IItemCooldownManager;
+import hydrogen.mixin.IItemCooldownManager;
 import java.util.stream.StreamSupport;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.ItemCooldownManager;

@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.PushEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.PushEvent;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.border.WorldBorder;

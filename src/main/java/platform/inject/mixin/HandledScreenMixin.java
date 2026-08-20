@@ -1,20 +1,20 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.module.misc.AutoBuy;
-import aethereal.event.ContainerEvent;
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.mixin.ISlot;
-import aethereal.core.Interface;
-import aethereal.module.player.ItemScroller;
-import aethereal.event.KeyEvent;
-import aethereal.ui.screen.SwapScreen;
-import aethereal.lib.javassist.TokenId;
+import hydrogen.render.Animations;
+import hydrogen.module.misc.AutoBuy;
+import hydrogen.event.ContainerEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.mixin.ISlot;
+import hydrogen.core.Interface;
+import hydrogen.module.player.ItemScroller;
+import hydrogen.event.KeyEvent;
+import hydrogen.ui.screen.SwapScreen;
+import hydrogen.lib.javassist.TokenId;
 import net.minecraft.util.Formatting;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.GenericContainerScreenHandler;

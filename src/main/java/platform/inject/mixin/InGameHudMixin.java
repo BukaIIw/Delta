@@ -1,19 +1,19 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.render.ColorUtil;
-import aethereal.event.CrosshairEvent;
-import aethereal.core.HydrogenClient;
-import aethereal.event.DrawEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.event.RemovalsEvent;
-import aethereal.event.ScoreboardEvent;
+import hydrogen.render.Animations;
+import hydrogen.render.ColorUtil;
+import hydrogen.event.CrosshairEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.event.DrawEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.event.RemovalsEvent;
+import hydrogen.event.ScoreboardEvent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.item.ItemStack;

@@ -1,17 +1,17 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.ui.screen.GUIScreen;
-import aethereal.core.GlobalEvent;
-import aethereal.event.HotbarEvent;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.module.player.OpenWalls;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.ui.screen.GUIScreen;
+import hydrogen.core.GlobalEvent;
+import hydrogen.event.HotbarEvent;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.module.player.OpenWalls;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;

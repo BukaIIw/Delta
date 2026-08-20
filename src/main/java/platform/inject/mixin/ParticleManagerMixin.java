@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.RemovalsEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.RemovalsEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.particle.ParticleEffect;

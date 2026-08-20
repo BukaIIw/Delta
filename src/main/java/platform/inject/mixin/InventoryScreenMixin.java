@@ -1,11 +1,11 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.Animations;
-import aethereal.core.HydrogenClient;
-import aethereal.core.Interface;
+import hydrogen.render.Animations;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.screen.PlayerScreenHandler;

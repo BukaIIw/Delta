@@ -1,16 +1,16 @@
 package platform.inject.mixin;
 
 
-import aethereal.event.CrosshairTargetEvent;
-import aethereal.event.DrawEvent;
-import aethereal.core.EventManager;
-import aethereal.event.HandEvent;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
-import aethereal.event.RatioEvent;
-import aethereal.event.RayTraceEvent;
-import aethereal.event.RemovalsEvent;
+import hydrogen.event.CrosshairTargetEvent;
+import hydrogen.event.DrawEvent;
+import hydrogen.core.EventManager;
+import hydrogen.event.HandEvent;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
+import hydrogen.event.RatioEvent;
+import hydrogen.event.RayTraceEvent;
+import hydrogen.event.RemovalsEvent;
 import com.llamalad7.mixinextras.sugar.Local;
 import java.util.function.Predicate;
 import net.minecraft.entity.Entity;

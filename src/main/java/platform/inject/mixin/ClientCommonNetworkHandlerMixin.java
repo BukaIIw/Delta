@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.HydrogenClient;
+import hydrogen.core.HydrogenClient;
 import net.minecraft.network.packet.s2c.common.ResourcePackSendS2CPacket;
 import net.minecraft.network.packet.c2s.common.ResourcePackStatusC2SPacket;
 import net.minecraft.client.network.ClientCommonNetworkHandler;

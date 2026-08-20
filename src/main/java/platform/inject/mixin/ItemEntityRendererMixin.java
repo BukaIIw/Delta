@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.HydrogenClient;
-import aethereal.mixin.IItemEntityRenderState;
-import aethereal.module.render.ItemPhysic;
+import hydrogen.core.HydrogenClient;
+import hydrogen.mixin.IItemEntityRenderState;
+import hydrogen.module.render.ItemPhysic;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.state.ItemEntityRenderState;

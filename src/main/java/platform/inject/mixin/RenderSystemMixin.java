@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.event.AmbienceEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
+import hydrogen.event.AmbienceEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,0 +1,27 @@
+package hydrogen.event;
+
+import hydrogen.core.Event;
+import hydrogen.core.IEvent;
+
+import lombok.Generated;
+import net.minecraft.item.Item;
+
+public class CooldownEvent extends Event implements IEvent {
+    private final Item a;
+    private final int b;
+
+    @Generated
+    public Item b() {
+        return this.a;
+    }
+
+    @Generated
+    public int c() {
+        return this.b;
+    }
+
+    public CooldownEvent(Item item, int cooldown) {
+        this.a = item;
+        this.b = cooldown;
+    }
+}

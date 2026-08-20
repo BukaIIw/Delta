@@ -1,11 +1,11 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.core.HydrogenClient;
-import aethereal.core.Interface;
-import aethereal.core.InterfaceC0020Opcode;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
+import hydrogen.core.InterfaceC0020Opcode;
 import net.minecraft.text.Text;
 import net.minecraft.client.gui.screen.multiplayer.ConnectScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;

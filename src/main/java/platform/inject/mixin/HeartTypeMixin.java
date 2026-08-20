@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.RemovalsEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.RemovalsEvent;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.HydrogenClient;
+import hydrogen.core.HydrogenClient;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.session.Session;
 import org.spongepowered.asm.mixin.Mixin;

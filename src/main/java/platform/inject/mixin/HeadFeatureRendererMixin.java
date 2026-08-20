@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.event.HeadFeatureEvent;
-import aethereal.core.IEvent;
+import hydrogen.core.EventManager;
+import hydrogen.event.HeadFeatureEvent;
+import hydrogen.core.IEvent;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.client.render.entity.state.PlayerEntityRenderState;
 import net.minecraft.entity.player.PlayerEntity;

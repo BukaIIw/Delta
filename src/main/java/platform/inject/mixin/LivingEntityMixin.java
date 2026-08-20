@@ -1,13 +1,13 @@
 package platform.inject.mixin;
 
 
-import aethereal.event.ConsumeEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.mixin.ILivingEntity;
-import aethereal.event.JumpEvent;
-import aethereal.event.PushEvent;
-import aethereal.event.WillLandEvent;
+import hydrogen.event.ConsumeEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.mixin.ILivingEntity;
+import hydrogen.event.JumpEvent;
+import hydrogen.event.PushEvent;
+import hydrogen.event.WillLandEvent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.client.network.ClientPlayerEntity;

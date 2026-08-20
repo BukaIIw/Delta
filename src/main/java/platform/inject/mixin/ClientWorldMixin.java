@@ -1,10 +1,10 @@
 package platform.inject.mixin;
 
 
-import aethereal.event.BlockChangeEvent;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.PotionEvent;
+import hydrogen.event.BlockChangeEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.PotionEvent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockState;

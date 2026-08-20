@@ -1,8 +1,8 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.HydrogenClient;
-import aethereal.module.misc.StreamerMode;
+import hydrogen.core.HydrogenClient;
+import hydrogen.module.misc.StreamerMode;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.util.SkinTextures;
 import org.spongepowered.asm.mixin.Mixin;

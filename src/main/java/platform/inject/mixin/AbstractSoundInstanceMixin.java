@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.SoundEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.SoundEvent;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.sound.AbstractSoundInstance;
 import net.minecraft.client.sound.SoundInstance;

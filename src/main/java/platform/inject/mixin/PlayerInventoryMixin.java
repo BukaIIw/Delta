@@ -1,10 +1,10 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.event.HotbarEvent;
-import aethereal.core.IEvent;
-import aethereal.event.SyncEvent;
+import hydrogen.core.EventManager;
+import hydrogen.event.HotbarEvent;
+import hydrogen.core.IEvent;
+import hydrogen.event.SyncEvent;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;

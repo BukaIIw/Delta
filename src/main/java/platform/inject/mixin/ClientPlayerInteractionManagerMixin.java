@@ -1,14 +1,14 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.event.AttackEvent;
-import aethereal.core.HydrogenClient;
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.core.Interface;
-import aethereal.module.misc.NoInteract;
+import hydrogen.event.AttackEvent;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.core.Interface;
+import hydrogen.module.misc.NoInteract;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ActionResult;
 import net.minecraft.entity.Entity;

@@ -1,11 +1,11 @@
 package platform.inject.mixin;
 
 
-import static aethereal.core.Interface.aM_;
+import static hydrogen.core.Interface.aM_;
 
-import aethereal.render.ColorUtil;
-import aethereal.core.HydrogenClient;
-import aethereal.core.Interface;
+import hydrogen.render.ColorUtil;
+import hydrogen.core.HydrogenClient;
+import hydrogen.core.Interface;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.entity.LivingEntity;

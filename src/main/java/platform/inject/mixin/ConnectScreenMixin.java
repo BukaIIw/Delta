@@ -1,7 +1,7 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.HydrogenClient;
+import hydrogen.core.HydrogenClient;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.multiplayer.ConnectScreen;
 import net.minecraft.client.gui.screen.Screen;

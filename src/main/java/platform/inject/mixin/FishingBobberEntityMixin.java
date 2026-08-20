@@ -1,9 +1,9 @@
 package platform.inject.mixin;
 
 
-import aethereal.core.EventManager;
-import aethereal.core.IEvent;
-import aethereal.event.PushEvent;
+import hydrogen.core.EventManager;
+import hydrogen.core.IEvent;
+import hydrogen.event.PushEvent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
